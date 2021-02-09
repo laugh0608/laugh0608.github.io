@@ -9,4 +9,4 @@ Disallow: /Gallery/
 Disallow: /*.css
 Disallow: /*.js
 
-Sitemap: https://www.imbhj.cn/sitemap.xml
+Sitemap: https://imbhj.com/sitemap.xml
