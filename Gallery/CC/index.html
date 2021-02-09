@@ -168,7 +168,7 @@ if (asideStatus !== undefined) {
 <p>严正声明，如图片侵犯版权，请速联系Q1395404299删除</p>
 </blockquote>
 <div class="justified-gallery"><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20200806102711.jpg"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20200806103236.jpg"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20200806103246.jpg"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20200806103256.jpg"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20200806103304.jpg"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20200806103314.jpg"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20200806103322.jpg"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20200806103330.jpg"><br><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20200806103338.jpg"></p>
-          </div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2021 By 大白萝卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+          </div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2021 By 大白萝卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
   if (typeof pangu === 'object') pangu.spacingElementById('content-inner')
   else {
     getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
@@ -186,117 +186,7 @@ function panguInit () {
   }
 }
 
-document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadUtterances () {
-  let ele = document.createElement('script')
-  ele.setAttribute('id', 'utterances_comment')
-  ele.setAttribute('src', 'https://beaudar.lipk.org/client.js')
-  ele.setAttribute('repo', 'laugh0608/laugh0608.github.io')
-  ele.setAttribute('issue-term', 'pathname')
-  let nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
-  ele.setAttribute('theme', nowTheme)
-  ele.setAttribute('crossorigin', 'anonymous')
-  ele.setAttribute('async', 'true')
-  document.getElementById('utterances-wrap').insertAdjacentElement('afterbegin',ele)
-}
-
-function utterancesTheme () {
-  if (document.querySelector('.utterances-frame')) {
-    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
-    const message = {
-      type: 'set-theme',
-      theme: theme
-    };
-    const iframe = document.querySelector('.utterances-frame');
-    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
-  }
-}
-
-if ('Utterances' === 'Utterances' || !true) {
-  if (true) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
-  else loadUtterances()
-} else {
-  function loadOtherComment () {
-    loadUtterances()
-  }
-}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script>window.addEventListener('load', () => {
-  const changeContent = (content) => {
-    if (content === '') return content
-
-    content = content.replace(/<[^>]+>/g,"") // remove html tag
-    content = content.replace(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png|webp)/g, '') // remove image link
-    content = content.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi, '') // remove url
-
-    if (content.length > 150) {
-      content = content.substring(0,150) + '...'
-    }
-    return content
-  }
-
-  const getComment = () => {
-    fetch('https://api.github.com/repos/laugh0608/laugh0608.github.io/issues/comments?sort=updated&direction=desc&per_page=6&page=1')
-      .then(response => response.json())
-      .then(data => {
-        const githubArray = data.map(item => {
-          return {
-            'avatar': item.user.avatar_url,
-            'content': changeContent(item.body),
-            'nick': item.user.login,
-            'url': item.html_url,
-            'date': item.updated_at
-          }
-        })
-        saveToLocal.set('github-newest-comments', JSON.stringify(githubArray), 10/(60*24))
-        generateHtml(githubArray)
-      }).catch(e => {
-        const $dom = document.querySelector('#card-newest-comments .aside-list')
-        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
-      })
-  }
-
-  const generateHtml = array => {
-    let result = ''
-
-    if (array.length) {
-      for (let i = 0; i < array.length; i++) {
-        result += '<div class=\'aside-list-item\'>'
-
-        if (true) {
-          let name = 'src'
-          if(true) {
-            name = 'data-lazy-src'
-          }
-          result += `<a href='${array[i].url}' class="thumbnail"><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
-        }
-
-        result += `<div class='content'>
-        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
-        <div class='name'><span>${array[i].nick}</span><time> / ${btf.diffDate(array[i].date, true)}</time></div>
-        </div></div>`
-      }
-    } else {
-      result += '没有评论'
-    }
-
-    let $dom = document.querySelector('#card-newest-comments .aside-list')
-    $dom.innerHTML= result
-    window.lazyLoadInstance && window.lazyLoadInstance.update()
-    window.pjax && window.pjax.refresh($dom)
-  }
-
-  const newestCommentInit = () => {
-    if (document.querySelector('#card-newest-comments .aside-list')) {
-      const data = saveToLocal.get('github-newest-comments')
-      if (data) {
-        generateHtml(JSON.parse(data))
-      } else {
-        getComment()
-      }
-    }
-  }
-
-  newestCommentInit()
-  document.addEventListener('pjax:complete', newestCommentInit)
-})</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
   'title',
   '#config_change',
   '#body-wrap',
