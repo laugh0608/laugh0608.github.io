@@ -1,0 +1,479 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aspen练习之苯和丙烯合成异丙苯并计算产物摩尔流量 | 爱吃兔子的萝卜</title><meta name="keywords" content="Aspen,苯和丙烯合成异丙苯"><meta name="author" content="大白萝卜"><meta name="copyright" content="大白萝卜"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="前言题目如下： 含苯(BENZENE，C6H6)和丙烯(PROPENE，C3H6)的原料物(PEED)进入反应器(REACTOR)，经反应生成异丙苯(PRO-BEN，C9H12)，反应后的混合物经冷凝器(COOLER)冷凝，再进入分离器(SEP)，分离器(SEP)顶部物流(PECYCLE)循环回反应器(PEACTOR)，分离器(SEP)底部物流作为产品(PRODUCT)流出，求产品(PRODUC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Aspen练习之苯和丙烯合成异丙苯并计算产物摩尔流量">
+<meta property="og:url" content="https://dabailuobo.com/9bd70509/">
+<meta property="og:site_name" content="爱吃兔子的萝卜">
+<meta property="og:description" content="前言题目如下： 含苯(BENZENE，C6H6)和丙烯(PROPENE，C3H6)的原料物(PEED)进入反应器(REACTOR)，经反应生成异丙苯(PRO-BEN，C9H12)，反应后的混合物经冷凝器(COOLER)冷凝，再进入分离器(SEP)，分离器(SEP)顶部物流(PECYCLE)循环回反应器(PEACTOR)，分离器(SEP)底部物流作为产品(PRODUCT)流出，求产品(PRODUC">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127151215.png">
+<meta property="article:published_time" content="2020-11-27T07:09:14.000Z">
+<meta property="article:modified_time" content="2021-02-08T13:28:43.052Z">
+<meta property="article:author" content="大白萝卜">
+<meta property="article:tag" content="Aspen">
+<meta property="article:tag" content="苯和丙烯合成异丙苯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127151215.png"><link rel="shortcut icon" href="/img/luobo.png"><link rel="canonical" href="https://dabailuobo.com/9bd70509/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":60,"position":"top","messagePrev":"本文章距离最后一次更新已经过去了","messageNext":"天，文章内容可能已经变得不可靠或者版本不适配，请谨慎阅读。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 大白萝卜","link":"链接: ","source":"来源: 爱吃兔子的萝卜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-center"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-02-08 21:28:43'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = '2'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="//at.alicdn.com/t/font_2005310_9tg4odpdgr.css" type="text/css" /><link rel="stylesheet" href="/css/footerjianbian.css" type="text/css" /><style type="text/css">#toggle-sidebar {bottom: 80px}</style><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">92</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 小窝</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw iconfont icon-time"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-book-2"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw iconfont icon-sort"></i><span> 分类</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-me"></i><span> 我的</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/shuoshuo/"><i class="fa-fw iconfont icon-41shuoshuo"></i><span> 说说</span></a></li><li><a class="site-page" href="/link/"><i class="fa-fw iconfont icon-lianjieguanlian"></i><span> 友链</span></a></li><li><a class="site-page" href="/link-favorites/"><i class="fa-fw iconfont icon-collection-b"></i><span> 收藏</span></a></li><li><a class="site-page" href="/message/"><i class="fa-fw iconfont icon-liuyan"></i><span> 留言</span></a></li><li><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-iconfontyouxihudong"></i><span> 游戏</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/warframe/"><i class="fa-fw iconfont icon-xingjichengshi"></i><span> Warframe</span></a></li><li><a class="site-page" href="/catchcat/"><i class="fa-fw iconfont icon-maomi"></i><span> 圈小猫</span></a></li><li><a class="site-page" href="/running/"><i class="fa-fw iconfont icon-konglong"></i><span> 恐龙快跑</span></a></li><li><a class="site-page" href="/maze/"><i class="fa-fw iconfont icon-zuoce-xianlu"></i><span> 小球闯关</span></a></li><li><a class="site-page" href="/css-sweeper/"><i class="fa-fw iconfont icon-zhadan"></i><span> CSS扫雷</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-gongnengdingyi"></i><span> 功能</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw iconfont icon-yinle"></i><span> 音乐</span></a></li><li><a class="site-page" href="/photo/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page" href="/bilibili/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="no-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">爱吃兔子的萝卜</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 小窝</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw iconfont icon-time"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-book-2"></i><span> 文章</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw iconfont icon-sort"></i><span> 分类</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-me"></i><span> 我的</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/shuoshuo/"><i class="fa-fw iconfont icon-41shuoshuo"></i><span> 说说</span></a></li><li><a class="site-page" href="/link/"><i class="fa-fw iconfont icon-lianjieguanlian"></i><span> 友链</span></a></li><li><a class="site-page" href="/link-favorites/"><i class="fa-fw iconfont icon-collection-b"></i><span> 收藏</span></a></li><li><a class="site-page" href="/message/"><i class="fa-fw iconfont icon-liuyan"></i><span> 留言</span></a></li><li><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-iconfontyouxihudong"></i><span> 游戏</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/warframe/"><i class="fa-fw iconfont icon-xingjichengshi"></i><span> Warframe</span></a></li><li><a class="site-page" href="/catchcat/"><i class="fa-fw iconfont icon-maomi"></i><span> 圈小猫</span></a></li><li><a class="site-page" href="/running/"><i class="fa-fw iconfont icon-konglong"></i><span> 恐龙快跑</span></a></li><li><a class="site-page" href="/maze/"><i class="fa-fw iconfont icon-zuoce-xianlu"></i><span> 小球闯关</span></a></li><li><a class="site-page" href="/css-sweeper/"><i class="fa-fw iconfont icon-zhadan"></i><span> CSS扫雷</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw iconfont icon-gongnengdingyi"></i><span> 功能</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw iconfont icon-yinle"></i><span> 音乐</span></a></li><li><a class="site-page" href="/photo/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page" href="/bilibili/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Aspen练习之苯和丙烯合成异丙苯并计算产物摩尔流量</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-11-27T07:09:14.000Z" title="发表于 2020-11-27 15:09:14">2020-11-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-08T13:28:43.052Z" title="更新于 2021-02-08 21:28:43">2021-02-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8C%96%E5%B7%A5/">化工</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127151215.png"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>题目如下：</p>
+<p>含苯(BENZENE，C6H6)和丙烯(PROPENE，C3H6)的原料物(PEED)进入反应器(REACTOR)，经反应生成异丙苯(PRO-BEN，C9H12)，反应后的混合物经冷凝器(COOLER)冷凝，再进入分离器(SEP)，分离器(SEP)顶部物流(PECYCLE)循环回反应器(PEACTOR)，分离器(SEP)底部物流作为产品(PRODUCT)流出，求产品(PRODUCT)中异丙苯的摩尔流量。(物性方法选择RK-SOAVE)</p>
+<h2 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h2><p>原料物流FEED温度105℃，压力0.25MPa，苯和丙烯的摩尔流量均为18kmol/h。反应器REACTOR绝热操作，压力0.1MPa，反应方程式为：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127154633.png"></p>
+<h2 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h2><h3 id="1-新建空白模拟"><a href="#1-新建空白模拟" class="headerlink" title="1 新建空白模拟"></a>1 新建空白模拟</h3><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127214151.png"></p>
+<p>这里有常用的各种化工工艺模拟模板，可直接创建，本次例子使用空白模拟</p>
+<h3 id="2-保存"><a href="#2-保存" class="headerlink" title="2 保存"></a>2 保存</h3><p>快捷键 <code>Ctrl + S</code> 保存</p>
+<p>选择如下格式：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127214524.png"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127214631.png"></p>
+<p>选择<strong>否</strong></p>
+<h3 id="3-Aspen文件格式讲解"><a href="#3-Aspen文件格式讲解" class="headerlink" title="3 Aspen文件格式讲解"></a>3 Aspen文件格式讲解</h3><p>aspen有三种保存格式：</p>
+<p><code>*.apw</code> (Aspen Plus Document) 格式是一种文档文件，采用二进制存储，包含所有输入规定、模拟结果和中间收敛信息</p>
+<p><code>*.bkp</code> (Aspen Plus Backup) 格式是aspen plus运行过程的备份文件，采用ASCII格式存储，包含模拟的所有输入规定和结果信息，但不包含中间的收敛数据，这个格式是我们常用的且主要的保存格式</p>
+<p><code>*.apwz</code> (Compound File) 是综合文件，采用二进制存储，包含模拟过程中的所有信息</p>
+<h3 id="4-输入组分"><a href="#4-输入组分" class="headerlink" title="4 输入组分"></a>4 输入组分</h3><p>创建好空白模拟之后，系统默认进入组分输入界面，如下：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127215745.png"></p>
+<p>在Component ID栏输入丙烯的名称：PROPENE，然后回车，由于丙烯是系统数据库中可以识别的组分ID，所以会自动的将类型Type、组分名称Component Name和分子式Formula栏填入</p>
+<p>同样，输入苯的名称：BENZENE，回车，如下：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127220337.png"></p>
+<p>第三行的ID输入异丙苯的标识：PRO-BEN，回车，但是异丙苯不会被系统识别，所以需要我们查询数据库进行输入</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127220502.png"></p>
+<p>图中的空白处输入异丙苯的CAS：98-82-8，点击立即查找，点击添加，点击关闭</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127220703.png"></p>
+<p>组分输入完毕：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127220737.png"></p>
+<blockquote>
+<p><strong>小知识：</strong></p>
+<p>Aspen Plus提供的组分类型包括一下几种：</p>
+<ul>
+<li>常规组分Conventional：单一特定流体（气体或者液体），可能参与气液相平衡的典型组分</li>
+<li>固体组分Soild：单一特定固体，通过固体模型计算性质的常规固体</li>
+<li>非常规组分Nonconventional：不能以分子组分表示的非常规固体，比如某些煤或者木纤维，是用组分属性表征并且不参与化学平衡和相平衡</li>
+<li>虚拟组分Pseudocomponent：油品评价数据Assay和石油馏分混合数据Blend，表示石油馏分的的组分，根据沸点、分子量、密度和其他性质表征</li>
+<li>熔融液体Hypothetical Liquid：性质需要根据固体性质推测的液体组分模型，主要应用与冶金，比如模拟钢水中的碳</li>
+<li>聚合物Polymer、低聚物Oligomer和链段Segment：在聚合物模型中使用的组分</li>
+</ul>
+</blockquote>
+<h3 id="5-选择物性方法及查看二元交互作用参数"><a href="#5-选择物性方法及查看二元交互作用参数" class="headerlink" title="5 选择物性方法及查看二元交互作用参数"></a>5 选择物性方法及查看二元交互作用参数</h3><p>组分输入完毕之后点击NEXT或者快捷键 <code>F4</code> 进入全局物性方法选择：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127230229.png"></p>
+<p>方法过滤器选择ALL选项，基本方法选择RK-SOAVE</p>
+<blockquote>
+<p>Aspen物性系统为活度系数模型，WILSON、NRTL和UNIQUAC，部分状态方程模型及亨利定律提供了内置的二元参数，在完成组分和物性方法的选择之后，Aspen自动使用这些内置参数</p>
+</blockquote>
+<h2 id="模拟环境"><a href="#模拟环境" class="headerlink" title="模拟环境"></a>模拟环境</h2><p>组分和物性方法确定之后，就可以开始建立流程图及输入模拟数据</p>
+<h3 id="1-设置全局规定"><a href="#1-设置全局规定" class="headerlink" title="1 设置全局规定"></a>1 设置全局规定</h3><p>物性选择完毕之后，点击NEXT</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128122559.png"></p>
+<p>选择模拟环境，确定</p>
+<p>进入模拟环境：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128145641.png"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128150031.png"></p>
+<p>全局规定设置完毕之后，可以i开始建立流程图</p>
+<h3 id="2-建立流程图"><a href="#2-建立流程图" class="headerlink" title="2 建立流程图"></a>2 建立流程图</h3><p>添加模块：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128150337.png"></p>
+<p>这是反应器模块B1</p>
+<blockquote>
+<p>如果模块选项卡没有显示在主页面上，可以使用快捷键 <code>F10</code> 打开，或者在视图区找到模型选项板即可</p>
+</blockquote>
+<p>添加物流和连接模块：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128151013.png"></p>
+<p>当选中物料流时，反应器模块会出现相应的红色标识，表示为必须要添加的物流，添加完毕之后点击鼠标右键即可退出物流添加模式</p>
+<blockquote>
+<p>若需要对单元模块或者物流进行更改，删除，更换图标，输入数据输出结果等操作时，可以用鼠标左键选中模块或者物流，然后点击右键在弹出的选项卡中进行对应的选项操作，也可以使用快捷键 <code>Ctrl+M</code> </p>
+</blockquote>
+<p>添加冷凝器模块B2：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128151853.png"></p>
+<p>更改物料连接：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128152046.png"></p>
+<p>物流S2是反应器的输出物流，同时也是冷凝器的输入物流，所以选中物流S2，鼠标右键打开选项卡，选择重新连接目标，这个时候冷凝器会自动标红所必须输入的物流端口，鼠标左键点击输入即可</p>
+<p>添加分离器模块：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128152518.png"></p>
+<p>添加冷凝器输出物流S3，分离器顶部循环物料S4，分离器底部输出物流S5：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128153126.png"></p>
+<p>如果物流线不是直线，可以选中物流线，右键菜单点击对齐模块即可</p>
+<p>对于流程中的物流和模块，通常取有实际意义的名称，如下：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128153710.png"></p>
+<p>流程建立完毕</p>
+<p>每个模块，物流都会有一个特定的ID，点击左侧导航面板的文件夹时，都会有一个相应的对象管理器，例如：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128154036.png"></p>
+<p>可以对每个对象进行一些操作</p>
+<h3 id="3-输入物流数据"><a href="#3-输入物流数据" class="headerlink" title="3 输入物流数据"></a>3 输入物流数据</h3><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128154442.png"></p>
+<p>输入进料物流FEED的相关数据，温度105℃，压力0.25MPa，苯和丙烯的流量均为18kmol/h，注意单位</p>
+<blockquote>
+<p>可以看到，在Aspen中当鼠标悬停在某些选项上的时候会自动弹出相关提示</p>
+</blockquote>
+<h3 id="4-输入模块数据"><a href="#4-输入模块数据" class="headerlink" title="4 输入模块数据"></a>4 输入模块数据</h3><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128155105.png"></p>
+<p>输入冷凝器出口温度54℃，冷凝器压降0.7kPa，注意单位</p>
+<blockquote>
+<p>若输入的压力大于0，则表示模块的操作压力，若小于等于0，则表示模块的压降</p>
+</blockquote>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128155525.png"></p>
+<p>输入PEACTOR模块数据，压力0.1MPa，热负荷0kW（绝热），注意单位</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128160238.png"></p>
+<p>输入化学反应，选择反应物，产物，及化学计量系数，并指定丙烯的转化率为0.9，点击下一步</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128160456.png"></p>
+<p>输入SEP模块数据， 压降和热负荷均为0</p>
+<p>当面板左下角显示所需输入完整时表示模拟所需要的数据输入完毕，可以开始模拟：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128160701.png"></p>
+<h2 id="运行模拟"><a href="#运行模拟" class="headerlink" title="运行模拟"></a>运行模拟</h2><p>点击NEXT或者RUN进行模拟：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128160856.png"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128161027.png"></p>
+<p>控制面板显示模拟过程中没有发生错误，没有警告(快捷键F7打开控制面板)</p>
+<p>YES!</p>
+<p>流程成功的跑完只是成功的第一步</p>
+<h2 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h2><p>在导航面板中选择对应选项，即可查看结果</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128161650.png"></p>
+<p>所以，本题目的答案已经出来，产品中异丙苯的摩尔流量为：17.1181kmol/h</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201128162548.png"></p>
+<p>结果显示在流程图中，至此本题目结束</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">大白萝卜</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://dabailuobo.com/9bd70509/">https://dabailuobo.com/9bd70509/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://dabailuobo.com" target="_blank">爱吃兔子的萝卜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Aspen/">Aspen</a><a class="post-meta__tags" href="/tags/%E8%8B%AF%E5%92%8C%E4%B8%99%E7%83%AF%E5%90%88%E6%88%90%E5%BC%82%E4%B8%99%E8%8B%AF/">苯和丙烯合成异丙苯</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127151215.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/efb648ca/"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201201182159.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">下半生最想去的地方</div></div></a></div><div class="next-post pull-right"><a href="/4ca6a63c/"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20201127131839.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">文献引用小技巧</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">大白萝卜</div><div class="author-info__description">一只爱吃兔子的萝卜🥕</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">92</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">98</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/laugh0608/"><i class="iconfont icon-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">🛵关于本站：<br><img src="https://img.shields.io/badge/Hexo-Drive-brightgreen" /><img src="https://img.shields.io/badge/Butterfly-Theme-green" /><img src="https://img.shields.io/badge/Aliyun-DNS-yellowgreen" /><img src="https://img.shields.io/badge/Github-Repo-yellow" /><img src="https://img.shields.io/badge/Vercel-Repo-red" /><img src="https://img.shields.io/badge/jsDelivr-CDN-brightgreen" /><img src="https://img.shields.io/badge/Iconfont-ICON-green" /></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6"><span class="toc-text">条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F"><span class="toc-text">模拟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%B0%E5%BB%BA%E7%A9%BA%E7%99%BD%E6%A8%A1%E6%8B%9F"><span class="toc-text">1 新建空白模拟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BF%9D%E5%AD%98"><span class="toc-text">2 保存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Aspen%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E8%AE%B2%E8%A7%A3"><span class="toc-text">3 Aspen文件格式讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BE%93%E5%85%A5%E7%BB%84%E5%88%86"><span class="toc-text">4 输入组分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%80%89%E6%8B%A9%E7%89%A9%E6%80%A7%E6%96%B9%E6%B3%95%E5%8F%8A%E6%9F%A5%E7%9C%8B%E4%BA%8C%E5%85%83%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E5%8F%82%E6%95%B0"><span class="toc-text">5 选择物性方法及查看二元交互作用参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-text">模拟环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80%E8%A7%84%E5%AE%9A"><span class="toc-text">1 设置全局规定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BB%BA%E7%AB%8B%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">2 建立流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BE%93%E5%85%A5%E7%89%A9%E6%B5%81%E6%95%B0%E6%8D%AE"><span class="toc-text">3 输入物流数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%BE%93%E5%85%A5%E6%A8%A1%E5%9D%97%E6%95%B0%E6%8D%AE"><span class="toc-text">4 输入模块数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%A8%A1%E6%8B%9F"><span class="toc-text">运行模拟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-text">结果分析</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/98142569/" title="调节阀常见故障处理50种方法"><img data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210209095505.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="调节阀常见故障处理50种方法"/></a><div class="content"><a class="title" href="/98142569/" title="调节阀常见故障处理50种方法">调节阀常见故障处理50种方法</a><time datetime="2021-02-09T02:18:05.261Z" title="更新于 2021-02-09 10:18:05">2021-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/fde3401b/" title="代码管理工具Git基础"><img data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20200721092022.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="代码管理工具Git基础"/></a><div class="content"><a class="title" href="/fde3401b/" title="代码管理工具Git基础">代码管理工具Git基础</a><time datetime="2021-02-08T13:28:43.056Z" title="更新于 2021-02-08 21:28:43">2021-02-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/4b554407/" title="不要被乌鸦操纵了灵魂">不要被乌鸦操纵了灵魂</a><time datetime="2021-02-08T13:28:43.053Z" title="更新于 2021-02-08 21:28:43">2021-02-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/99cda7eb/" title="化工设计大赛分工细则"><img data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210104231640.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="化工设计大赛分工细则"/></a><div class="content"><a class="title" href="/99cda7eb/" title="化工设计大赛分工细则">化工设计大赛分工细则</a><time datetime="2021-02-08T13:28:43.053Z" title="更新于 2021-02-08 21:28:43">2021-02-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/f9485de8/" title="“这个视频，仅对喜欢过的那个人可见”">“这个视频，仅对喜欢过的那个人可见”</a><time datetime="2021-02-08T13:28:43.053Z" title="更新于 2021-02-08 21:28:43">2021-02-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2021 By 大白萝卜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.spacingElementById('content-inner')
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.spacingElementById('content-inner')
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadUtterances () {
+  let ele = document.createElement('script')
+  ele.setAttribute('id', 'utterances_comment')
+  ele.setAttribute('src', 'https://beaudar.lipk.org/client.js')
+  ele.setAttribute('repo', 'laugh0608/laugh0608.github.io')
+  ele.setAttribute('issue-term', 'pathname')
+  let nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+  ele.setAttribute('theme', nowTheme)
+  ele.setAttribute('crossorigin', 'anonymous')
+  ele.setAttribute('async', 'true')
+  document.getElementById('utterances-wrap').insertAdjacentElement('afterbegin',ele)
+}
+
+function utterancesTheme () {
+  if (document.querySelector('.utterances-frame')) {
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    const message = {
+      type: 'set-theme',
+      theme: theme
+    };
+    const iframe = document.querySelector('.utterances-frame');
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+  }
+}
+
+if ('Utterances' === 'Utterances' || !true) {
+  if (true) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+  else loadUtterances()
+} else {
+  function loadOtherComment () {
+    loadUtterances()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+    content = content.replace(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png|webp)/g, '') // remove image link
+    content = content.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi, '') // remove url
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    fetch('https://api.github.com/repos/laugh0608/laugh0608.github.io/issues/comments?sort=updated&direction=desc&per_page=6&page=1')
+      .then(response => response.json())
+      .then(data => {
+        const githubArray = data.map(item => {
+          return {
+            'avatar': item.user.avatar_url,
+            'content': changeContent(item.body),
+            'nick': item.user.login,
+            'url': item.html_url,
+            'date': item.updated_at
+          }
+        })
+        saveToLocal.set('github-newest-comments', JSON.stringify(githubArray), 10/(60*24))
+        generateHtml(githubArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          let name = 'src'
+          if(true) {
+            name = 'data-lazy-src'
+          }
+          result += `<a href='${array[i].url}' class="thumbnail"><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick}</span><time> / ${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('github-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config_change',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/shuoshuo/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})</script></div></body></html>
