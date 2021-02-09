@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
+        <loc>https://imbhj.com/live2d/model/tia/model.json</loc>
+    
+        <lastmod>2021-02-09</lastmod>
+    
+    </url>
+  
+    <url>
+        <loc>https://imbhj.com/link/</loc>
+    
+        <lastmod>2021-02-09</lastmod>
+    
+    </url>
+  
+    <url>
         <loc>https://imbhj.com/3182b912/</loc>
     
         <lastmod>2021-02-09</lastmod>
@@ -86,13 +100,6 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/link/</loc>
-    
-        <lastmod>2021-02-08</lastmod>
-    
-    </url>
-  
-    <url>
         <loc>https://imbhj.com/link-favorites/</loc>
     
         <lastmod>2021-02-08</lastmod>
@@ -114,14 +121,14 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/about/</loc>
+        <loc>https://imbhj.com/archives/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
     </url>
   
     <url>
-        <loc>https://imbhj.com/archives/</loc>
+        <loc>https://imbhj.com/about/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
@@ -844,14 +851,14 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/tags/nrm/</loc>
+        <loc>https://imbhj.com/tags/npm/</loc>
         <lastmod>2021-02-09</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
   
     <url>
-        <loc>https://imbhj.com/tags/npm/</loc>
+        <loc>https://imbhj.com/tags/nrm/</loc>
         <lastmod>2021-02-09</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
@@ -1390,13 +1397,6 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/tags/SSL/</loc>
-        <lastmod>2021-02-09</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.6</priority>
-    </url>
-  
-    <url>
         <loc>https://imbhj.com/tags/Ubuntu/</loc>
         <lastmod>2021-02-09</lastmod>
         <changefreq>daily</changefreq>
@@ -1411,14 +1411,21 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/tags/Tools/</loc>
+        <loc>https://imbhj.com/tags/Wine/</loc>
         <lastmod>2021-02-09</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
   
     <url>
-        <loc>https://imbhj.com/tags/Wine/</loc>
+        <loc>https://imbhj.com/tags/SSL/</loc>
+        <lastmod>2021-02-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
+  
+    <url>
+        <loc>https://imbhj.com/tags/Tools/</loc>
         <lastmod>2021-02-09</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
@@ -1525,14 +1532,14 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/categories/%E5%89%8D%E7%AB%AF/</loc>
+        <loc>https://imbhj.com/categories/%E9%9A%8F%E7%AC%94/</loc>
         <lastmod>2021-02-09</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
   
     <url>
-        <loc>https://imbhj.com/categories/%E9%9A%8F%E7%AC%94/</loc>
+        <loc>https://imbhj.com/categories/%E5%89%8D%E7%AB%AF/</loc>
         <lastmod>2021-02-09</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
