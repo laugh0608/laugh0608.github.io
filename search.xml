@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Github如何更新Fork的仓库</title>
+      <link href="3182b912/"/>
+      <url>3182b912/</url>
+      
+        <content type="html"><![CDATA[<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210209125255.png"></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>优秀的开源项目往往是很吸引人的，所以通常我们会通过fork的形式保存在自己的仓库中</p><p>但是我们发现fork的项目并不会随着原作者的更新而自动同步</p><p>这个时候就需要我们自己手动更新和同步更改</p><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>首先，创建一个合并请求：</p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210209125631.png"></p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210209125653.png"></p><p>根据箭头的方向，把要合并的仓库设置为自己的仓库：</p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210209125827.png"></p><p>这样你会发现两边都是自己的仓库，然后回出现以下提示：</p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210209125922.png"></p><p>点击上面的编辑状态，然后把箭头的来源修改为要同步的原作者的仓库：</p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210209130048.png"></p><p>点击创建合并请求，填写合并概要：</p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210209130208.png"></p><p>点击确认合并：</p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210209130259.png"></p><p>合并完成：</p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210209130416.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 小技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GitHub </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>域名更换</title>
       <link href="880d2085/"/>
       <url>880d2085/</url>
