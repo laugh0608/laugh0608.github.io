@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>丢失MSVCP140文件解决办法</title>
+      <link href="fda3e757/"/>
+      <url>fda3e757/</url>
+      
+        <content type="html"><![CDATA[<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210216091216.png"></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天，往常一样的打开电脑，打开Plant 3D准备画图，然后，让我心凉的一幕就发生了</p><p>系统疯狂提示：</p><ul><li>缺少MSVCP140.dll系统文件</li><li>缺少VCRUNTIME.dll系统文件</li></ul><p>然后我就发现连带着我的：</p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210216091544.png"></p><p>全部无法使用，我心态崩了，重装一遍简直要我老命，特别是Aspen和Lumion</p><p>网上百度了各种各样的办法，有比较麻烦的，简单的各种办法，在这里做一下记录，防止下一次再出现这种情况</p><h2 id="最无脑的办法"><a href="#最无脑的办法" class="headerlink" title="最无脑的办法"></a>最无脑的办法</h2><p>腾讯电脑管家、360安全管家这两个工具都自带有DLL文件丢失修复工具，直接一键修复即可</p><h2 id="最精准但麻烦的办法"><a href="#最精准但麻烦的办法" class="headerlink" title="最精准但麻烦的办法"></a>最精准但麻烦的办法</h2><p>去这个网站搜索自己丢失的DLL文件，一个个下载，然后安装就行</p><blockquote><p><a href="https://cn.dll-files.com/">https://cn.dll-files.com/</a></p></blockquote><h2 id="投机取巧的办法"><a href="#投机取巧的办法" class="headerlink" title="投机取巧的办法"></a>投机取巧的办法</h2><p>查阅了一番资料之后发现，MSVCP140是C++的一些动态库(如果有说的不对的地方大佬请指出)，那么我们只需要重新安装一下Visual Studio C++ 的支持库不就可以了，试了一下，果然可以</p><p>在微软官网下载相对应的版本：</p><blockquote><p><a href="https://support.microsoft.com/en-ph/help/2977003/the-latest-supported-visual-c-downloads">https://support.microsoft.com/en-ph/help/2977003/the-latest-supported-visual-c-downloads</a></p></blockquote><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN/img/20210216092125.png"></p><p>下载好之后直接默认安装，就可以解决这个DLL文件丢失的问题了</p><p>又可以愉快的秃头了~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Debug </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DLL文件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Github如何更新Fork的仓库</title>
       <link href="3182b912/"/>
       <url>3182b912/</url>
