@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
+        <loc>https://imbhj.com/1bd0dc65/</loc>
+    
+        <lastmod>2021-02-21</lastmod>
+    
+    </url>
+  
+    <url>
         <loc>https://imbhj.com/link/</loc>
     
         <lastmod>2021-02-21</lastmod>
@@ -121,14 +128,14 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/archives/</loc>
+        <loc>https://imbhj.com/about/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
     </url>
   
     <url>
-        <loc>https://imbhj.com/about/</loc>
+        <loc>https://imbhj.com/archives/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
@@ -401,14 +408,14 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/Gallery/leimu/</loc>
+        <loc>https://imbhj.com/Gallery/marvel/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
     </url>
   
     <url>
-        <loc>https://imbhj.com/Gallery/marvel/</loc>
+        <loc>https://imbhj.com/Gallery/leimu/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
@@ -1243,6 +1250,13 @@
     </url>
   
     <url>
+        <loc>https://imbhj.com/tags/CAD%E5%9B%BE%E4%BE%8B%E7%AC%A6%E5%8F%B7/</loc>
+        <lastmod>2021-02-21</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
+  
+    <url>
         <loc>https://imbhj.com/tags/%E5%BB%BA%E7%AB%99/</loc>
         <lastmod>2021-02-21</lastmod>
         <changefreq>daily</changefreq>
@@ -1411,13 +1425,6 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/tags/SSL/</loc>
-        <lastmod>2021-02-21</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.6</priority>
-    </url>
-  
-    <url>
         <loc>https://imbhj.com/tags/Ubuntu/</loc>
         <lastmod>2021-02-21</lastmod>
         <changefreq>daily</changefreq>
@@ -1426,6 +1433,13 @@
   
     <url>
         <loc>https://imbhj.com/tags/MacOS/</loc>
+        <lastmod>2021-02-21</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
+  
+    <url>
+        <loc>https://imbhj.com/tags/SSL/</loc>
         <lastmod>2021-02-21</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
