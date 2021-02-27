@@ -156,14 +156,14 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/archives/</loc>
+        <loc>https://imbhj.com/about/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
     </url>
   
     <url>
-        <loc>https://imbhj.com/about/</loc>
+        <loc>https://imbhj.com/archives/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
@@ -872,14 +872,14 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/tags/PWA/</loc>
+        <loc>https://imbhj.com/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/</loc>
         <lastmod>2021-02-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
   
     <url>
-        <loc>https://imbhj.com/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/</loc>
+        <loc>https://imbhj.com/tags/PWA/</loc>
         <lastmod>2021-02-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
@@ -1264,14 +1264,14 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/tags/DLL%E6%96%87%E4%BB%B6/</loc>
+        <loc>https://imbhj.com/tags/%E5%9F%9F%E5%90%8D/</loc>
         <lastmod>2021-02-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
   
     <url>
-        <loc>https://imbhj.com/tags/%E5%9F%9F%E5%90%8D/</loc>
+        <loc>https://imbhj.com/tags/DLL%E6%96%87%E4%BB%B6/</loc>
         <lastmod>2021-02-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
@@ -1300,20 +1300,6 @@
   
     <url>
         <loc>https://imbhj.com/tags/%E6%B0%B4%E5%8A%9B%E5%AD%A6%E6%A0%A1%E6%A0%B8/</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.6</priority>
-    </url>
-  
-    <url>
-        <loc>https://imbhj.com/tags/%E5%8C%96%E5%B7%A5/</loc>
-        <lastmod>2021-02-27</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.6</priority>
-    </url>
-  
-    <url>
-        <loc>https://imbhj.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</loc>
         <lastmod>2021-02-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
@@ -1349,6 +1335,20 @@
   
     <url>
         <loc>https://imbhj.com/tags/Nginx/</loc>
+        <lastmod>2021-02-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
+  
+    <url>
+        <loc>https://imbhj.com/tags/%E5%8C%96%E5%B7%A5/</loc>
+        <lastmod>2021-02-27</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
+  
+    <url>
+        <loc>https://imbhj.com/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</loc>
         <lastmod>2021-02-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
