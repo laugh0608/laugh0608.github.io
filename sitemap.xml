@@ -93,14 +93,14 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/tags/</loc>
+        <loc>https://imbhj.com/shuoshuo/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
     </url>
   
     <url>
-        <loc>https://imbhj.com/shuoshuo/</loc>
+        <loc>https://imbhj.com/tags/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
@@ -149,13 +149,6 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/categories/</loc>
-    
-        <lastmod>2021-02-08</lastmod>
-    
-    </url>
-  
-    <url>
         <loc>https://imbhj.com/catchcat/</loc>
     
         <lastmod>2021-02-08</lastmod>
@@ -163,7 +156,7 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/archives/</loc>
+        <loc>https://imbhj.com/categories/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
@@ -171,6 +164,13 @@
   
     <url>
         <loc>https://imbhj.com/about/</loc>
+    
+        <lastmod>2021-02-08</lastmod>
+    
+    </url>
+  
+    <url>
+        <loc>https://imbhj.com/archives/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
@@ -422,14 +422,14 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/Gallery/jiegeng/</loc>
+        <loc>https://imbhj.com/Gallery/CC/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
     </url>
   
     <url>
-        <loc>https://imbhj.com/Gallery/CC/</loc>
+        <loc>https://imbhj.com/Gallery/jiegeng/</loc>
     
         <lastmod>2021-02-08</lastmod>
     
@@ -1425,20 +1425,6 @@
     </url>
   
     <url>
-        <loc>https://imbhj.com/tags/Git/</loc>
-        <lastmod>2021-03-05</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.6</priority>
-    </url>
-  
-    <url>
-        <loc>https://imbhj.com/tags/Gitalk/</loc>
-        <lastmod>2021-03-05</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.6</priority>
-    </url>
-  
-    <url>
         <loc>https://imbhj.com/tags/Excel/</loc>
         <lastmod>2021-03-05</lastmod>
         <changefreq>daily</changefreq>
@@ -1447,6 +1433,20 @@
   
     <url>
         <loc>https://imbhj.com/tags/Office/</loc>
+        <lastmod>2021-03-05</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
+  
+    <url>
+        <loc>https://imbhj.com/tags/Git/</loc>
+        <lastmod>2021-03-05</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+    </url>
+  
+    <url>
+        <loc>https://imbhj.com/tags/Gitalk/</loc>
         <lastmod>2021-03-05</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
