@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>修改Host禁止应用联网</title>
+      <link href="a381b09e/"/>
+      <url>a381b09e/</url>
+      
+        <content type="html"><![CDATA[<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN1/img/20210406202630.png"></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自从最近听说Aspen官方检测变得严格之后，用Aspen就变得畏畏缩缩，不敢联网，虽然说要支持正版，但是正版那几十万的售价实在是让人望而生畏</p><p>之前通过防火墙设置出站规则禁止Aspen联网，没想到居然没起作用</p><p>就想起了可以通过修改host让它访问不到自己的验证服务器</p><h2 id="开淦"><a href="#开淦" class="headerlink" title="开淦"></a>开淦</h2><p>要修改host就得先知道Aspen的验证服务器地址，这可怎么办呢</p><p>哈，这可难不倒我这个大聪明</p><p>当然是抓包了</p><p>首推FD抓包工具，好用的一批</p><p>打开抓包工具，打开Aspen，果然，就看见了它偷偷联系他的老总，气死我了</p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN1/img/20210406203342.png"></p><p>然后就得到了它的地址：aspenconnect2.servicebus.windows.net</p><p>然后修改host文件，添加下面的规则：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 aspenconnect2.servicebus.windows.net</span><br></pre></td></tr></table></figure><p>重启电脑，就又可以愉快的摸鱼了(呜呜呜，Aspen好难~)</p><h2 id="如何修改host"><a href="#如何修改host" class="headerlink" title="如何修改host"></a>如何修改host</h2><p>如果电脑有火绒的同学，在火绒的工具里可以直接找到修改host的工具，修改之后保存即可</p><p>如果没有，那就手动找到下面的路径：</p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/laugh0608/CDN1/img/20210406203829.png"></p><blockquote><p>记得要用管理员打开哦~</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 小技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> host </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>成人恋爱和校园恋爱，其实很不一样</title>
       <link href="c6fa64a9/"/>
       <url>c6fa64a9/</url>
