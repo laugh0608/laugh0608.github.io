@@ -8,7 +8,7 @@
       <link href="/aee2403/"/>
       <url>/aee2403/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN3/202304011938508.png"></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fastGitHub是一个非常好用的小工具，用来解决GitHub访问慢，无法git clone、push等问题，但是在使用过程中会更改SSL证书，导致一些小问题</p><h2 id="在浏览器访问GitHub会提醒网站不安全"><a href="#在浏览器访问GitHub会提醒网站不安全" class="headerlink" title="在浏览器访问GitHub会提醒网站不安全"></a>在浏览器访问GitHub会提醒网站不安全</h2><p>如图所示，开了fastGitHub之后访问GitHub由于SSL证书没有验证过，导致无法访问</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN3/202304011941535.jpg"></p><blockquote><p>浏览器：火狐</p></blockquote><p>在火狐地址栏输入：<code>about:config</code> </p><p>搜索：<code>security.enterprise_roots.enabled</code> </p><p>将该项改为<code>true</code> 即可</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN3/202304011944836.png"></p><h2 id="在git-clone时由于SSL安全性问题无法clone"><a href="#在git-clone时由于SSL安全性问题无法clone" class="headerlink" title="在git clone时由于SSL安全性问题无法clone"></a>在git clone时由于SSL安全性问题无法clone</h2><p>和火狐浏览器遇到的问题一样，都是https证书的问题</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN3/202304011945505.png"></p><p>在git bash输入<code>git config --global http.sslverify false</code> 即可</p><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>不论是火狐浏览器还是git修改这两个安全项，都有一定的安全风险，可能会遭到中间人攻击，或者被恶意网站攻击，遇到假SSL证书等，请慎重考虑</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN3/202304011938508.png"></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>fastGitHub是一个非常好用的小工具，用来解决GitHub访问慢，无法git clone、push等问题，但是在使用过程中会更改SSL证书，导致一些小问题</p><h2 id="在浏览器访问GitHub会提醒网站不安全"><a href="#在浏览器访问GitHub会提醒网站不安全" class="headerlink" title="在浏览器访问GitHub会提醒网站不安全"></a>在浏览器访问GitHub会提醒网站不安全</h2><p>如图所示，开了fastGitHub之后访问GitHub由于SSL证书没有验证过，导致无法访问</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN3/202304011941535.jpg"></p><blockquote><p>浏览器：火狐</p></blockquote><p>在火狐地址栏输入：<code>about:config</code> </p><p>搜索：<code>security.enterprise_roots.enabled</code> </p><p>将该项改为<code>true</code> 即可</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN3/202304011944836.png"></p><h2 id="在git-clone时由于SSL安全性问题无法clone"><a href="#在git-clone时由于SSL安全性问题无法clone" class="headerlink" title="在git clone时由于SSL安全性问题无法clone"></a>在git clone时由于SSL安全性问题无法clone</h2><p>和火狐浏览器遇到的问题一样，都是https证书的问题</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN3/202304011945505.png"></p><p>在git bash输入<code>git config --global http.sslverify false</code> 即可</p><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>不论是火狐浏览器还是git修改这两个安全项，都有一定的安全风险，可能会遭到中间人攻击，或者被恶意网站攻击，遇到假SSL证书等，请慎重考虑</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN3/202304011950512.png"></p>]]></content>
       
       
       <categories>
@@ -1663,9 +1663,9 @@
       
         <tags>
             
-            <tag> winget </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> winget </tag>
             
         </tags>
       
@@ -1690,9 +1690,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> Terminal </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
