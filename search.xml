@@ -1692,9 +1692,9 @@
       
         <tags>
             
-            <tag> winget </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> winget </tag>
             
         </tags>
       
@@ -1719,9 +1719,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> Terminal </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -2525,9 +2525,9 @@
       
         <tags>
             
-            <tag> 测试网络范围 </tag>
-            
             <tag> 信息收集 </tag>
+            
+            <tag> 测试网络范围 </tag>
             
         </tags>
       
