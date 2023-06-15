@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Aspen/HYSYS/ProII如何输入自定义组分</title>
+      <link href="/78dc3dab/"/>
+      <url>/78dc3dab/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151013455.png"></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>通常在工艺设计中我们会使用到aspen/hysys/proii等稳态模拟软件来计算一些工艺参数</p><p>对于已知的体系，数据库中现有的物质组分，可以很好的输入相关的参数</p><p>但是总会遇到一些数据库中没有的组分，这个时候就需要自己去输入相关的参数来估算其性质</p><p>本文就以aspen/hysys/proii为例，简单说明一下如何输入自定义组分</p><blockquote><p>注意：为了方便理解，本文三个软件中都以对氯甲苯举例，实际按照自己需要的组分进行设置即可</p></blockquote><h2 id="Aspen"><a href="#Aspen" class="headerlink" title="Aspen"></a>Aspen</h2><p>新建aspen文件，来到组分输入界面：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151016890.png"></p><p>打开用户定义：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151042351.png"></p><p>输入组分名称DLJB后点击下一步：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151045553.png"></p><p>点击绘制结构：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151046406.png"></p><p>绘制好结构之后直接点击右上角关闭即可，如果需要保存这个分子结构也可以点击左上角另存为一个分子结构的文件</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151047893.png"></p><p>此时会显示结构可用</p><p>继续输入参数：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151048672.png"></p><p>aspen要求至少输入分子量和常规沸点这两个参数，当然其他参数如果也有输入进去会估算的更准确</p><p>输入完毕之后点击下一步：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151050893.png"></p><p>上面的1-5参数也是同理，如果有，点击输入，如果没有，不用输入也可以</p><p>输入完成之后点击立即评估，点击确定</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151051884.png"></p><p>此时aspen会估算出大致的物性并显示出来，点击保存参数，确定即可输入完毕</p><p>如果物性不全，或者偏差较大，可以继续使用UNIFAC基团贡献法继续估算</p><p>打开组分-分子结构：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151053703.png"></p><p>右侧功能组的方法选择UNIFAC</p><p>选择分子结构中的基团进行添加，如图所示：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151100436.png"></p><blockquote><p>aspen中好像不用单独输入苯环基团</p></blockquote><p>对于其他分子结构的组分也是同理，输入物质中含有的基团和数量即可</p><p>选择好热力学方法之后点击运行，即可估算出相对应的物质参数，完成模拟</p><p>例如PL饱和蒸汽压：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151104512.png"></p><h2 id="HYSYS"><a href="#HYSYS" class="headerlink" title="HYSYS"></a>HYSYS</h2><p>新建文件：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151113037.png"></p><p>点击添加，左上角点击虚拟组分，点击创建或编辑虚拟组分：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151114318.png"></p><p>点击新建组分：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151115225.png"></p><p>双击组分，进入编辑界面，输入组分名称：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151116179.png"></p><p>点击结构生成器，输入结构：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151124928.png"></p><blockquote><p>这里我只是举例，所以输入的不准确，一般来说自由键应该是刚刚好的才最准确</p></blockquote><p>继续输入沸点和分子量：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151130344.png"></p><p>点击下方的估算未知，然后点击添加组分：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151131907.png"></p><p>然后选择物性方法就可以进行模拟了</p><h2 id="ProII"><a href="#ProII" class="headerlink" title="ProII"></a>ProII</h2><p>打开proii，新建文件，选择组分选择：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151138358.png"></p><p>选择user-defined：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151138926.png"></p><p>输入组分名称，点击add：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151139648.png"></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151143957.png"></p><p>点击OK关闭即可</p><p>打开输入-组分性质页面</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151144673.png"></p><p>打开fixed页面，输入沸点和分子量：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151144647.png"></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151145676.png"></p><p>点击ok关闭，回到上一个界面，点击fill from structure，把自定义组分添加到估算列表里：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151146976.png"></p><p>点击ok关闭，回到上一个页面，可以看到UNIFAC是红框，点击UNIFAC输入界面：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306151149415.png"></p><p>点击ok关闭，选择热力学方法即可开始模拟</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然今天举得例子不太恰当，但是也完美的演示了如何进行自定义组分的输入，但是这并不代表估算的性质就一定准确，后面会继续更新如何准确的估算物质性质，敬请期待，嘻嘻</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 化工 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Aspen </tag>
+            
+            <tag> HYSYS </tag>
+            
+            <tag> ProII </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ProII入门和输出简洁规范报告</title>
       <link href="/a13ccbb4/"/>
       <url>/a13ccbb4/</url>
@@ -1692,9 +1721,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> winget </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -1719,9 +1748,9 @@
       
         <tags>
             
-            <tag> Terminal </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> Terminal </tag>
             
         </tags>
       
