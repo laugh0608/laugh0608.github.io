@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>PROII模拟压缩机时报错无蒸汽熵和液体熵的问题</title>
+      <link href="/749fa72/"/>
+      <url>/749fa72/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在模拟压缩机的时候突然遇到这个报错：压缩机模型要求蒸汽熵和液体熵的方法包含于热力学方法的设置，如图所示：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306191540377.png"></p><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>热力学方法的选项未设置汽液相熵没单独设置热力学方法</p><p>应该是PROII对UNIFAC的方法中汽液相熵需要单独计算</p><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>打开首页选项栏的热力学数据选项卡</p><p>双击最右边的自己选择的热力学方法</p><p>在Liquid entropy和Vapor entropy后面选下合适的物性方法</p><p>保存，重新计算即可</p><p>如图所示：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202306191540512.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 化工 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PROII </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Aspen/HYSYS/ProII如何输入自定义组分</title>
       <link href="/78dc3dab/"/>
       <url>/78dc3dab/</url>
