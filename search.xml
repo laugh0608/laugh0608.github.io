@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>四足机器人开发之二（开发环境篇）</title>
+      <link href="/b72112f1/"/>
+      <url>/b72112f1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="续前言"><a href="#续前言" class="headerlink" title="续前言"></a>续前言</h2><p>请看：<a href="https://imbhj.com/f429c0a1/">四足机器人开发之一（食材篇）</a></p><h2 id="Arduino-IDE下载"><a href="#Arduino-IDE下载" class="headerlink" title="Arduino IDE下载"></a>Arduino IDE下载</h2><p>esp8266的开发方式有多种：可以使用C/C++语言进行开发，使用的开发环境为Arduino</p><p>可也可以使用Micropython，开发环境为Pycharm</p><p>本篇文章介绍如何使用Arduino+ <code>C/C++</code> 语言开发esp8266应用</p><blockquote><p>参考文献：<a href="https://blog.csdn.net/oLiShuTong/article/details/126229905?ydreferer=aHR0cHM6Ly9wYXNzcG9ydC5naXRjb2RlLm5ldC9jcm9zcz90aWNrZXQ9YzQ5Y2RhMDgtYTUwMC00YzMzLTlmZDktOTJlMzIwNTUzMDEzJnJlZGlyZWN0VXJsPWh0dHBzJTNBJTJGJTJGYmxvZy5jc2RuLm5ldCUyRm9MaVNodVRvbmclMkZhcnRpY2xlJTJGZGV0YWlscyUyRjEyNjIyOTkwNQ==">ESP8266开发实战之（一）-开发环境配置</a></p></blockquote><p>Arduino官网：<a href="https://www.arduino.cc/">https://www.arduino.cc/</a></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112026998.png"></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112026799.png"></p><p>根据自己的需要去下载对应的版本</p><p>下载完成之后直接安装即可</p><h2 id="切换语言"><a href="#切换语言" class="headerlink" title="切换语言"></a>切换语言</h2><p>安装好Arduino IDE打开之后是英文，不过有中文可以切换</p><blockquote><p>我已经切换好了中文，但是步骤是一样的</p></blockquote><p>打开左上角首选项</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112026763.png"></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112027112.png"></p><p>点击确定之后即可</p><h2 id="安装ESP8266开发板"><a href="#安装ESP8266开发板" class="headerlink" title="安装ESP8266开发板"></a>安装ESP8266开发板</h2><p>打开首选项，在 <code>其他开发板管理器地址</code> 的地方输入：<a href="https://arduino.esp8266.com/stable/package_esp8266com_index.json">https://arduino.esp8266.com/stable/package_esp8266com_index.json</a></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112029977.png"></p><p>输入完毕之后点击确定，就会自动下载对应的ESP8266包信息</p><blockquote><p>如果下载失败请切换网络，或者科学上网</p></blockquote><p>打开开发板管理器，搜索ESP8266</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112030459.png"></p><p>我这是已经安装好了，如果没有安装的话，这里显示的就是安装</p><blockquote><p>注意：可能大概率情况下是安装失败，就是网络问题，需要科学上网</p><p>如果科学上网之后还是失败，直接手动从Github下载对应的包，然后<strong>不要解压</strong></p><p>直接将下载好的压缩包放在下面这个位置：</p><p><code>C:\Users\用户名\AppData\Local\Arduino15\staging\packages</code></p><p>然后重启Arduino，搜索ESP8266，点击安装，秒安装成功</p><p>需要注意的是，手动下载包时并不是一个，应该是好几个</p></blockquote><p>安装完成之后就可以在工具-开发板里看到ESP8266NodeMCU了：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112035042.png"></p><h2 id="调试开发板"><a href="#调试开发板" class="headerlink" title="调试开发板"></a>调试开发板</h2><p>购买开发板的时候应该板子上都已经自带串口驱动了，一般是CP2102或者CH340</p><p>拿到板子之后，打开Arduino，用数据线连接板子</p><p>是可以在设备管理器里看到板子的驱动的：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112038433.png"></p><p>在Arduino里选择开发板：</p><p>和上面一样，选择好对应自己板子的版本：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112035042.png"></p><p>我的是1.0，我就选择1.0</p><p>端口选择COM3：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112041690.png"></p><p>然后就可以选择示例程序测试板子是否正常</p><p>打开Blink示例：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112044990.png"></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112045563.png"></p><p>等待左下角index加载完毕之后，点击编译</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202307112046254.png"></p><p>等待编译完成，点击上传，等待上传完毕之后就可以看到自己的板子上LED灯在稳定的闪烁，频率为1秒一次</p><blockquote><p>注意，是稳定的闪烁，如果闪烁不稳定，或者亮光微小，闪烁频繁，说明程序正在上传，请不要断开链接</p></blockquote><p>这样就完成了开发板的调试和前期的准备工作啦</p><p>请期待下一篇~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 嵌入式开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 物联网 </tag>
+            
+            <tag> 四足机器人 </tag>
+            
+            <tag> ESP8266 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>四足机器人开发之一（食材篇）</title>
       <link href="/f429c0a1/"/>
       <url>/f429c0a1/</url>
