@@ -1945,9 +1945,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> winget </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -1972,9 +1972,9 @@
       
         <tags>
             
-            <tag> Terminal </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> Terminal </tag>
             
         </tags>
       
@@ -2612,9 +2612,9 @@
       
         <tags>
             
-            <tag> nrm </tag>
-            
             <tag> npm </tag>
+            
+            <tag> nrm </tag>
             
             <tag> cnpm </tag>
             
