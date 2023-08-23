@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Aspen模拟公用工程为导热油的换热器</title>
+      <link href="/posts/193d62b4/"/>
+      <url>/posts/193d62b4/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在算换热器的时候，突然发现Aspen自带的公用工程：热油 无法在HeatX模块中使用，也就意味着无法导出到EDR模块中，会出现如下报错：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202308231657075.png"></p><p>但是这个公用工程是可以在Heat简洁模块中使用的</p><h2 id="自定义导热油公用工程"><a href="#自定义导热油公用工程" class="headerlink" title="自定义导热油公用工程"></a>自定义导热油公用工程</h2><p>直接搜索组分Dowtherm：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202308231513365.png"></p><p>根据需要的温度选择合适的型号即可，适用的温度范围见下图：（注意，选择型号时请看准aspen数据库中的BP（常规沸点）</p><blockquote><p>下图高糊请见谅，在网上能找到的最清晰的了</p><p>下图为陶氏化学提供的导热油型号和适用的温度范围（括号里为华氏度）</p></blockquote><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202308231509480.png"></p><p>aspen中还有其他的导热油，详情见 <code>F1</code> 帮助页面</p><p>搜索Heating Fluids：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202308231516340.png"></p><p>这里面记录了aspen数据库中其他的型号导热油，根据自己选择取用</p><p>添加了组分之后来到公用工程界面，选择新建，模板为热油</p><p>进入公用工程之后，选择更换为进出口条件</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202308231659318.png"></p><p>输入自己需要的导热油条件，然后在右边的组分列表里找到刚才添加的导热油组分，填入组分分率为1即可</p><p>这样就可以在HeatX中使用导热油公用工程了</p><h2 id="特殊导热油"><a href="#特殊导热油" class="headerlink" title="特殊导热油"></a>特殊导热油</h2><p>T350：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202308231533578.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 化工 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Aspen </tag>
+            
+            <tag> EDR </tag>
+            
+            <tag> 换热器 </tag>
+            
+            <tag> 导热油 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>医药化学品中试放大产业化详细规程</title>
       <link href="/posts/16146764/"/>
       <url>/posts/16146764/</url>
@@ -2612,9 +2643,9 @@
       
         <tags>
             
-            <tag> npm </tag>
-            
             <tag> nrm </tag>
+            
+            <tag> npm </tag>
             
             <tag> cnpm </tag>
             
