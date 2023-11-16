@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>VS2022安装第三方Cpp库Poco</title>
+      <link href="/posts/c6105688/"/>
+      <url>/posts/c6105688/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311162043520.png"></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在研究研究怎么开发Bowser server版的AspenPlus，找了找资料（这里感谢一下B站大佬bcbooo），决定需要严格保密的后端核心算法用C++来写</p><p>可是苦于我这个小白搞不懂C++如何与前端传回来的数据交互，一番疯狂百度，了解到了C++有Poco这个第三方库可以实现</p><p>事实存在，开始实践</p><p>但是让我万万没想到的是只是引入一个第三方库就差点让我烧脑了</p><p>这篇记录一下我的踩坑过程</p><h2 id="VS2022准备"><a href="#VS2022准备" class="headerlink" title="VS2022准备"></a>VS2022准备</h2><p>官网下载官方的免费版即可</p><p>注意安装的时候必须安装以下组件：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311162047736.png" alt="1"></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311162048595.png" alt="2"></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311162048182.png" alt="3"></p><p>安装完成即可</p><h2 id="Vcpkg-amp-Poco安装"><a href="#Vcpkg-amp-Poco安装" class="headerlink" title="Vcpkg&amp;Poco安装"></a>Vcpkg&amp;Poco安装</h2><p>Vcpkg 可以在 Windows、 Linux 和 MacOS 上管理 C 和 C++ 库</p><p>在C盘根目录下建立一个 <code>src</code> 目录，在该目录下打开power shell</p><p>执行：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/microsoft/vcpkg</span><br><span class="line">.\vcpkg\bootstrap<span class="literal">-vcpkg</span>.bat</span><br></pre></td></tr></table></figure><p>等待安装完毕之后，安装Poco：</p><p>执行：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\vcpkg\vcpkg install poco</span><br></pre></td></tr></table></figure><blockquote><p>注：默认情况下安装的是32位，如果需要64位请执行下面任意一个：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.\vcpkg\vcpkg install poco:x64<span class="literal">-windows</span></span><br><span class="line">.\vcpkg\vcpkg install poco -<span class="literal">-triplet</span>=x64<span class="literal">-windows</span></span><br></pre></td></tr></table></figure></blockquote><p>等待安装完成即可</p><p>查看安装的包：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\vcpkg\vcpkg list</span><br></pre></td></tr></table></figure><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311162104185.png"></p><blockquote><p>注：Vcpkg的其他用法请自行学习，这里不赘述了</p></blockquote><h2 id="VS引入POCO"><a href="#VS引入POCO" class="headerlink" title="VS引入POCO"></a>VS引入POCO</h2><p><strong>全局引入：</strong></p><p>还是在上述目录中执行：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\vcpkg\vcpkg integrate install</span><br></pre></td></tr></table></figure><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311162105367.png"></p><p>看到 <code>Applied user-wide integration for this vcpkg root.</code> 说明引入成功</p><p>移除集成：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\vcpkg\vcpkg integrate remove</span><br></pre></td></tr></table></figure><p>此时在VS里新建的项目就已经可以引用到所安装的第三方库了</p><p>但是需要注意的是，某些第三方库在VS里是存在bug了，无法自动引入，就比如咱们今天需要安装的POCO库，所以<strong>当全局引入无法生效的时候，请继续往下看</strong></p><p><strong>集成到需要的某个工程：</strong></p><p>生成NuGet配置文件：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\vcpkg\vcpkg integrate project</span><br></pre></td></tr></table></figure><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311162109538.png"></p><p>打开VS的项目</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311162115536.png"></p><p>打开NuGet程序包管理器设置</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311162118614.png"></p><p>点击程序包源-新建</p><p>输入名称和路径，这里需要注意的是，这个路径指的是你创建的NuGet配置文件的路径，在刚才咱们的执行结果里，生成的文件路径就是C盘下的 <code>src</code> 目录，有些包生成的目录是和这个不符的，需要自己修改</p><p>选择好路径之后点击更新，确定应用</p><p>打开工具-NuGet包管理器-管理解决方案的包：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311162125734.png"></p><p>就可以给当前项目引入所安装的第三方库了</p><p>如果不想这么麻烦，可以直接使用以下方法对某个项目引入所安装好的第三方库</p><p>还是先执行生成配置文件：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\vcpkg\vcpkg integrate project</span><br></pre></td></tr></table></figure><p>然后打开VS，打开工具-NuGet包管理器-程序包管理器控制台</p><p>直接输入下列命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Install-Package &quot;vcpkg.C.src.vcpkg&quot; -Source &quot;C:\src&quot;</span><br></pre></td></tr></table></figure><p>也就是上一个命令执行后输出的提示</p><p>即可完成该第三方库的引入。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Cpp </tag>
+            
+            <tag> Poco </tag>
+            
+            <tag> VisualStudio </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Aspen模拟公用工程为导热油的换热器</title>
       <link href="/posts/193d62b4/"/>
       <url>/posts/193d62b4/</url>
@@ -1976,9 +2005,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> winget </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -2003,9 +2032,9 @@
       
         <tags>
             
-            <tag> Terminal </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> Terminal </tag>
             
         </tags>
       
