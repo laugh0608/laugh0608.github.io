@@ -4,7 +4,26 @@
   
     
     <entry>
-      <title>VS2022安装第三方Cpp库Poco</title>
+      <title>Clion如何引入cpp的第三方库</title>
+      <link href="/posts/36728089/"/>
+      <url>/posts/36728089/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311202023140.png"></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇中讲了<a href="https://imbhj.com/posts/c6105688/">VS2022如何引入第三方库</a>，结果用了两天感觉vs还是不太适合我，改用Clion之后发现确实牛逼，简直是打开了新世界大门</p><p>Clion的安装就不赘述了，直接开始正文（推荐使用英文版，中文版可能会碰到未知问题哦，但是我目前还是装了官方的中文插件，毕竟英语渣渣）</p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>还是我们的老朋友Vcpkg，第一次打开的话如图，下一次打开会直接固定在左下角的快捷工具栏里</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311202028339.png"></p><p>点击新建：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311202030986.png"></p><p>默认下面的是勾选的，名称也没有（1）我这里是已经安装过了</p><blockquote><p>注：强烈建议不要更改默认路径</p></blockquote><p>点击确定之后就会自动安装，因为网络情况，时间可能会比较长，耐心等待</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311202033803.png"></p><p>建议勾选这个自动更改vcpkg的json，当然可以自己选择</p><p>然后在右边的搜索框搜索需要的第三方库，如果勾选了，会显示添加到josn中，如果没有勾选，会显示安装，同样，安装的版本可以自由选择，例如：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311202036202.png"></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311202036700.png"></p><blockquote><p> 我不清楚这是因为bug还是就是这样</p></blockquote><p>安装好后会提示添加进 <code>cmake</code> 或 <code>vcpkg.json</code> </p><p>建议先添加进json</p><p>然后会在项目文件中生成一个json文件</p><p>这样安装就完成了，如果需要引入到项目中，还需要更新一下 <code>  CMakeLists.txt</code> </p><p>在安装完成的时候会提示添加进cmakelist的代码，直接复制粘贴进去就好了</p><p>如果选择了添加进json，可以打开json文件，也可以看到这段提示的代码：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311202044689.png"></p><p>复制粘贴进 <code>  CMakeLists.txt</code> ：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311202044740.png"></p><p>注意删除掉不必要的换行符，然后将 <code>main</code> 替换为你这个项目名称，重新加载Cmake即可引用到</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311202046386.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C语言 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>VS2022安装第三方cpp库Poco</title>
       <link href="/posts/c6105688/"/>
       <url>/posts/c6105688/</url>
       
@@ -20,9 +39,7 @@
       
         <tags>
             
-            <tag> Cpp </tag>
-            
-            <tag> Poco </tag>
+            <tag> cpp </tag>
             
             <tag> VisualStudio </tag>
             
