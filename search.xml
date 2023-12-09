@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>WSL更改安装位置</title>
+      <link href="/posts/3471cb80/"/>
+      <url>/posts/3471cb80/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202312091837233.png"></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>WSL默认安装在C盘，工作时间长了，或者随着docker的使用会变得越来越大，系统盘不堪重负，所以百度了一下子怎么迁移，好像只能导出重载，记录一下过程。</p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>（1）首先查看一下WSL的状态：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl <span class="literal">-l</span> -<span class="literal">-all</span> <span class="literal">-v</span></span><br></pre></td></tr></table></figure><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202312091840480.png"></p><blockquote><p>确保你的WSL状态为关闭。</p></blockquote><p>（2）导出分发版到非系统盘目录：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -<span class="literal">-export</span> deepin d:\WSL\deepin.tar</span><br></pre></td></tr></table></figure><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202312091844898.png"></p><blockquote><p>1、确保你要导出的位置有该目录，否则请提前新建好文件夹；</p><p>2、导出文件的扩展名，必须为 <code>tar</code> 格式。</p></blockquote><p>（3）注销该分发版：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -<span class="literal">-unregister</span> deepin</span><br></pre></td></tr></table></figure><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202312091848960.png"></p><p>（4）重新导入分发版到指定目录：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wsl -<span class="literal">-import</span> nameWSL [<span class="type">dirA</span>] [<span class="type">dirB</span>] -<span class="literal">-version</span> <span class="number">2</span></span><br><span class="line"><span class="comment"># wsl --import deepin d:\WSL\deepin d:\WSL\deepin.tar --version 2</span></span><br></pre></td></tr></table></figure><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202312091854004.png"></p><blockquote><p>1、 <code>nameWSL</code> 为导入的WSL分发版名称；</p><p>2、 <code>dirA</code> 为要导入到的位置，也就是安装位置；</p><p>3、 <code>dieB</code> 为第2步中导出的 <code>tar</code> 文件的路径；</p><p>4、请确认好自己的WSL版本号；</p><p>5、请确认好自己的目标目录是否存在。</p></blockquote><p>（5）恢复默认登录用户：</p><p>WSL在重新导入后默认登录用户会更改为root，更改为默认用户名：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> [<span class="type">DistributionName</span>] config -<span class="literal">-default</span><span class="literal">-user</span> [<span class="type">Username</span>]</span><br><span class="line"><span class="comment"># deepin config --default-user laugh</span></span><br></pre></td></tr></table></figure><p>最后，删掉导出的 <code>tar</code> 文件即可，当然不删除也行，当个备份。</p><p>Docker相关的WSL也是一样的道理。</p><blockquote><ul><li>docker-desktop</li><li>docker-desktop-data</li></ul></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 小技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WSL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Clion如何引入cpp的第三方库</title>
       <link href="/posts/36728089/"/>
       <url>/posts/36728089/</url>
@@ -372,7 +397,7 @@
       
       <categories>
           
-          <category> 小工具 </category>
+          <category> 工具 </category>
           
       </categories>
       
@@ -2689,9 +2714,9 @@
       
         <tags>
             
-            <tag> nrm </tag>
-            
             <tag> npm </tag>
+            
+            <tag> nrm </tag>
             
             <tag> cnpm </tag>
             
@@ -3004,7 +3029,7 @@
       
       <categories>
           
-          <category> C语言 </category>
+          <category> 编程语言 </category>
           
       </categories>
       
