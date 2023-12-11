@@ -1,0 +1,529 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>把Vim配置成属于自己的模样 | Ordis'Blog</title><meta name="author" content="Ordis"><meta name="copyright" content="Ordis"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="启用 Vim 的特性Vim编辑器相关的所有功能开关都可以通过.vimrc文件进行设置，.vimrc配置文件分系统配置和用户配置两种。  系统vimrc配置文件存放在Vim的安装目录，默认路径为&#x2F;usr&#x2F;share&#x2F;vim&#x2F;.vimrc。可以使用命令echo $VIM来确定Vim的安装目录。用户vimrc文件，存放在用户主目录下~&#x2F;.vimrc，可以使用命令echo $HOME确定用户主目录。  1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把Vim配置成属于自己的模样">
+<meta property="og:url" content="https://imbhj.com/posts/bfe797d6/">
+<meta property="og:site_name" content="Ordis&#39;Blog">
+<meta property="og:description" content="启用 Vim 的特性Vim编辑器相关的所有功能开关都可以通过.vimrc文件进行设置，.vimrc配置文件分系统配置和用户配置两种。  系统vimrc配置文件存放在Vim的安装目录，默认路径为&#x2F;usr&#x2F;share&#x2F;vim&#x2F;.vimrc。可以使用命令echo $VIM来确定Vim的安装目录。用户vimrc文件，存放在用户主目录下~&#x2F;.vimrc，可以使用命令echo $HOME确定用户主目录。  1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721130037.jpg">
+<meta property="article:published_time" content="2019-12-30T14:06:09.000Z">
+<meta property="article:modified_time" content="2019-12-30T14:06:09.000Z">
+<meta property="article:author" content="Ordis">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Vim">
+<meta property="article:tag" content="Vimrc">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721130037.jpg"><link rel="shortcut icon" href="/img/luobo.png"><link rel="canonical" href="https://imbhj.com/posts/bfe797d6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-fz5uoOqZdH"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?156d93be2cc6945ec71fc68a0a9c732e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":60,"position":"top","messagePrev":"本文章距离最后一次更新已经过去了","messageNext":"天，文章内容可能已经变得不可靠或者版本不适配，请谨慎阅读。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '把Vim配置成属于自己的模样',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-12-30 22:06:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_2005310_9tg4odpdgr.css" type="text/css" /><link rel="stylesheet" href="/css/footerjianbian.css" type="text/css" /><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/img/1495.gif" data-lazy-src="/img/avatar1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">165</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 小窝</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw iconfont icon-time"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-book-2"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-sort"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-me"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw iconfont icon-41shuoshuo"></i><span> 说说</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjieguanlian"></i><span> 友链</span></a></li><li><a class="site-page child" href="/link-favorites/"><i class="fa-fw iconfont icon-collection-b"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/message/"><i class="fa-fw iconfont icon-liuyan"></i><span> 留言</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-iconfontyouxihudong"></i><span> 游戏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/catchcat/"><i class="fa-fw iconfont icon-maomi"></i><span> 圈圈小猫</span></a></li><li><a class="site-page child" href="/running/"><i class="fa-fw iconfont icon-konglong"></i><span> 恐龙快跑</span></a></li><li><a class="site-page child" href="/maze/"><i class="fa-fw iconfont icon-zuoce-xianlu"></i><span> 小球闯关</span></a></li><li><a class="site-page child" href="/css-sweeper/"><i class="fa-fw iconfont icon-zhadan"></i><span> CSS扫雷</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-gongnengdingyi"></i><span> 功能</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw iconfont icon-yinle"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/bilibili/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://lean-v.imbhj.com/ui/login/"><i class="fa-fw iconfont icon-pinglun"></i><span> Waline后台</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Ordis'Blog"><span class="site-name">Ordis'Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 小窝</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw iconfont icon-time"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-book-2"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-sort"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-me"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw iconfont icon-41shuoshuo"></i><span> 说说</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjieguanlian"></i><span> 友链</span></a></li><li><a class="site-page child" href="/link-favorites/"><i class="fa-fw iconfont icon-collection-b"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/message/"><i class="fa-fw iconfont icon-liuyan"></i><span> 留言</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-iconfontyouxihudong"></i><span> 游戏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/catchcat/"><i class="fa-fw iconfont icon-maomi"></i><span> 圈圈小猫</span></a></li><li><a class="site-page child" href="/running/"><i class="fa-fw iconfont icon-konglong"></i><span> 恐龙快跑</span></a></li><li><a class="site-page child" href="/maze/"><i class="fa-fw iconfont icon-zuoce-xianlu"></i><span> 小球闯关</span></a></li><li><a class="site-page child" href="/css-sweeper/"><i class="fa-fw iconfont icon-zhadan"></i><span> CSS扫雷</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-gongnengdingyi"></i><span> 功能</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw iconfont icon-yinle"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/bilibili/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://lean-v.imbhj.com/ui/login/"><i class="fa-fw iconfont icon-pinglun"></i><span> Waline后台</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">把Vim配置成属于自己的模样</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-12-30T14:06:09.000Z" title="发表于 2019-12-30 22:06:09">2019-12-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-12-30T14:06:09.000Z" title="更新于 2019-12-30 22:06:09">2019-12-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>20分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="把Vim配置成属于自己的模样"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/bfe797d6/#post-comment"><span class="waline-comment-count" data-path="/posts/bfe797d6/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div><article class="post-content" id="article-container"><h2 id="启用-Vim-的特性"><a href="#启用-Vim-的特性" class="headerlink" title="启用 Vim 的特性"></a>启用 Vim 的特性</h2><p>Vim编辑器相关的所有功能开关都可以通过<code>.vimrc</code>文件进行设置，<code>.vimrc</code>配置文件分系统配置和用户配置两种。 </p>
+<p>系统vimrc配置文件存放在Vim的安装目录，默认路径为/usr/share/vim/.vimrc。可以使用命令echo $VIM来确定Vim的安装目录。用户vimrc文件，存放在用户主目录下~/.vimrc，可以使用命令echo $HOME确定用户主目录。 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vim ~/.vimrc</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="基础设置"><a href="#基础设置" class="headerlink" title="基础设置"></a>基础设置</h2><blockquote>
+<p>双引号内的中文均为注释，其他视情况而定。</p>
+</blockquote>
+<h3 id="设置中文不乱码"><a href="#设置中文不乱码" class="headerlink" title="设置中文不乱码"></a>设置中文不乱码</h3><p>与Vim编码有关的变量包括：<code>encoding</code>、<code>fileencoding</code>、<code>termencoding</code>。</p>
+<p><code>encoding</code>选项用于缓存的文本、寄存器、Vim 脚本文件等；<code>fileencoding</code>选项是Vim写入文件时采用的编码类型；<code>termencoding</code>选项表示输出到终端时采用的编码类型。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;设置编码</span><br><span class="line">set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936</span><br><span class="line">set termencoding=utf-8</span><br><span class="line">set encoding=utf-8</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示行号"><a href="#显示行号" class="headerlink" title="显示行号"></a>显示行号</h3><p>nu是number的缩写，两个配置命令是完全等效的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set nu</span><br><span class="line">set number</span><br></pre></td></tr></table></figure>
+
+<h3 id="突出显示当前行"><a href="#突出显示当前行" class="headerlink" title="突出显示当前行"></a>突出显示当前行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set cursorline</span><br></pre></td></tr></table></figure>
+
+<h3 id="启用鼠标"><a href="#启用鼠标" class="headerlink" title="启用鼠标"></a>启用鼠标</h3><p>Vim编辑器里默认是不启用鼠标的，也就是说不管你鼠标点击哪个位置，光标都不会移动。通过以上设置就可以启动鼠标，不过对于高级玩家来说，用Vim就是为了解放双方不用鼠标，所以这个设置可以根据个人爱好选择.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set mouse=a</span><br><span class="line">set selection=exclusive</span><br><span class="line">set selectmode=mouse,key</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置缩进"><a href="#设置缩进" class="headerlink" title="设置缩进"></a>设置缩进</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;设置Tab长度为4空格</span><br><span class="line">set tabstop=4</span><br><span class="line">&quot;设置自动缩进长度为4空格</span><br><span class="line">set shiftwidth=4</span><br><span class="line">&quot;继承前一行的缩进方式，适用于多行注释</span><br><span class="line">set autoindent</span><br></pre></td></tr></table></figure>
+
+<h3 id="粘贴格式"><a href="#粘贴格式" class="headerlink" title="粘贴格式"></a>粘贴格式</h3><p>显示空格和tab键在Vim中通过鼠标右键粘贴时会在行首多出许多缩进和空格，通过set paste可以在插入模式下粘贴内容时不会有任何格式变形、胡乱缩进等问题。Vim编辑器中默认不显示文件中的tab和空格符，通过上面的配置可以获得以下的显示效果，方便定位输入错误</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set paste</span><br><span class="line">set listchars=tab:&gt;-,trail:-</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示状态栏和光标当前位置"><a href="#显示状态栏和光标当前位置" class="headerlink" title="显示状态栏和光标当前位置"></a>显示状态栏和光标当前位置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;总是显示状态栏</span><br><span class="line">set laststatus=2</span><br><span class="line">&quot;显示光标当前位置</span><br><span class="line">set ruler</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vim配置变更立即生效"><a href="#Vim配置变更立即生效" class="headerlink" title="Vim配置变更立即生效"></a>Vim配置变更立即生效</h3><p>要让<code>.vimrc</code>变更内容生效，一般的做法是先保存<code>.vimrc</code>再重启vim，增加以下设置，可以实现保存 <code>.vimrc</code> 时自动重启加载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocmd BufWritePost $MYVIMRC source $MYVIMRC</span><br></pre></td></tr></table></figure>
+
+<h3 id="语法高亮"><a href="#语法高亮" class="headerlink" title="语法高亮"></a>语法高亮</h3><p>Vim 自带语法高亮显示功能，只需要打开 <code>syntax</code> 选项即可, 依赖于 Vim 的文件类型检测功能.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;打开文件类型检测</span><br><span class="line">filetype on</span><br><span class="line">&quot;打开语法高亮显示</span><br><span class="line">syntax on</span><br></pre></td></tr></table></figure>
+
+<h2 id="插件功能"><a href="#插件功能" class="headerlink" title="插件功能"></a>插件功能</h2><h3 id="代码自动补齐"><a href="#代码自动补齐" class="headerlink" title="代码自动补齐"></a>代码自动补齐</h3><p>虽然 Vim自带自动补齐功能，但是这种自带的补齐功能其本质就是 猜：通过对文本进行正则表达式匹配，再根据字典文件和生成的tags文件实现自动补全的效果， 因此其功能相对也较为简单。</p>
+<p>YouCompleteMe 简称 YCM，是一款 Vim 下非常流行的自动代码补齐神器。YouCompleteMe 基于 clang/llvm 等开源语法分析库进行构建，并整合了多种自动补齐引擎：an identifier-based engine that works with every programming language、a Clang-based engine that provides native semantic code completion for C/C++/Objective-C/Objective-C++/CUDA、a clangd-based experimental completion engine for the C-family languages、a Jedi-based completion engine for Python 2 and 3、an OmniSharp-based completion engine for C#、a combination of Gocode and Godef semantic engines for Go、an omnifunc-based completer that uses data from Vim’s omnicomplete system to provide semantic completions for many other languages (Ruby, PHP etc.)。由此可见，YouCompleteMe 几乎对现在所有流行的编程语言都提供了非常强大的补齐功能。</p>
+<blockquote>
+<p>编译 YouCompleteMe 插件时需要依赖 cmake 构建 Makefile，且依赖 Python 源码头文件</p>
+</blockquote>
+<p><strong>安装Python依赖</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install build-essential cmake python-dev python3-dev</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>安装Clang</strong></p>
+<blockquote>
+<p>clang 是一个面向 C 族语言(C-family languages)的轻量级编译器，YouCompleteMe 插件依赖 clang 实现对 C 族语言的语义补全</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install clang</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Clone</strong></p>
+<p>可以使用 Vundle 或 vim-plug 等 Vim 插件管理器从 github 获取 YouCompleteMe 最新的源码，这里推荐使用 Vundle。也可以直接使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/plugged/</span><br></pre></td></tr></table></figure>
+
+<p><strong>获取依赖</strong></p>
+<p>在源码目录执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure>
+
+<p><strong>编译安装</strong></p>
+<p>在源码目录执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> python3 install.py --clang-completer</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>--clang-completer</code> 参数是编译C族语言的补全，如果需要全部语言，换成<code>--all</code> 参数即可</p>
+</blockquote>
+<h3 id="安装Vundle插件管理器"><a href="#安装Vundle插件管理器" class="headerlink" title="安装Vundle插件管理器"></a>安装Vundle插件管理器</h3><p>Vundle插件是提供一个Vundle.vim文件，其下载地址为：<a target="_blank" rel="noopener" href="https://github.com/VundleVim/Vundle.vim.git">https://github.com/VundleVim/Vundle.vim.git</a><br>将下载的Vundle.vim文件夹（之后的所有插件相同）保存到~/.vim/bundle然后修改配置文件即可完成Vundle的安装</p>
+<h3 id="配置Vundle"><a href="#配置Vundle" class="headerlink" title="配置Vundle"></a>配置Vundle</h3><p>修改<code>.vimrc</code> 文件，添加下列配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&quot;去除VIM一致性</span><br><span class="line">set nocompatible</span><br><span class="line">filetype off</span><br><span class="line">&quot;设置包括vundle和初始化相关的运行时路径</span><br><span class="line">set rtp+=~/.vim/bundle/Vundle.vim</span><br><span class="line"></span><br><span class="line">call vundle#begin()</span><br><span class="line">&quot;启用vundle管理插件</span><br><span class="line">Plugin &#x27;VundleVim/Vundle.vim&#x27;</span><br><span class="line">&quot;在此增加其他插件，安装的插件需要放在vundle#begin和vundle#end之间</span><br><span class="line">&quot;安装github上的插件格式为 Plugin &#x27;用户名/插件仓库名&#x27;</span><br><span class="line">call vundle#end()</span><br><span class="line"></span><br><span class="line">&quot;加载vim自带和插件相应的语法和文件类型相关脚本</span><br><span class="line">filetype plugin indent on</span><br></pre></td></tr></table></figure>
+
+<p>更多Vundle有关配置可以参考<a target="_blank" rel="noopener" href="https://github.com/VundleVim/Vundle.vim#quick-start">官方文档</a></p>
+<h2 id="使用Vundle安装插件"><a href="#使用Vundle安装插件" class="headerlink" title="使用Vundle安装插件"></a>使用Vundle安装插件</h2><p>首先需要将要安装的插件，按照上面的配置格式将插件地址填写在<code>vundle#begin</code>和<code>vundle#end</code>之间并保存设置好配置文件后，可通过下述两种方法安装插件: </p>
+<ul>
+<li>在Vim尾行模式下运行命令 <code>:PluginInstall</code></li>
+<li>在终端命令行下通过命令 <code>vim +PluginInstall +qall</code></li>
+</ul>
+<p><strong>删除插件</strong></p>
+<ol>
+<li>编辑Vim配置文件.vimrc文件，删除要移除插件所对应的Plugin一行</li>
+<li>打开Vim，在Vim尾行模式执行命令<code>:BundleClean</code>即可删除对应Vim插件</li>
+</ol>
+<h2 id="Vim自带的代码补全功能"><a href="#Vim自带的代码补全功能" class="headerlink" title="Vim自带的代码补全功能"></a>Vim自带的代码补全功能</h2><p>在插入模式下，Vim可以不借助任何插件实现自动补全功能。Vim自带有单词自动补全、行自动补全和基于用户自定义字典的自动补全。</p>
+<ul>
+<li><code>Ctrl + n</code>：当输入完第一个字母后，再按<code>Ctrl + n</code>，Vim会自动出现下拉菜单，且默认选中第一个单词</li>
+<li>继续按 <code>Ctrl + n</code> 可以上下选择，但如果缓冲区没有可选单词，那么下拉列表不会有任何选项</li>
+<li><code>Ctrl + p</code>：功能同上，只是默认选中的是列表最后一个单词</li>
+<li>在Vim插入模式下输入已经存在行的第一个单词，再按<code>Ctrl + x</code>、<code>Ctrl + l</code>命令，就会列出该整行出来实现Vim行自动补全</li>
+</ul>
+<h3 id="字典补全"><a href="#字典补全" class="headerlink" title="字典补全"></a>字典补全</h3><p>假设有一个备选单词表，文件名为dict.txt，每行一个单词，里面包含以下内容：</p>
+<ul>
+<li>Hello</li>
+<li>Vim</li>
+<li>editor</li>
+<li>best</li>
+<li>tool</li>
+</ul>
+<p>若要实现基于该单词表的Vim自动补齐，需要设置以下步骤：</p>
+<ol>
+<li>在<del>/.vimrc配置文件中加入代码：`set dictionary-=</del>/dict.txt dictionary+=~/dict.txt`</li>
+<li>打开Vim，在插入模式下输入<code>Ctrl + x</code>后再输入<code>Ctrl + k</code>，就能看到dict.txt文件中定义的单词</li>
+<li>若想直接通过<code>Ctrl + n</code>命令就显示其中的列表，再配置.vimrc文件，加入<code>set complete-=k complete+=k</code></li>
+</ol>
+<h2 id="函数跳转"><a href="#函数跳转" class="headerlink" title="函数跳转"></a>函数跳转</h2><p>可以使用 Vim 插件 vim-gutentags 自动生成和更新 tags 文件进行跳转，得益于 Vim 8 提供的异步机制，vim插件vim-gutentags能够自动异步生成 tags  文件，当检测到同一个工程下面的文件有修改时，gutentags能自动增量更新对应工程的 tags  文件，而不用全部重新生成tags文件，是一个非常高效的tags生成工具。vim-gutentags的本质仍然是使用ctags生成tag标签来实现函数跳转等功能，只是在ctags的基础上进行了封装和简化，方便用户在vim中使用。由于vim-gutentags依赖ctags工具，因此在使用vim-gutentags插件的系统中必须安装ctags软件，否则会报错”Excutable ‘ctags’ can’t be found.”。</p>
+<h3 id="安装tags软件"><a href="#安装tags软件" class="headerlink" title="安装tags软件"></a>安装tags软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install exuberant-ctags</span></span><br></pre></td></tr></table></figure>
+
+<p>其次，vim-gutentags需要在vim8.0以上版本才能正常工作，因为vim-gutentags实现的是增量更新tags的方式，依赖于vim8提供的异步机制。在低于vim8.0的版本是运行vim-gutentags插件，会报错”this plugin requires the job API from Vim8 or Neovim”。  把相应vim文件放在～/.vim/bundle/下</p>
+<p>在配置文件 ~/.vimrc 中增加配置项：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plugin &#x27;ludovicchabant/vim-gutentags&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>再在vim的Normal模式下执行命令 <code>:PlugInstall</code></p>
+<p>vim-gutentags插件的基本工作原理可以这么理解：首先确定vim当前打开的文件是否需要自动生成tags标签，若需要则通过某种方式确定tag文件的路径，再基于tag标签文件完成函数跳转、结构体定义跳转等功能。</p>
+<h3 id="gutentags配置"><a href="#gutentags配置" class="headerlink" title="gutentags配置"></a>gutentags配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&quot; gutentags搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归</span><br><span class="line">let g:gutentags_project_root = [&#x27;.root&#x27;, &#x27;.svn&#x27;, &#x27;.git&#x27;, &#x27;.project&#x27;]</span><br><span class="line">&quot; 所生成的数据文件的名称</span><br><span class="line">let g:gutentags_ctags_tagfile = &#x27;.tags&#x27;</span><br><span class="line">&quot; 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录</span><br><span class="line">let s:vim_tags = expand(&#x27;~/.cache/tags&#x27;)</span><br><span class="line">let g:gutentags_cache_dir = s:vim_tags</span><br><span class="line">&quot; 检测 ~/.cache/tags 不存在就新建</span><br><span class="line">if !isdirectory(s:vim_tags)</span><br><span class="line">	silent! call mkdir(s:vim_tags, &#x27;p&#x27;)</span><br><span class="line">endif</span><br><span class="line">&quot; 配置 ctags 的参数</span><br><span class="line">let g:gutentags_ctags_extra_args = [&#x27;--fields=+niazS&#x27;, &#x27;--extra=+q&#x27;]</span><br><span class="line">let g:gutentags_ctags_extra_args += [&#x27;--c++-kinds=+pxI&#x27;]</span><br><span class="line">let g:gutentags_ctags_extra_args += [&#x27;--c-kinds=+px&#x27;]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>变量 gutentags_project_root 是vim-gutentags提供的用于搜索工程目录的标志，gutentags插件启动后，会从文件当前路径递归往上查找 gutentags_project_root 中指定的文件或目录名，直到第一次找到对应目标文件或目录名停止。若没有找到 gutentags_project_root 变量指定的文件或目录名，则gutentags不会生成tag文件。</p>
+<p>变量 gutentags_ctags_tagfile 和 gutentags_cache_dir 分别用于告诉ctags要使用的tag文件目录和tag文件名后缀，tag文件名的生成规则默认是根据生成tag文件的工程绝对路径按 - 分割而成。</p>
+<p>变量 gutentags_ctags_extra_args 用于配置ctags生成tag标签的参数</p>
+</blockquote>
+<h3 id="ctags参数意义"><a href="#ctags参数意义" class="headerlink" title="ctags参数意义"></a>ctags参数意义</h3><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">c</td>
+<td>类(classes)</td>
+</tr>
+<tr>
+<td align="center">d</td>
+<td>宏定义(macro definitions)</td>
+</tr>
+<tr>
+<td align="center">e</td>
+<td>枚举变量(enumerators)</td>
+</tr>
+<tr>
+<td align="center">f</td>
+<td>函数定义(function definitions)</td>
+</tr>
+<tr>
+<td align="center">g</td>
+<td>枚举类型(enumeration names)</td>
+</tr>
+<tr>
+<td align="center">l</td>
+<td>局部变量(local variables)，默认不提取</td>
+</tr>
+<tr>
+<td align="center">m</td>
+<td>类、结构体、联合体(class, struct, and union members)</td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td>命名空间(namespaces)</td>
+</tr>
+<tr>
+<td align="center">p</td>
+<td>函数原型(function prototypes)，默认不提取</td>
+</tr>
+<tr>
+<td align="center">s</td>
+<td>结构体类型(structure names)</td>
+</tr>
+<tr>
+<td align="center">t</td>
+<td>(typedefs)</td>
+</tr>
+<tr>
+<td align="center">u</td>
+<td>联合体类型(union names)</td>
+</tr>
+<tr>
+<td align="center">v</td>
+<td>变量定义(variable definitions)</td>
+</tr>
+<tr>
+<td align="center">x</td>
+<td>外部变量(external and forward variable declarations)，默认不提取</td>
+</tr>
+</tbody></table>
+<p>需要注意的是，gutentags 需要靠上面定义的 <code>gutentags_project_root</code> 判断文件所在的工程，如果一个文件没有保存在包含 <code>.git</code>、<code>.svn</code>、<code>.root</code>等 定义在 <code>gutentags_project_root</code> 中的文件，gutentags就不会为该野文件生成  <code>tags</code>。  #在为当前目录生成tags文件后，可以通过按键 <code>Ctrl + ]</code> 跳转到对应的定义位置，再使用命令 <code>Ctrl + o</code> 回退到原来的位置。  建议多使用 <code>Ctrl + W + ] </code>用新窗口打开并查看光标下符号的定义，或者 <code>Ctrl+W+]</code> 使用 preview 窗口预览光标下符号的定义。</p>
+<h2 id="工程项目树展示"><a href="#工程项目树展示" class="headerlink" title="工程项目树展示"></a>工程项目树展示</h2><p>Vim插件NERDTree是一款用来在Vim界面显示树形目录的文件管理器插件，可在vim操作界面进行文件打开、目录浏览操作。其github地址为：<a target="_blank" rel="noopener" href="https://github.com/scrooloose/nerdtree">https://github.com/scrooloose/nerdtree</a></p>
+<p>使用Vim插件管理器Vundle安装Vim插件NERDTree:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plugin &#x27;scrooloose/nerdtree&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>通过vundle安装好NERDTree插件后，在vim命令行模式输入命令<code>:NERDTree</code>就可以看到NERDTree的显示界面。使用快捷键 <code>Ctrl + w</code>，可将光标自动在左右侧窗口进行切换。</p>
+<h3 id="配置-vimrc文件"><a href="#配置-vimrc文件" class="headerlink" title="配置.vimrc文件"></a>配置.vimrc文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;在 vim 启动的时候默认开启 NERDTree：</span><br><span class="line">autocmd VimEnter * NERDTree</span><br><span class="line">或使用autocmd的缩写形式</span><br><span class="line">au VimEnter * NERDTree</span><br><span class="line">&quot;将NERDTree的窗口设置在vim窗口的右侧(默认为左侧)：</span><br><span class="line">let NERDTreeWinPos=&quot;right&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="NERDTree常用命令汇总"><a href="#NERDTree常用命令汇总" class="headerlink" title="NERDTree常用命令汇总"></a>NERDTree常用命令汇总</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>q</td>
+<td>关闭 NERDTree</td>
+</tr>
+<tr>
+<td>o</td>
+<td>在已有窗口中打开文件或目录，并将光标跳到该窗口</td>
+</tr>
+<tr>
+<td>O</td>
+<td>递归打开选中 结点下的所有目录</td>
+</tr>
+<tr>
+<td>x</td>
+<td>合拢选中结点的父目录</td>
+</tr>
+<tr>
+<td>X</td>
+<td>递归 合拢选中结点下的所有目录</td>
+</tr>
+<tr>
+<td>p</td>
+<td>跳到根结点</td>
+</tr>
+<tr>
+<td>P</td>
+<td>跳到父结点</td>
+</tr>
+<tr>
+<td>u</td>
+<td>设置上级目录为根路径</td>
+</tr>
+<tr>
+<td>U</td>
+<td>设置上级目录为跟路径，但是维持原来目录打开的状态</td>
+</tr>
+<tr>
+<td>r</td>
+<td>刷新光标所在的目录</td>
+</tr>
+<tr>
+<td>R</td>
+<td>刷新当前根路径</td>
+</tr>
+<tr>
+<td>I</td>
+<td>显示或者不显示隐藏文件</td>
+</tr>
+<tr>
+<td>f</td>
+<td>打开和关闭文件过滤器</td>
+</tr>
+<tr>
+<td>A</td>
+<td>全屏显示 NERDTree，或者关闭全屏</td>
+</tr>
+<tr>
+<td>C</td>
+<td>将根路径设置为光标所在的目录</td>
+</tr>
+</tbody></table>
+<h2 id="代码折叠"><a href="#代码折叠" class="headerlink" title="代码折叠"></a>代码折叠</h2><p>Vim支持多种折叠形式：手动折叠manual、基于缩进行折叠indent、基于语法进行折叠syntax、未更改文本折叠diff等</p>
+<p>在 ~/.vimrc 配置文件中增加以下配置项</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;基于缩进进行代码折叠</span><br><span class="line">set foldmethod=indent</span><br><span class="line">&quot;启动 Vim 时关闭折叠</span><br><span class="line">set nofoldenable</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Vim打开文件后，重复使用操作命令 <code>za</code> 可打开或关闭当前折叠；<code>zM</code> 用于关闭所有折叠，<code>zR</code> 则用来打开所有折叠</p>
+</blockquote>
+<h2 id="全局搜索"><a href="#全局搜索" class="headerlink" title="全局搜索"></a>全局搜索</h2><p>推荐Vim模糊搜索插件ctrlp。ctrlp是一款支持对文件、缓冲区( :CtrlPBuffer )、MRU(Most Recently Used)文件( :CtrlPMRU )和标签进行模糊搜索/查找的Vim插件，也支持通过正则表达式搜索 ( <Ctrl>-r  进行切换)，同类软件还有模糊搜索插件fzf等。  地址：<a target="_blank" rel="noopener" href="https://github.com/ctrlpvim/">https://github.com/ctrlpvim/</a></p>
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plugin &#x27;ctrlpvim/ctrlp.vim&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>安装完ctrlp插件后，可以在Vim命令行模式下使用命令 :help ctrlp.txt 获取ctrlp的官方说明文档，这是个非常详细的文档，建议细读</p>
+<h3 id="ctrlp命令介绍"><a href="#ctrlp命令介绍" class="headerlink" title="ctrlp命令介绍"></a>ctrlp命令介绍</h3><p>在Vim命令行模式下，可通过以下几种方式启动ctrlp：</p>
+<ol>
+<li><p>Vim命令行模式下使用命令 </p>
+<p><code>:CtrlP</code> 或 <code>:CtrlP</code> 路径</p>
+<p>可以调用ctrlp并进入查找文件模式，可通过设置 <code>let g:ctrlp_cmd = &#39;CtrlP&#39;</code> 来指定打开ctrlp的Vim命令行命令</p>
+</li>
+<li><p>Vim命令行模式下使用命令 </p>
+<p><code>:CtrlPBuffer</code> 或 <code>:CtrlPMRU</code> </p>
+<p>可以调用ctrlp并分别进入查找缓冲区 和 查找 MRU文件模式</p>
+</li>
+<li><p>Vim命令行模式下使用命令</p>
+<p><code> :CtrlPMixed</code> 可同时搜索 文件、缓冲区 和 MRU文件    </p>
+</li>
+<li><p>在Vim 普通模式下，默认按下 <code>Ctrl+p </code> 即可打开ctrlp搜索窗口。可通过设置 <code>let g:ctrlp_map = &#39;&lt;c-p&gt;&#39; </code>来修改Vim普通模式下默认打开ctrlp的Vim按键映射。</p>
+</li>
+<li><p>默认设置下，ctrlp的窗口显示在Vim窗口的底端(bottom)，可以通过 <code>g:ctrlp_match_window </code>选项设置窗口的位置，例如，<code>let g:ctrlp_match_window = &#39;top,order:ttb,min:1,max:10,results:20&#39; </code>设置ctrlp窗口显示在顶端(top)，模糊搜索结果按从上到下(ttb, top to bottom)的顺序显示，高度最小为1行，最大为10行，搜索结果最多显示20行。</p>
+</li>
+</ol>
+<p>一旦打开ctrlp，即可输入要寻找的文件名使用ctrlp进行模糊搜索，可以使用以下命令进行操作： </p>
+<ul>
+<li>按下 <code>Esc</code> 或 <code>Ctrl-c</code> 可退出ctrlp，返回到Vim窗口中</li>
+<li>按下 <code>F5</code> 用于刷新当前操作路径下的文件缓存，可以使用命令 <code>let g:ctrlp_cache_dir = $HOME.&#39;/.cache/ctrlp&#39;</code> 设置缓存文件存放路径</li>
+<li>使用 <code>Ctrl-k</code> 和 <code>Ctrl-j</code> 在模糊搜索结果列表中上下移动 (当然也可以使用键盘上的上下方向键</li>
+<li>使用 <code>Ctrl-f</code> 和 <code>Ctrl-b</code> 在查找文件模式、查找缓冲区模式、查找MRU文件几种模式间进行切换 (cycle between modes)</li>
+<li>使用 <code>Ctrl-d</code> 在 路径匹配 和 文件名匹配 之间切换 (switch to filename search instead of full path) ，可以通过设置 let g:ctrlp_by_filename = 1 来设置默认使用 文件名匹配 模式进行模糊搜索</li>
+<li>使用 <code>Ctrl-r</code> 在 字符串模式 和 正则表达式模式 之间切换 (switch to regexp mode)</li>
+<li>使用 <code>Ctrl-t</code> 在新的Vim标签页中打开文件 (open the selected entry in a new tab)</li>
+<li>使用 <code>Ctrl-v</code> 垂直分割窗口打开文件</li>
+<li>使用 <code>Ctrl-x</code> 水平分割窗口打开文件</li>
+<li>使用 <code>Ctrl-p</code> 或` 选择前或后一条历史记录</li>
+<li>使用 <code>Ctrl-y</code> 用于当搜索的目标文件不存在时创建文件及父目录 (create a new file and its parent directories)</li>
+<li>使用 <code>Ctrl-z</code> 标记或取消标记多个文件， 标记多个文件后可以使用 <code>Ctrl-o</code> 同时打开多个文件</li>
+</ul>
+<h2 id="括号自动补全"><a href="#括号自动补全" class="headerlink" title="括号自动补全"></a>括号自动补全</h2><p><a target="_blank" rel="noopener" href="https://github.com/jiangmiao/auto-pairs">Github地址</a></p>
+<h3 id="安装插件-1"><a href="#安装插件-1" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plugin <span class="string">&#x27;jiangmiao/auto-pairs&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-vimrc文件-1"><a href="#配置-vimrc文件-1" class="headerlink" title="配置.vimrc文件"></a>配置.vimrc文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&quot;设置要自动配对的符号</span><br><span class="line">let g:AutoPairs = &#123;&#x27;(&#x27;:&#x27;)&#x27;, &#x27;[&#x27;:&#x27;]&#x27;, &#x27;&#123;&#x27;:&#x27;&#125;&#x27;,&quot;&#x27;&quot;:&quot;&#x27;&quot;,&#x27;&quot;&#x27;:&#x27;&quot;&#x27;&#125;</span><br><span class="line">&quot;添加要自动配对的符号&lt;&gt;</span><br><span class="line">let g:AutoPairs[&#x27;&lt;&#x27;]=&#x27;&gt;&#x27;</span><br><span class="line">&quot;设置要自动配对的符号，默认为g:AutoPairs，可以通过自动命令来对不同文件类型设置不同自动匹配对符号</span><br><span class="line">let b:AutoPairs = g:AutoParis</span><br><span class="line">&quot;设置插件打开/关闭的快捷键，默认为ALT+p。</span><br><span class="line">let g:AutoPairsShortcutToggle = &#x27;&lt;M-p&gt;&#x27;</span><br><span class="line">&quot;设置自动为文本添加圆括号的快捷键，默认为ALT+e。</span><br><span class="line">let g:AutoPairsShortcutFastWrap = &#x27;&lt;M-e&gt;&#x27;</span><br><span class="line">&quot;设置调到下一层括号对的快捷键，默认为ALT+n。</span><br><span class="line">let g:AutoPairsShortcutJump = &#x27;&lt;M-n&gt;&#x27;</span><br><span class="line">&quot;设置撤销飞行模式的快捷键，默认为ALT+b。</span><br><span class="line">let g:AutoPairsShortcutBackInsert = &#x27;&lt;M-b&gt;&#x27;</span><br><span class="line">&quot;把BACKSPACE键映射为删除括号对和引号，默认为1。</span><br><span class="line">let g:AutoPairsMapBS = 1</span><br><span class="line">&quot;把ctrl+h键映射为删除括号对和引号，默认为1。</span><br><span class="line">let g:AutoPairsMapCh = 1</span><br><span class="line">&quot;把ENTER键映射为换行并缩进，默认为1。</span><br><span class="line">let g:AutoPairsMapCR = 1</span><br><span class="line">&quot;当g:AutoPairsMapCR为1时，且文本位于窗口底部时，自动移到窗口中间。</span><br><span class="line">let g:AutoPairsCenterLine = 1</span><br><span class="line">&quot;把SPACE键映射为在括号两侧添加空格，默认为1。</span><br><span class="line">let g:AutoPairsMapSpace = 1</span><br><span class="line">&quot;启用飞行模式，默认为0。</span><br><span class="line">let g:AutoPairsFlyMode = 0</span><br><span class="line">&quot;启用跳出多行括号对，默认为1，为0则只能跳出同一行的括号。</span><br><span class="line">let g:AutoPairsMultilineClose = 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装vim-airline"><a href="#安装vim-airline" class="headerlink" title="安装vim-airline"></a>安装vim-airline</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plugin <span class="string">&#x27;bling/vim-airline&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装neocomplete"><a href="#安装neocomplete" class="headerlink" title="安装neocomplete"></a>安装neocomplete</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plugin &#x27;Shougo/neocomplete&#x27;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意启用设置粘贴set paste的时候会自动禁用这个插件</p>
+<p>安装neocomplete 插件需要vim的lua模块支持</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">let g:neocomplete#enable_at_startup = 1</span><br><span class="line">&quot;至此，neocomplete配置完成。同时，作者提供了一份neocomplete的配置，如果没有特殊需要，可以直接使用:</span><br><span class="line">    &quot;Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!</span><br><span class="line">    &quot; Disable AutoComplPop.</span><br><span class="line">    let g:acp_enableAtStartup = 0</span><br><span class="line">    &quot; Use neocomplete.</span><br><span class="line">    let g:neocomplete#enable_at_startup = 1</span><br><span class="line">    &quot; Use smartcase.</span><br><span class="line">    let g:neocomplete#enable_smart_case = 1</span><br><span class="line">    &quot; Set minimum syntax keyword length.</span><br><span class="line">    let g:neocomplete#sources#syntax#min_keyword_length = 3</span><br><span class="line"></span><br><span class="line">    &quot; Define dictionary.</span><br><span class="line">    let g:neocomplete#sources#dictionary#dictionaries = &#123;</span><br><span class="line">        \ &#x27;default&#x27; : &#x27;&#x27;,</span><br><span class="line">        \ &#x27;vimshell&#x27; : $HOME.&#x27;/.vimshell_hist&#x27;,</span><br><span class="line">        \ &#x27;scheme&#x27; : $HOME.&#x27;/.gosh_completions&#x27;</span><br><span class="line">            \ &#125;</span><br><span class="line"></span><br><span class="line">    &quot; Define keyword.</span><br><span class="line">    if !exists(&#x27;g:neocomplete#keyword_patterns&#x27;)</span><br><span class="line">        let g:neocomplete#keyword_patterns = &#123;&#125;</span><br><span class="line">    endif</span><br><span class="line">    let g:neocomplete#keyword_patterns[&#x27;default&#x27;] = &#x27;\h\w*&#x27;</span><br><span class="line"></span><br><span class="line">    &quot; Plugin key-mappings.</span><br><span class="line">    inoremap &lt;expr&gt;&lt;C-g&gt;     neocomplete#undo_completion()</span><br><span class="line">    inoremap &lt;expr&gt;&lt;C-l&gt;     neocomplete#complete_common_string()</span><br><span class="line"></span><br><span class="line">    &quot; Recommended key-mappings.</span><br><span class="line">    &quot; &lt;CR&gt;: close popup and save indent.</span><br><span class="line">    inoremap &lt;silent&gt; &lt;CR&gt; &lt;C-r&gt;=&lt;SID&gt;my_cr_function()&lt;CR&gt;</span><br><span class="line">    function! s:my_cr_function()</span><br><span class="line">      return (pumvisible() ? &quot;\&lt;C-y&gt;&quot; : &quot;&quot; ) . &quot;\&lt;CR&gt;&quot;</span><br><span class="line">      &quot; For no inserting &lt;CR&gt; key.</span><br><span class="line">      &quot;return pumvisible() ? &quot;\&lt;C-y&gt;&quot; : &quot;\&lt;CR&gt;&quot;</span><br><span class="line">    endfunction</span><br><span class="line">    &quot; &lt;TAB&gt;: completion.</span><br><span class="line">    inoremap &lt;expr&gt;&lt;TAB&gt;  pumvisible() ? &quot;\&lt;C-n&gt;&quot; : &quot;\&lt;TAB&gt;&quot;</span><br><span class="line">    &quot; &lt;C-h&gt;, &lt;BS&gt;: close popup and delete backword char.</span><br><span class="line">    inoremap &lt;expr&gt;&lt;C-h&gt; neocomplete#smart_close_popup().&quot;\&lt;C-h&gt;&quot;</span><br><span class="line">    inoremap &lt;expr&gt;&lt;BS&gt; neocomplete#smart_close_popup().&quot;\&lt;C-h&gt;&quot;</span><br><span class="line">    &quot; Close popup by &lt;Space&gt;.</span><br><span class="line">    &quot;inoremap &lt;expr&gt;&lt;Space&gt; pumvisible() ? &quot;\&lt;C-y&gt;&quot; : &quot;\&lt;Space&gt;&quot;</span><br><span class="line"></span><br><span class="line">    &quot; AutoComplPop like behavior.</span><br><span class="line">    &quot;let g:neocomplete#enable_auto_select = 1</span><br><span class="line"></span><br><span class="line">    &quot; Shell like behavior(not recommended).</span><br><span class="line">    &quot;set completeopt+=longest</span><br><span class="line">    &quot;let g:neocomplete#enable_auto_select = 1</span><br><span class="line">    &quot;let g:neocomplete#disable_auto_complete = 1</span><br><span class="line">    &quot;inoremap &lt;expr&gt;&lt;TAB&gt;  pumvisible() ? &quot;\&lt;Down&gt;&quot; : &quot;\&lt;C-x&gt;\&lt;C-u&gt;&quot;</span><br><span class="line"></span><br><span class="line">    &quot; Enable omni completion.</span><br><span class="line">    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS</span><br><span class="line">    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags</span><br><span class="line">    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS</span><br><span class="line">    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete</span><br><span class="line">    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags</span><br><span class="line"></span><br><span class="line">    &quot; Enable heavy omni completion.</span><br><span class="line">    if !exists(&#x27;g:neocomplete#sources#omni#input_patterns&#x27;)</span><br><span class="line">      let g:neocomplete#sources#omni#input_patterns = &#123;&#125;</span><br><span class="line">    endif</span><br><span class="line">    &quot;let g:neocomplete#sources#omni#input_patterns.php = &#x27;[^. \t]-&gt;\h\w*\|\h\w*::&#x27;</span><br><span class="line">    &quot;let g:neocomplete#sources#omni#input_patterns.c = &#x27;[^.[:digit:] *\t]\%(\.\|-&gt;\)&#x27;</span><br><span class="line">    &quot;let g:neocomplete#sources#omni#input_patterns.cpp = &#x27;[^.[:digit:] *\t]\%(\.\|-&gt;\)\|\h\w*::&#x27;</span><br><span class="line"></span><br><span class="line">    &quot; For perlomni.vim setting.</span><br><span class="line">    &quot; https://github.com/c9s/perlomni.vim</span><br><span class="line">    let g:neocomplete#sources#omni#input_patterns.perl = &#x27;\h\w*-&gt;\h\w*\|\h\w*::&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>先到这里，以后发现了什么好玩的插件再来更新。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://imbhj.com">Ordis</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://imbhj.com/posts/bfe797d6/">https://imbhj.com/posts/bfe797d6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://imbhj.com" target="_blank">Ordis'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/Vim/">Vim</a><a class="post-meta__tags" href="/tags/Vimrc/">Vimrc</a></div><div class="post_share"><div class="social-share" data-image="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721130037.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "/img/1495.gif" data-lazy-src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "/img/1495.gif" data-lazy-src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/fde3401b/" title="代码管理工具Git基础"><img class="cover" src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721092022.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">代码管理工具Git基础</div></div></a></div><div class="next-post pull-right"><a href="/posts/539de644/" title="Vim基础"><img class="cover" src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721125556.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Vim基础</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/539de644/" title="Vim基础"><img class="cover" src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721125556.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-12-30</div><div class="title">Vim基础</div></div></a></div><div><a href="/posts/65135c46/" title="Win11使用WSL2安装KaliLinux并安装图形界面"><img class="cover" src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN1/20210817155740.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2023-04-01</div><div class="title">Win11使用WSL2安装KaliLinux并安装图形界面</div></div></a></div><div><a href="/posts/26093a52/" title="Deepin之大黄蜂驱动"><img class="cover" src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721085333.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-12-19</div><div class="title">Deepin之大黄蜂驱动</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/img/1495.gif" data-lazy-src="/img/avatar1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Ordis</div><div class="author-info__description">三丘丘采药，四丘丘嗷~</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">165</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/laugh0608/"><i class="iconfont icon-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">已经上班了，博客更新可能会变慢~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E7%94%A8-Vim-%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">启用 Vim 的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">基础设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87%E4%B8%8D%E4%B9%B1%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">设置中文不乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E8%A1%8C%E5%8F%B7"><span class="toc-number">2.2.</span> <span class="toc-text">显示行号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%81%E5%87%BA%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E8%A1%8C"><span class="toc-number">2.3.</span> <span class="toc-text">突出显示当前行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E9%BC%A0%E6%A0%87"><span class="toc-number">2.4.</span> <span class="toc-text">启用鼠标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%BC%A9%E8%BF%9B"><span class="toc-number">2.5.</span> <span class="toc-text">设置缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B2%98%E8%B4%B4%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.6.</span> <span class="toc-text">粘贴格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E7%8A%B6%E6%80%81%E6%A0%8F%E5%92%8C%E5%85%89%E6%A0%87%E5%BD%93%E5%89%8D%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.7.</span> <span class="toc-text">显示状态栏和光标当前位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim%E9%85%8D%E7%BD%AE%E5%8F%98%E6%9B%B4%E7%AB%8B%E5%8D%B3%E7%94%9F%E6%95%88"><span class="toc-number">2.8.</span> <span class="toc-text">Vim配置变更立即生效</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE"><span class="toc-number">2.9.</span> <span class="toc-text">语法高亮</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD"><span class="toc-number">3.</span> <span class="toc-text">插件功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E8%A1%A5%E9%BD%90"><span class="toc-number">3.1.</span> <span class="toc-text">代码自动补齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Vundle%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">安装Vundle插件管理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEVundle"><span class="toc-number">3.3.</span> <span class="toc-text">配置Vundle</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Vundle%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">使用Vundle安装插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim%E8%87%AA%E5%B8%A6%E7%9A%84%E4%BB%A3%E7%A0%81%E8%A1%A5%E5%85%A8%E5%8A%9F%E8%83%BD"><span class="toc-number">5.</span> <span class="toc-text">Vim自带的代码补全功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E8%A1%A5%E5%85%A8"><span class="toc-number">5.1.</span> <span class="toc-text">字典补全</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%B7%B3%E8%BD%AC"><span class="toc-number">6.</span> <span class="toc-text">函数跳转</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85tags%E8%BD%AF%E4%BB%B6"><span class="toc-number">6.1.</span> <span class="toc-text">安装tags软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gutentags%E9%85%8D%E7%BD%AE"><span class="toc-number">6.2.</span> <span class="toc-text">gutentags配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ctags%E5%8F%82%E6%95%B0%E6%84%8F%E4%B9%89"><span class="toc-number">6.3.</span> <span class="toc-text">ctags参数意义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E6%A0%91%E5%B1%95%E7%A4%BA"><span class="toc-number">7.</span> <span class="toc-text">工程项目树展示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-vimrc%E6%96%87%E4%BB%B6"><span class="toc-number">7.1.</span> <span class="toc-text">配置.vimrc文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NERDTree%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB"><span class="toc-number">7.2.</span> <span class="toc-text">NERDTree常用命令汇总</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0"><span class="toc-number">8.</span> <span class="toc-text">代码折叠</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2"><span class="toc-number">9.</span> <span class="toc-text">全局搜索</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">9.1.</span> <span class="toc-text">安装插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ctrlp%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D"><span class="toc-number">9.2.</span> <span class="toc-text">ctrlp命令介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%AC%E5%8F%B7%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-number">10.</span> <span class="toc-text">括号自动补全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6-1"><span class="toc-number">10.1.</span> <span class="toc-text">安装插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-vimrc%E6%96%87%E4%BB%B6-1"><span class="toc-number">10.2.</span> <span class="toc-text">配置.vimrc文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85vim-airline"><span class="toc-number">11.</span> <span class="toc-text">安装vim-airline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85neocomplete"><span class="toc-number">12.</span> <span class="toc-text">安装neocomplete</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a1ac7eb6/" title="Go语言学习笔记之一">Go语言学习笔记之一</a><time datetime="2023-12-11T11:46:23.238Z" title="更新于 2023-12-11 19:46:23">2023-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a19c06b7/" title="C++构建简单HttpServer服务器">C++构建简单HttpServer服务器</a><time datetime="2023-12-10T14:14:02.143Z" title="更新于 2023-12-10 22:14:02">2023-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3471cb80/" title="WSL更改安装位置"><img src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202312091837233.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WSL更改安装位置"/></a><div class="content"><a class="title" href="/posts/3471cb80/" title="WSL更改安装位置">WSL更改安装位置</a><time datetime="2023-12-10T03:02:40.811Z" title="更新于 2023-12-10 11:02:40">2023-12-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e5f6a19a/" title="WSL安装Docker与密钥排错">WSL安装Docker与密钥排错</a><time datetime="2023-12-10T02:52:46.508Z" title="更新于 2023-12-10 10:52:46">2023-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c6105688/" title="VS2022安装第三方cpp库Poco"><img src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311162043520.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VS2022安装第三方cpp库Poco"/></a><div class="content"><a class="title" href="/posts/c6105688/" title="VS2022安装第三方cpp库Poco">VS2022安装第三方cpp库Poco</a><time datetime="2023-12-09T11:37:15.125Z" title="更新于 2023-12-09 19:37:15">2023-12-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2023 By Ordis</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">🛵关于本站：域名解析：阿里云 | 服务器托管：Vercel | 代码托管：Github</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://lean-v.imbhj.com',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: true,
+    }, {"reaction":true}))
+  }
+
+  if (typeof Waline === 'object') initWaline()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css').then(() => {
+      getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+    })
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

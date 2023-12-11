@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /img/
+Disallow: /love/
+Disallow: /css/
+Disallow: /js/
+Disallow: /img/
+Disallow: /photo/
+Disallow: /Gallery/
+Disallow: /*.css
+Disallow: /*.js
+
+Sitemap: https://imbhj.com/sitemap.xml

@@ -1,0 +1,474 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Web安全基础 | Ordis'Blog</title><meta name="author" content="Ordis"><meta name="copyright" content="Ordis"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Web安全基础安全问题的本质是信任的问题。 最大的漏洞是人！ 在解决安全问题的过程中，不可能一劳永逸，安全是一个持续的过程。 安全三要素在设计安全方案之前，要正确的、全面的看待安全问题。前辈们经过无数实践，最后将安全的属性总结为安全三要素，简称CIA：  机密性 Confidentiality 完整性 Integrity 可用性 Avaliability  机密性要求保护数据内容不能泄露，加密是实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web安全基础">
+<meta property="og:url" content="https://imbhj.com/posts/43902f53/">
+<meta property="og:site_name" content="Ordis&#39;Blog">
+<meta property="og:description" content="Web安全基础安全问题的本质是信任的问题。 最大的漏洞是人！ 在解决安全问题的过程中，不可能一劳永逸，安全是一个持续的过程。 安全三要素在设计安全方案之前，要正确的、全面的看待安全问题。前辈们经过无数实践，最后将安全的属性总结为安全三要素，简称CIA：  机密性 Confidentiality 完整性 Integrity 可用性 Avaliability  机密性要求保护数据内容不能泄露，加密是实">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721130757.jpg">
+<meta property="article:published_time" content="2020-02-08T00:19:36.000Z">
+<meta property="article:modified_time" content="2020-02-08T00:19:36.000Z">
+<meta property="article:author" content="Ordis">
+<meta property="article:tag" content="XSS">
+<meta property="article:tag" content="WebSec">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721130757.jpg"><link rel="shortcut icon" href="/img/luobo.png"><link rel="canonical" href="https://imbhj.com/posts/43902f53/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-fz5uoOqZdH"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?156d93be2cc6945ec71fc68a0a9c732e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":60,"position":"top","messagePrev":"本文章距离最后一次更新已经过去了","messageNext":"天，文章内容可能已经变得不可靠或者版本不适配，请谨慎阅读。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Web安全基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-02-08 08:19:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = url => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      link.onload = () => resolve()
+      link.onerror = () => reject()
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_2005310_9tg4odpdgr.css" type="text/css" /><link rel="stylesheet" href="/css/footerjianbian.css" type="text/css" /><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/img/1495.gif" data-lazy-src="/img/avatar1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">165</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 小窝</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw iconfont icon-time"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-book-2"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-sort"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-me"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw iconfont icon-41shuoshuo"></i><span> 说说</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjieguanlian"></i><span> 友链</span></a></li><li><a class="site-page child" href="/link-favorites/"><i class="fa-fw iconfont icon-collection-b"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/message/"><i class="fa-fw iconfont icon-liuyan"></i><span> 留言</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-iconfontyouxihudong"></i><span> 游戏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/catchcat/"><i class="fa-fw iconfont icon-maomi"></i><span> 圈圈小猫</span></a></li><li><a class="site-page child" href="/running/"><i class="fa-fw iconfont icon-konglong"></i><span> 恐龙快跑</span></a></li><li><a class="site-page child" href="/maze/"><i class="fa-fw iconfont icon-zuoce-xianlu"></i><span> 小球闯关</span></a></li><li><a class="site-page child" href="/css-sweeper/"><i class="fa-fw iconfont icon-zhadan"></i><span> CSS扫雷</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-gongnengdingyi"></i><span> 功能</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw iconfont icon-yinle"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/bilibili/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://lean-v.imbhj.com/ui/login/"><i class="fa-fw iconfont icon-pinglun"></i><span> Waline后台</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Ordis'Blog"><span class="site-name">Ordis'Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 小窝</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw iconfont icon-time"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-book-2"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-sort"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-me"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw iconfont icon-41shuoshuo"></i><span> 说说</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjieguanlian"></i><span> 友链</span></a></li><li><a class="site-page child" href="/link-favorites/"><i class="fa-fw iconfont icon-collection-b"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/message/"><i class="fa-fw iconfont icon-liuyan"></i><span> 留言</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-iconfontyouxihudong"></i><span> 游戏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/catchcat/"><i class="fa-fw iconfont icon-maomi"></i><span> 圈圈小猫</span></a></li><li><a class="site-page child" href="/running/"><i class="fa-fw iconfont icon-konglong"></i><span> 恐龙快跑</span></a></li><li><a class="site-page child" href="/maze/"><i class="fa-fw iconfont icon-zuoce-xianlu"></i><span> 小球闯关</span></a></li><li><a class="site-page child" href="/css-sweeper/"><i class="fa-fw iconfont icon-zhadan"></i><span> CSS扫雷</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-gongnengdingyi"></i><span> 功能</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw iconfont icon-yinle"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/bilibili/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://lean-v.imbhj.com/ui/login/"><i class="fa-fw iconfont icon-pinglun"></i><span> Waline后台</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Web安全基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-02-08T00:19:36.000Z" title="发表于 2020-02-08 08:19:36">2020-02-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-02-08T00:19:36.000Z" title="更新于 2020-02-08 08:19:36">2020-02-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Web安全基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/43902f53/#post-comment"><span class="waline-comment-count" data-path="/posts/43902f53/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div><article class="post-content" id="article-container"><h2 id="Web安全基础"><a href="#Web安全基础" class="headerlink" title="Web安全基础"></a>Web安全基础</h2><p>安全问题的本质是信任的问题。</p>
+<p>最大的漏洞是人！</p>
+<p>在解决安全问题的过程中，不可能一劳永逸，安全是一个持续的过程。</p>
+<h2 id="安全三要素"><a href="#安全三要素" class="headerlink" title="安全三要素"></a>安全三要素</h2><p>在设计安全方案之前，要正确的、全面的看待安全问题。前辈们经过无数实践，最后将安全的属性总结为安全三要素，简称CIA：</p>
+<ul>
+<li>机密性 Confidentiality</li>
+<li>完整性 Integrity</li>
+<li>可用性 Avaliability</li>
+</ul>
+<p>机密性要求保护数据内容不能泄露，加密是实现机密性要求的常见手段。</p>
+<p>完整性要求保护数据内容是完整、没有被篡改的。常见的保证一致性的技术手段是数字签名。</p>
+<p>可用性要求保护资源是“随需而得”。</p>
+<p>在安全领域中最基本的要素就是这三个，后来有人扩充了可审计性和不可抵赖性。</p>
+<h2 id="如何实施安全评估"><a href="#如何实施安全评估" class="headerlink" title="如何实施安全评估"></a>如何实施安全评估</h2><p>一个安全评估的过程可以简单的分为四个阶段：</p>
+<ul>
+<li>资产等级划分</li>
+<li>威胁分析</li>
+<li>风险分析</li>
+<li>确认解决方案</li>
+</ul>
+<p>如果面对的是一个尚未评估的系统，那么应该从第一个阶段开始实施，如果是由专职的安全团队长期维护的系统，那么有些阶段可以只实施一次。在这几个阶段中，上一个阶段将决定下一个阶段的目标，需要实施到什么程度。</p>
+<h3 id="资产等级划分"><a href="#资产等级划分" class="headerlink" title="资产等级划分"></a>资产等级划分</h3><p>资产等级划分是所有工作的基础，能帮我们明确目标是什么，需要保护什么。</p>
+<p>互联网安全的核心问题就是数据安全的问题。</p>
+<p>每个公司对数据的侧重点不同，做资产等级划分的过程需要与各个业务部门的负责人一一沟通，了解公司最重要的资产是什么，为后续的安全评估过程指明方向。</p>
+<p>当完成资产等级划分之后，接下来就是要划分信任域和信任边界了。通常会使用一种最简单的划分方式，就是从网络逻辑上划分，比如最重要的数据放在数据库里，那就把数据库的服务器圈起来，Web应用可以从数据库中读写数据并对外提供服务，那就再把Web服务器圈起来，最外面就是不可信任的Internet。</p>
+<p><img src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721130543.png"></p>
+<p>这只是最简单的例子，实际中会遇到比这复杂很多的案例，比如同样是两个应用，互相之间存在数据交互，那么就要考虑到这里的数据交互对于各自应用来说是否可靠，应该在两个应用之间划一道边界，然后对流经边界的数据进行检查。</p>
+<h3 id="威胁分析"><a href="#威胁分析" class="headerlink" title="威胁分析"></a>威胁分析</h3><p>信任域规划好之后，就要确定危险的来源。我们把可能造成危害的来源叫做威胁(Threat)，而把可能出现的损失成为风险(Risk)。风险一定是和损失联系在一起的，又分为两个阶段：威胁建模和风险分析。</p>
+<p>最早由微软提出一种模型叫做STRIDE模型，分别是一下六个方面：</p>
+<table>
+<thead>
+<tr>
+<th>威胁</th>
+<th>定义</th>
+<th>对应的安全属性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Spoofing(伪装)</td>
+<td>冒充他人身份</td>
+<td>认证</td>
+</tr>
+<tr>
+<td>Tampering(篡改)</td>
+<td>修改数据或代码</td>
+<td>完整性</td>
+</tr>
+<tr>
+<td>Repudiation(抵赖)</td>
+<td>否认做过的事情</td>
+<td>不可抵赖性</td>
+</tr>
+<tr>
+<td>InformationDisclosure(信息泄露)</td>
+<td>机密信息泄露</td>
+<td>机密性</td>
+</tr>
+<tr>
+<td>Denial of Service(拒绝服务)</td>
+<td>拒绝服务</td>
+<td>可用性</td>
+</tr>
+<tr>
+<td>Elevation of Privilege(提升权限)</td>
+<td>未经授权获得许可</td>
+<td>授权</td>
+</tr>
+</tbody></table>
+<p>在进行威胁分析时，要尽可能的不漏掉威胁，头脑风暴的过程可以确定攻击面(AttackSurface)。</p>
+<p>漏洞的定义是：系统中可能被威胁利用以造成危害的地方。</p>
+<p>在维护安全的过程中，攻击者往往就是利用事先完全没有想到的漏洞完成了入侵，这就是在确定攻击面时想的不够周全。</p>
+<h3 id="风险分析"><a href="#风险分析" class="headerlink" title="风险分析"></a>风险分析</h3><p>风险由以下因素组成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Risk = Probability * Damage Potential</span><br></pre></td></tr></table></figure>
+
+<p>影响风险高低的因素，除了造成损失的大小以外，还要考虑到发生的可能性。</p>
+<p>举个例子来说，地震造成的损失无法估量，但是发生地震的概率非常小，但是如果是在四川这种地震频发的位置，那就不得不提高这种风险的预警。</p>
+<p>科学的衡量风险，有一个DREAD模型，也是由微软提出的：</p>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>高(3)</th>
+<th>中(2)</th>
+<th>低(1)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DamagePotential</td>
+<td>获取完全验证权限；执行管理员操作；非法上传文件</td>
+<td>泄露敏感信息</td>
+<td>泄露其他信息</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>攻击者可以随意再次攻击</td>
+<td>攻击者可以重复攻击，但有时间限制</td>
+<td>攻击者很难重复攻击过程</td>
+</tr>
+<tr>
+<td>Exploitability</td>
+<td>初学者在短期内能掌握攻击方法</td>
+<td>熟练的攻击者才能完成这次攻击</td>
+<td>漏洞利用条件非常苛刻</td>
+</tr>
+<tr>
+<td>Affected users</td>
+<td>所有用户，默认配置，关键用户</td>
+<td>部分用户，非默认配置</td>
+<td>极少数用户，匿名用户</td>
+</tr>
+<tr>
+<td>Discoverability</td>
+<td>漏洞很显眼，攻击条件很容易获得</td>
+<td>在私有区域，部分人能看到，需要深入挖掘漏洞</td>
+<td>发现该漏洞极其困难</td>
+</tr>
+</tbody></table>
+<p>在这个模型里，每一个因素都有高、中、低三个等级，每一个等级的3、2、1代表其权重值，因此我们可以具体的计算出某一个威胁的风险值。</p>
+<p>比如，从正面进攻：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Risk = D(3) + R(3) + E(3) + A(3) + D(3) = 3+3+3+3+3 = 15</span><br></pre></td></tr></table></figure>
+
+<p>绕一些小路：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Risk = D(3) + R(1) + E(1) + A(3) + D(1) = 3+1+1+3+1 = 9</span><br></pre></td></tr></table></figure>
+
+<p>所以把风险高低定义如下：</p>
+<ul>
+<li>高危：12~15分</li>
+<li>中危：8~11分</li>
+<li>低危：0~7分</li>
+</ul>
+<p>但是在任何时候都应该记住，模型是死的人是活的，再好的模型也是需要人来用的，模型只是起到一个辅助的作用，最终做决策的还是人。</p>
+<h3 id="设计安全方案"><a href="#设计安全方案" class="headerlink" title="设计安全方案"></a>设计安全方案</h3><p>安全评估的产出物就是安全解决方案，解决方案一定要有针对性，这种针对性是由等级划分、威胁分析、风险分析等阶段的结果给出的。</p>
+<p>好的安全产品或模块除了要兼顾用户体验外，还要易于持续改进。一个好的安全模块，同时也应该是一个优秀的程序，从设计上也需要做到高聚合、低耦合、易于扩展。</p>
+<p>最终一个优秀的安全方案应该具备以下特点：</p>
+<ul>
+<li>能够有效解决问题</li>
+<li>用户体验好</li>
+<li>高性能</li>
+<li>低耦合</li>
+<li>易于扩展和升级</li>
+</ul>
+<h2 id="白帽子技巧"><a href="#白帽子技巧" class="headerlink" title="白帽子技巧"></a>白帽子技巧</h2><h3 id="Secure-By-Default-原则"><a href="#Secure-By-Default-原则" class="headerlink" title="Secure By Default 原则"></a>Secure By Default 原则</h3><h4 id="黑名单、白名单"><a href="#黑名单、白名单" class="headerlink" title="黑名单、白名单"></a>黑名单、白名单</h4><p>例如在制定防火墙的网络访问控制策略时，如果只提供web服务，那么正确的做法是只允许网站服务器的80和443端口对外提供服务，屏蔽除此之外的其他端口，这就是一种典型的白名单做法。</p>
+<p>如果上个例子使用的是黑名单规则，就可能出现问题，比如服务器不允许SSH连接，那么就会审计SSH的默认端口22，关闭其对Internet的开放，但是有些工程师为了偷懒或者图方便，会把端口改为2222或者其他，从而绕过安全策略。</p>
+<h4 id="最小权限原则"><a href="#最小权限原则" class="headerlink" title="最小权限原则"></a>最小权限原则</h4><p>最小权限原则也是安全设计的基本原则之一。最小权限原则要求系统只授予主题必要的权限，不要过度授权。</p>
+<p>最生动的例子就是Linux运维工程师都知道，最良好的操作习惯就是使用普通用户登录，而需要使用root权限时再使用sudo命令来完成。</p>
+<h3 id="纵深防御原则"><a href="#纵深防御原则" class="headerlink" title="纵深防御原则"></a>纵深防御原则</h3><p>Defense in Depth(纵深防御) 也是设计安全方案时的重要思想。</p>
+<p>纵深防御包含两层含义：首先，要在各个不同层面、不同方面实施安全方案，避免出现疏漏，不同安全方案之间需要相互配合，构成一个整体；其次，在解决根本问题的地方实施针对性的安全方案。</p>
+<p>纵深防御并不是同一个安全方案要做多遍，而是要从不同层面、不同角度做出整体的解决方案。</p>
+<p>常见的入侵案例中，大多数是利用web应用的漏洞攻击者先获得一个低权限的webshell然后通过低权限的webshell上传更多的文件，并尝试执行更高权限的系统命令，尝试在服务器上提升权限为root，接下来攻击者就会尝试再进一步渗透内网，比如数据库所在的网段。</p>
+<p>在这类案例中，如果能在攻击过程中的任何一个环节设置有效的防范措施，都有可能会导致攻击过程功亏一篑。</p>
+<p>就入侵的防御来说，需要考虑的可能有web应用安全、os系统安全、数据库安全、网络环境安全等。在这些不同的层面设计的安全方案，组成整个安全体系，这就是纵深防御的思想。</p>
+<p>纵深防御的第二层含义，就是在对的地方做对的事。</p>
+<p>举个例子就是XSS防御技术的发展，最初的时候只是过滤掉一些特殊字符，但是这种做法常常会改变用户原本想表达的意思。过滤用户输入并不合适，XSS真正产生危害的场景是在用户的浏览器上，或者说服务器输出的HTML页面，被注入了恶意代码。所以必须把防御方案放到最合适的地方去解决。</p>
+<h3 id="数据与代码分离原则"><a href="#数据与代码分离原则" class="headerlink" title="数据与代码分离原则"></a>数据与代码分离原则</h3><p>这一原则广泛用于各种由于“注入”而引发的安全问题。实际上缓冲区溢出，程序在栈或者堆中，将用户数据当做代码执行，混淆了代码与数据的边界，就会导致安全问题的发生。</p>
+<p>在web安全中，由于注入引起的问题有：XSS、SQL Injection、CRLF Injection、X-Path Injection等。</p>
+<p>以XSS为例，它产生的原因是HTML Injection或者JavaScript injection，举个例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        test</span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        $var</span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中<code>$var</code> 就是用户控制的变量，那么对于这段代码来说：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        test</span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>就是程序的代码执行片段而<code>$var</code> 就是程序的用户数据片段。如果把用户数据<code>$var</code> 当做代码片段来执行，就会引发安全问题，比如如果<code>$var</code> 的值是：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://evil&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>用户数据就会被注入到代码片段中，解析脚本并执行的过程，是由浏览器来完成的，浏览器将用户数据里的<code>&lt;script&gt;</code> 标签当做代码来解释。</p>
+<p>根据数据与代码分离原则，在这里应该对用户数据片段<code>$var</code> 进行安全处理，可以使用过滤，编码等手段，把可能造成代码混淆的用户数据清理掉。</p>
+<h3 id="不可预测性原则"><a href="#不可预测性原则" class="headerlink" title="不可预测性原则"></a>不可预测性原则</h3><p>Secure By Default是总则，纵深防御是更全面、更正确的看待问题，数据与代码分离是从漏洞成因上看问题，而不可预测性原则是从克服攻击方法的角度看待问题。</p>
+<p>微软应对缓冲区溢出攻击的思路，使用DEP来保证堆栈不可执行，使用ASLR让进程的栈基址随机变化，从而使攻击程序无法准确的猜到内存地址，有一定的随机性，对于攻击者来说就是不可预测性。</p>
+<p>不可预测性(Unpredictable)能有效地对抗基于篡改、伪造的攻击。</p>
+<p>不可预测性原则可以巧妙的运用在一些敏感数据上，比如在CSRF的防御技术中，通常会使用一个token来进行有效防御，token能成功防御CSRF就是因为攻击者在实施CSRF攻击过程中，是无法提前预知这个token值的。</p>
+<p>不可预测性的实现往往需要用到加密算法、随机数算法、哈希算法等。</p>
+<h3 id="安全是一门朴素的学问，也是一种平衡的艺术。"><a href="#安全是一门朴素的学问，也是一种平衡的艺术。" class="headerlink" title="安全是一门朴素的学问，也是一种平衡的艺术。"></a>安全是一门朴素的学问，也是一种平衡的艺术。</h3><h2 id="浏览器安全"><a href="#浏览器安全" class="headerlink" title="浏览器安全"></a>浏览器安全</h2><h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><p>浏览器的同源策略，限制了来自不同源的“document”或者脚本，对当前”document”读取或设置某些属性。</p>
+<p>a.com的一段JavaScript脚本，在b.com未曾加载此脚本时，也可以随意涂改b.com的页面（在浏览器里的显示），为了不让浏览器的页面行为发生混乱，浏览器提出了“Origin”源的概念，来自不同源的对象无法互相干扰。例如：</p>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>Outcome</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="http://store.company.com/dir2/other.html">http://store.company.com/dir2/other.html</a></td>
+<td>Success</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://store.company.com/dir/inner/another.html">http://store.company.com/dir/inner/another.html</a></td>
+<td>Success</td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://store.company.com/secure.html">https://store.company.com/secure.html</a></td>
+<td>Faiure</td>
+<td>Different protocol</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://store.company.com:81/dir/etc.html">http://store.company.com:81/dir/etc.html</a></td>
+<td>Faiure</td>
+<td>Different port</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://news.company.com/dir/other.html">http://news.company.com/dir/other.html</a></td>
+<td>Faiure</td>
+<td>Different host</td>
+</tr>
+</tbody></table>
+<p>上表就是浏览器中JavaScript的同源策略，当JavaScript被浏览器认为来自不同源时，请求被拒绝。影响源的因素有：host(域名或IP地址，如果是IP地址则看做一个根域名)、子域名、端口、协议。</p>
+<p>需要注意的是，对于当前页面来说，页面内存放JavaScript文件的域并不重要，重要的事加载JavaScript页面所在的域是什么。换句话来说，a.com可以通过以下代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://b.com/b.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>加载了b.com上的b.js，但是b.js是运行在a.com页面中的，因此对当前打开的页面(a.com)来说，b.js的源就应该是a.com而非b.com。</p>
+<p>在浏览器中，<code>&lt;script</code> 、<code>&lt;img&gt;</code> 、<code>&lt;iframe&gt;</code> 、<code>&lt;link&gt;</code>等标签都可以跨域加载资源，而不受同源策略的限制。</p>
+<p>这些带<code>src</code> 属性的标签每次加载时，实际上就是由浏览器发起了一次GET请求，不同于XMLHttpRequest的是，通过<code>src</code> 的属性加载的资源，浏览器限制了JavaScript的权限，使其不能读、写返回的内容。</p>
+<p>随着互联网的发展，跨域请求越来越迫切，因此W3C制定了XMLHttpRequest跨域访问标准，它需要通过目标返回的HTTP头来授权是否允许跨域访问，但是这一切都是建立在“JavaScript无法控制该HTTP头”，如果这个规则被打破，这个方案也再不安全。</p>
+<p>以Flash为例，它主要通过目标网站提供的crossdomain.xml文件判断是否允许当前源的flash跨域访问目标资源。</p>
+<h3 id="浏览器沙箱"><a href="#浏览器沙箱" class="headerlink" title="浏览器沙箱"></a>浏览器沙箱</h3><p>在网页中插入一段恶意代码，利用浏览器漏洞执行任意代码的攻击方式，在黑客圈子被形象的成为“挂马”。比如在Windows系统中，浏览器密切结合DEP、ASLR、SafeSEH等操作系统提供的保护技术，对抗内存攻击，与此同时浏览器还发展出了多进程架构，从安全性上有了很大保证。</p>
+<p>Google Chrome是第一个采取多进程架构的浏览器。主要分为浏览器进程、渲染进程、插件进程、扩展进程。插件进程如flash、Java、PDF等于浏览器严格隔离，不互相影响。</p>
+<p><img src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721130604.png"></p>
+<p>渲染引擎由sandbox隔离，网页代码要与浏览器内核进程通信、于操作系统通信都需要通过IPC channel，其中会进行一些安全检查。</p>
+<p>sandbox即沙箱，现在泛指资源隔离模块。它的设计目的一般是为了让不可信任的代码运行在一定的环境中，限制不可信任的代码访问隔离区之外的资源。</p>
+<h3 id="恶意网站拦截"><a href="#恶意网站拦截" class="headerlink" title="恶意网站拦截"></a>恶意网站拦截</h3><p>目前来说，各个浏览器的拦截恶意网址的功能都是基于黑名单规则的，工作原理很简单，一般都是浏览器周期性的从服务器端获取一份最新的恶意网址名单，如果用户访问就会拦截警告。</p>
+<p>常见的恶意网址分为两类，一类是挂马网站，这些网站通常包含有恶意的脚本如JavaScript或者Flash，通过利用浏览器的漏洞执行shellcode，在用户电脑中植入木马，另一类是钓鱼网站，通过模仿知名网站的相似页面来欺骗用户。</p>
+<p>要识别这两种网址，需要建立很多基于页面特征的模型，而这些模型显然是不适合放在客户端的，因为会让攻击者分析研究并绕过这些规则。同时对于收集用户浏览历史是一种侵犯隐私权的行为。</p>
+<p>基于这两种原因，浏览器厂商目前只是以推送恶意网站黑名单为主，一般而言，浏览器厂商选择与专业的安全厂商或机构合作，由他们定期提供黑名单。</p>
+<p>除了黑名单拦截功能之外，现在也有EV SSL证书以增强对安全网站的识别。这个证书是全球数字证书颁发机构与浏览器厂商一起打造的增强型证书，其主要特色是浏览器会给予EVSSL证书特殊待遇。</p>
+<blockquote>
+<p>现在的浏览器飞速发展，更完备的安全性能，更丰富的功能和扩展，同时也带来了更大的挑战。</p>
+</blockquote>
+<h2 id="跨站脚本攻击XSS"><a href="#跨站脚本攻击XSS" class="headerlink" title="跨站脚本攻击XSS"></a>跨站脚本攻击XSS</h2><h3 id="XSS简介"><a href="#XSS简介" class="headerlink" title="XSS简介"></a>XSS简介</h3><p>跨站脚本攻击，英文全称是Cross Site Script本来缩写是CSS，但是为了和层叠样式表(Casading Style Sheet)区别，所以在安全领域叫做XSS。</p>
+<p>XSS攻击通常指黑客通过“HTML注入“篡改了网页，插入恶意的脚本从而在用户浏览网页的时候，控制用户浏览器的一种攻击方式。</p>
+<p>XSS长期以来被列为客户端Web安全的头号大敌。因为XSS破坏力强大且产生的场景复杂，难以一次性解决，业内达成的共识是：针对各种不同场景产生的XSS，需要区分情景对待，即便如此，复杂的应用环境仍然是XSS滋生的温床。</p>
+<p>那么到底什么是XSS呢？举一个具体的例子：</p>
+<p>假设一个页面把用户输入的参数直接输入在页面上：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$input</span> = <span class="variable">$_GET</span>[<span class="string">&quot;param&quot;</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;&lt;div&gt;&quot;</span>.<span class="variable">$input</span>.<span class="string">&quot;&lt;/div&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在正常情况下用户向param提交的数据会展示到页面中，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.1.43/test.php?parm=测试</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<p><img src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721130613.png"></p>
+<p>网页的源代码可以看到：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    测试</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要是提交一段HTML代码呢：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//192.168.1.43/test.php?param=&lt;script&gt;alert(/XSS/)&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>结果：<img src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721130619.png"></p>
+<p>代码被成功执行，网页源代码中也被插入了脚本的代码。</p>
+<p>这就是XSS的第一种类型：反射型XSS</p>
+<p>XSS按照效果的不同可以分为以下几类：</p>
+<ul>
+<li>反射型XSS：只是简单的把用户输入的数据“反射”给浏览器，也就是说黑客往往需要诱导用户“点击”一个恶意链接才能攻击成功，所以也叫“非持久型XSS”(Non-persistent XSS)</li>
+<li>存储型XSS：存储型XSS会把用户输入的数据“存储”在服务器端，具有很强的稳定性。也叫“持久性XSS”(Persistent XSS)</li>
+<li>DOM Based XSS：从效果上来说也是反射型XSS，单独提出来是因为它的形成原因比较特殊复杂。</li>
+</ul>
+<p>通过修改页面DOM节点形成的XSS，称之为DOM Based XSS，举个例子：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> str = document.getElementById(<span class="string">&quot;test&quot;</span>).value;</span><br><span class="line">    document.getElementById(<span class="string">&quot;t&quot;</span>).innerHTML = <span class="string">&quot;&lt;a href=&#x27; &quot;</span>+str+<span class="string">&quot; &#x27; &gt;testLink&lt;/a&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=<span class="string">&quot;t&quot;</span>&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;input type=<span class="string">&quot;text&quot;</span> id=<span class="string">&quot;text&quot;</span> value=<span class="string">&quot;&quot;</span>/&gt;</span><br><span class="line">&lt;input type=<span class="string">&quot;button&quot;</span> id=<span class="string">&quot;s&quot;</span> value=<span class="string">&quot;write&quot;</span> onclick=<span class="string">&quot;test()&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://imbhj.com">Ordis</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://imbhj.com/posts/43902f53/">https://imbhj.com/posts/43902f53/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://imbhj.com" target="_blank">Ordis'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/XSS/">XSS</a><a class="post-meta__tags" href="/tags/WebSec/">WebSec</a></div><div class="post_share"><div class="social-share" data-image="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721130757.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "/img/1495.gif" data-lazy-src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "/img/1495.gif" data-lazy-src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/57a97b51/" title="Vue.js基础篇(一)"><img class="cover" src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721130417.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Vue.js基础篇(一)</div></div></a></div><div class="next-post pull-right"><a href="/posts/6f34c617/" title="Makefile基础"><img class="cover" src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721120351.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Makefile基础</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/img/1495.gif" data-lazy-src="/img/avatar1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Ordis</div><div class="author-info__description">三丘丘采药，四丘丘嗷~</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">165</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/laugh0608/"><i class="iconfont icon-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">已经上班了，博客更新可能会变慢~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">Web安全基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="toc-number">2.</span> <span class="toc-text">安全三要素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E6%96%BD%E5%AE%89%E5%85%A8%E8%AF%84%E4%BC%B0"><span class="toc-number">3.</span> <span class="toc-text">如何实施安全评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%84%E4%BA%A7%E7%AD%89%E7%BA%A7%E5%88%92%E5%88%86"><span class="toc-number">3.1.</span> <span class="toc-text">资产等级划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A8%81%E8%83%81%E5%88%86%E6%9E%90"><span class="toc-number">3.2.</span> <span class="toc-text">威胁分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90"><span class="toc-number">3.3.</span> <span class="toc-text">风险分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E5%AE%89%E5%85%A8%E6%96%B9%E6%A1%88"><span class="toc-number">3.4.</span> <span class="toc-text">设计安全方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BD%E5%B8%BD%E5%AD%90%E6%8A%80%E5%B7%A7"><span class="toc-number">4.</span> <span class="toc-text">白帽子技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Secure-By-Default-%E5%8E%9F%E5%88%99"><span class="toc-number">4.1.</span> <span class="toc-text">Secure By Default 原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%91%E5%90%8D%E5%8D%95%E3%80%81%E7%99%BD%E5%90%8D%E5%8D%95"><span class="toc-number">4.1.1.</span> <span class="toc-text">黑名单、白名单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E6%9D%83%E9%99%90%E5%8E%9F%E5%88%99"><span class="toc-number">4.1.2.</span> <span class="toc-text">最小权限原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%B5%E6%B7%B1%E9%98%B2%E5%BE%A1%E5%8E%9F%E5%88%99"><span class="toc-number">4.2.</span> <span class="toc-text">纵深防御原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%88%86%E7%A6%BB%E5%8E%9F%E5%88%99"><span class="toc-number">4.3.</span> <span class="toc-text">数据与代码分离原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E9%A2%84%E6%B5%8B%E6%80%A7%E5%8E%9F%E5%88%99"><span class="toc-number">4.4.</span> <span class="toc-text">不可预测性原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%98%AF%E4%B8%80%E9%97%A8%E6%9C%B4%E7%B4%A0%E7%9A%84%E5%AD%A6%E9%97%AE%EF%BC%8C%E4%B9%9F%E6%98%AF%E4%B8%80%E7%A7%8D%E5%B9%B3%E8%A1%A1%E7%9A%84%E8%89%BA%E6%9C%AF%E3%80%82"><span class="toc-number">4.5.</span> <span class="toc-text">安全是一门朴素的学问，也是一种平衡的艺术。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8"><span class="toc-number">5.</span> <span class="toc-text">浏览器安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="toc-number">5.1.</span> <span class="toc-text">同源策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B2%99%E7%AE%B1"><span class="toc-number">5.2.</span> <span class="toc-text">浏览器沙箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%B6%E6%84%8F%E7%BD%91%E7%AB%99%E6%8B%A6%E6%88%AA"><span class="toc-number">5.3.</span> <span class="toc-text">恶意网站拦截</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BBXSS"><span class="toc-number">6.</span> <span class="toc-text">跨站脚本攻击XSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XSS%E7%AE%80%E4%BB%8B"><span class="toc-number">6.1.</span> <span class="toc-text">XSS简介</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a1ac7eb6/" title="Go语言学习笔记之一">Go语言学习笔记之一</a><time datetime="2023-12-11T11:46:23.238Z" title="更新于 2023-12-11 19:46:23">2023-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a19c06b7/" title="C++构建简单HttpServer服务器">C++构建简单HttpServer服务器</a><time datetime="2023-12-10T14:14:02.143Z" title="更新于 2023-12-10 22:14:02">2023-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3471cb80/" title="WSL更改安装位置"><img src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202312091837233.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WSL更改安装位置"/></a><div class="content"><a class="title" href="/posts/3471cb80/" title="WSL更改安装位置">WSL更改安装位置</a><time datetime="2023-12-10T03:02:40.811Z" title="更新于 2023-12-10 11:02:40">2023-12-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e5f6a19a/" title="WSL安装Docker与密钥排错">WSL安装Docker与密钥排错</a><time datetime="2023-12-10T02:52:46.508Z" title="更新于 2023-12-10 10:52:46">2023-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c6105688/" title="VS2022安装第三方cpp库Poco"><img src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202311162043520.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VS2022安装第三方cpp库Poco"/></a><div class="content"><a class="title" href="/posts/c6105688/" title="VS2022安装第三方cpp库Poco">VS2022安装第三方cpp库Poco</a><time datetime="2023-12-09T11:37:15.125Z" title="更新于 2023-12-09 19:37:15">2023-12-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2023 By Ordis</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">🛵关于本站：域名解析：阿里云 | 服务器托管：Vercel | 代码托管：Github</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://lean-v.imbhj.com',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: true,
+    }, {"reaction":true}))
+  }
+
+  if (typeof Waline === 'object') initWaline()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css').then(() => {
+      getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+    })
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
