@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>标签: NVIDIA | Ordis'Blog</title><meta name="author" content="Ordis"><meta name="copyright" content="Ordis"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="三丘丘采药，四丘丘嗷~">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>标签: NVIDIA | Ordis'Blog</title><meta name="author" content="Ordis"><meta name="copyright" content="Ordis"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="三丘丘采药，四丘丘嗷~">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ordis&#39;Blog">
 <meta property="og:url" content="https://imbhj.com/tags/NVIDIA/">
@@ -8,20 +8,20 @@
 <meta property="og:image" content="https://imbhj.com/img/avatar1.png">
 <meta property="article:author" content="Ordis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://imbhj.com/img/avatar1.png"><link rel="shortcut icon" href="/img/luobo.png"><link rel="canonical" href="https://imbhj.com/tags/NVIDIA/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-fz5uoOqZdH"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+<meta name="twitter:image" content="https://imbhj.com/img/avatar1.png"><link rel="shortcut icon" href="/img/luobo.png"><link rel="canonical" href="https://imbhj.com/tags/NVIDIA/"><link rel="preconnect"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-fz5uoOqZdH"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?156d93be2cc6945ec71fc68a0a9c732e";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
-</script><script>const GLOBAL_CONFIG = { 
+</script><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  noticeOutdate: {"limitDay":60,"position":"top","messagePrev":"本文章距离最后一次更新已经过去了","messageNext":"天，文章内容可能已经变得不可靠或者版本不适配，请谨慎阅读。"},
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"本文章距离最后一次更新已经过去了","messageNext":"天，文章内容可能已经变得不可靠或者版本不适配，请谨慎阅读。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -32,7 +32,7 @@
     post: false
   },
   runtime: '天',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -41,99 +41,97 @@
   },
   copyright: undefined,
   lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
-  isPhotoFigcaption: true,
+  isPhotoFigcaption: false,
   islazyload: true,
   isAnchor: false,
   percent: {
     toc: true,
     rightside: false,
-  }
+  },
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: '标签: NVIDIA',
   isPost: false,
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-12-15 14:15:57'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
+  postUpdate: '2023-12-19 20:04:04'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
       }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-    win.getCSS = url => new Promise((resolve, reject) => {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = url
-      link.onload = () => resolve()
-      link.onerror = () => reject()
-      document.head.appendChild(link)
-    })
-  
-      win.activateDarkMode = function () {
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
         document.documentElement.setAttribute('data-theme', 'dark')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
         }
       }
-      win.activateLightMode = function () {
+      win.activateLightMode = () => {
         document.documentElement.setAttribute('data-theme', 'light')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
@@ -157,16 +155,16 @@
         }
       }
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
       }
-    }
-    detectApple()
-    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_2005310_9tg4odpdgr.css" type="text/css" /><link rel="stylesheet" href="/css/footerjianbian.css" type="text/css" /><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/img/1495.gif" data-lazy-src="/img/avatar1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">162</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 小窝</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw iconfont icon-time"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-book-2"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-sort"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-me"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw iconfont icon-41shuoshuo"></i><span> 说说</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjieguanlian"></i><span> 友链</span></a></li><li><a class="site-page child" href="/link-favorites/"><i class="fa-fw iconfont icon-collection-b"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/message/"><i class="fa-fw iconfont icon-liuyan"></i><span> 留言</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-iconfontyouxihudong"></i><span> 游戏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/catchcat/"><i class="fa-fw iconfont icon-maomi"></i><span> 圈圈小猫</span></a></li><li><a class="site-page child" href="/running/"><i class="fa-fw iconfont icon-konglong"></i><span> 恐龙快跑</span></a></li><li><a class="site-page child" href="/maze/"><i class="fa-fw iconfont icon-zuoce-xianlu"></i><span> 小球闯关</span></a></li><li><a class="site-page child" href="/css-sweeper/"><i class="fa-fw iconfont icon-zhadan"></i><span> CSS扫雷</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-gongnengdingyi"></i><span> 功能</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw iconfont icon-yinle"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/bilibili/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://lean-v.imbhj.com/ui/login/"><i class="fa-fw iconfont icon-pinglun"></i><span> Waline后台</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url('https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN1/202112111728901.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Ordis'Blog"><span class="site-name">Ordis'Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 小窝</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw iconfont icon-time"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-book-2"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-sort"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-me"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw iconfont icon-41shuoshuo"></i><span> 说说</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjieguanlian"></i><span> 友链</span></a></li><li><a class="site-page child" href="/link-favorites/"><i class="fa-fw iconfont icon-collection-b"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/message/"><i class="fa-fw iconfont icon-liuyan"></i><span> 留言</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-iconfontyouxihudong"></i><span> 游戏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/catchcat/"><i class="fa-fw iconfont icon-maomi"></i><span> 圈圈小猫</span></a></li><li><a class="site-page child" href="/running/"><i class="fa-fw iconfont icon-konglong"></i><span> 恐龙快跑</span></a></li><li><a class="site-page child" href="/maze/"><i class="fa-fw iconfont icon-zuoce-xianlu"></i><span> 小球闯关</span></a></li><li><a class="site-page child" href="/css-sweeper/"><i class="fa-fw iconfont icon-zhadan"></i><span> CSS扫雷</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-gongnengdingyi"></i><span> 功能</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw iconfont icon-yinle"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/bilibili/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://lean-v.imbhj.com/ui/login/"><i class="fa-fw iconfont icon-pinglun"></i><span> Waline后台</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">NVIDIA</h1></div></header><main class="layout" id="content-inner"><div id="tag"><div class="article-sort-title">标签 - NVIDIA</div><div class="article-sort"><div class="article-sort-item year">2019</div><div class="article-sort-item"><a class="article-sort-item-img" href="/posts/26093a52/" title="Deepin之大黄蜂驱动"><img src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721085333.jpg" alt="Deepin之大黄蜂驱动" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2019-12-19T14:29:09.000Z" title="发表于 2019-12-19 22:29:09">2019-12-19</time></div><a class="article-sort-item-title" href="/posts/26093a52/" title="Deepin之大黄蜂驱动">Deepin之大黄蜂驱动</a></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/img/1495.gif" data-lazy-src="/img/avatar1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Ordis</div><div class="author-info__description">三丘丘采药，四丘丘嗷~</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">162</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/laugh0608/"><i class="iconfont icon-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">已经上班了，博客更新可能会变慢~</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a1ac7eb6/" title="Go语言学习笔记之一">Go语言学习笔记之一</a><time datetime="2023-12-15T06:15:11.201Z" title="更新于 2023-12-15 14:15:11">2023-12-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/cebfa2cb/" title="Vue 经典十道面试题">Vue 经典十道面试题</a><time datetime="2023-12-13T01:38:05.496Z" title="更新于 2023-12-13 09:38:05">2023-12-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a19c06b7/" title="C++构建简单HttpServer服务器">C++构建简单HttpServer服务器</a><time datetime="2023-12-10T14:14:02.143Z" title="更新于 2023-12-10 22:14:02">2023-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3471cb80/" title="WSL更改安装位置"><img src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202312091837233.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WSL更改安装位置"/></a><div class="content"><a class="title" href="/posts/3471cb80/" title="WSL更改安装位置">WSL更改安装位置</a><time datetime="2023-12-10T03:02:40.811Z" title="更新于 2023-12-10 11:02:40">2023-12-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e5f6a19a/" title="WSL安装Docker与密钥排错">WSL安装Docker与密钥排错</a><time datetime="2023-12-10T02:52:46.508Z" title="更新于 2023-12-10 10:52:46">2023-12-10</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">149</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-09-09T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">243.4k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-12-15T06:15:55.468Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2023 By Ordis</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">🛵关于本站：域名解析：阿里云 | 服务器托管：Vercel | 代码托管：Github</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_2005310_9tg4odpdgr.css" type="text/css" /><link rel="stylesheet" href="/css/footerjianbian.css" type="text/css" /><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/img/1495.gif" data-lazy-src="/img/avatar1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">162</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 小窝</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw iconfont icon-time"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-book-2"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-sort"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-me"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw iconfont icon-41shuoshuo"></i><span> 说说</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjieguanlian"></i><span> 友链</span></a></li><li><a class="site-page child" href="/link-favorites/"><i class="fa-fw iconfont icon-collection-b"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/message/"><i class="fa-fw iconfont icon-liuyan"></i><span> 留言</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-iconfontyouxihudong"></i><span> 游戏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/catchcat/"><i class="fa-fw iconfont icon-maomi"></i><span> 圈圈小猫</span></a></li><li><a class="site-page child" href="/running/"><i class="fa-fw iconfont icon-konglong"></i><span> 恐龙快跑</span></a></li><li><a class="site-page child" href="/maze/"><i class="fa-fw iconfont icon-zuoce-xianlu"></i><span> 小球闯关</span></a></li><li><a class="site-page child" href="/css-sweeper/"><i class="fa-fw iconfont icon-zhadan"></i><span> CSS扫雷</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-gongnengdingyi"></i><span> 功能</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw iconfont icon-yinle"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/bilibili/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://lean-v.imbhj.com/ui/login/"><i class="fa-fw iconfont icon-pinglun"></i><span> Waline后台</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url('https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN1/202112111728901.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Ordis'Blog"><span class="site-name">Ordis'Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-home"></i><span> 小窝</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw iconfont icon-time"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-book-2"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-sort"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-me"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw iconfont icon-41shuoshuo"></i><span> 说说</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjieguanlian"></i><span> 友链</span></a></li><li><a class="site-page child" href="/link-favorites/"><i class="fa-fw iconfont icon-collection-b"></i><span> 收藏</span></a></li><li><a class="site-page child" href="/message/"><i class="fa-fw iconfont icon-liuyan"></i><span> 留言</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-iconfontyouxihudong"></i><span> 游戏</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/catchcat/"><i class="fa-fw iconfont icon-maomi"></i><span> 圈圈小猫</span></a></li><li><a class="site-page child" href="/running/"><i class="fa-fw iconfont icon-konglong"></i><span> 恐龙快跑</span></a></li><li><a class="site-page child" href="/maze/"><i class="fa-fw iconfont icon-zuoce-xianlu"></i><span> 小球闯关</span></a></li><li><a class="site-page child" href="/css-sweeper/"><i class="fa-fw iconfont icon-zhadan"></i><span> CSS扫雷</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-gongnengdingyi"></i><span> 功能</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw iconfont icon-yinle"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/bilibili/"><i class="fa-fw iconfont icon-bilibili-fill"></i><span> 追番</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://lean-v.imbhj.com/ui/login/"><i class="fa-fw iconfont icon-pinglun"></i><span> Waline后台</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">NVIDIA</h1></div></header><main class="layout" id="content-inner"><div id="tag"><div class="article-sort-title">标签 - NVIDIA</div><div class="article-sort"><div class="article-sort-item year">2019</div><div class="article-sort-item"><a class="article-sort-item-img" href="/posts/26093a52/" title="Deepin之大黄蜂驱动"><img src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN/20200721085333.jpg" alt="Deepin之大黄蜂驱动" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2019-12-19T14:29:09.000Z" title="发表于 2019-12-19 22:29:09">2019-12-19</time></div><a class="article-sort-item-title" href="/posts/26093a52/" title="Deepin之大黄蜂驱动">Deepin之大黄蜂驱动</a></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "/img/1495.gif" data-lazy-src="/img/avatar1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Ordis</div><div class="author-info__description">三丘丘采药，四丘丘嗷~</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">149</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">162</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/laugh0608/"><i class="iconfont icon-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">已经上班了，博客更新可能会变慢~</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a1ac7eb6/" title="Go语言学习笔记之一">Go语言学习笔记之一</a><time datetime="2023-12-15T06:15:11.201Z" title="更新于 2023-12-15 14:15:11">2023-12-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/cebfa2cb/" title="Vue 经典十道面试题">Vue 经典十道面试题</a><time datetime="2023-12-13T01:38:05.496Z" title="更新于 2023-12-13 09:38:05">2023-12-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a19c06b7/" title="C++构建简单HttpServer服务器">C++构建简单HttpServer服务器</a><time datetime="2023-12-10T14:14:02.143Z" title="更新于 2023-12-10 22:14:02">2023-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3471cb80/" title="WSL更改安装位置"><img src= "/img/1495.gif" data-lazy-src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202312091837233.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WSL更改安装位置"/></a><div class="content"><a class="title" href="/posts/3471cb80/" title="WSL更改安装位置">WSL更改安装位置</a><time datetime="2023-12-10T03:02:40.811Z" title="更新于 2023-12-10 11:02:40">2023-12-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e5f6a19a/" title="WSL安装Docker与密钥排错">WSL安装Docker与密钥排错</a><time datetime="2023-12-10T02:52:46.508Z" title="更新于 2023-12-10 10:52:46">2023-12-10</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">149</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-09-09T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">243.8k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-12-19T12:04:02.810Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2023 By Ordis</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">阿里云 | Vercel | Github</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/instant.page/instantpage.js" type="module"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/pluginsSrc/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
   if (typeof pangu === 'object') pangu.autoSpacingPage()
   else {
-    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+    getScript('/pluginsSrc/pangu/dist/browser/pangu.min.js')
       .then(() => {
         pangu.autoSpacingPage()
       })
@@ -174,15 +172,15 @@
 }
 
 function panguInit () {
-  if (false){
+  if (true){
     GLOBAL_CONFIG_SITE.isPost && panguFn()
   } else {
     panguFn()
   }
 }
 
-document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script>window.addEventListener('load', () => {
-  const changeContent = (content) => {
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script>window.addEventListener('load', () => {
+  const changeContent = content => {
     if (content === '') return content
 
     content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
@@ -218,36 +216,31 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/j
     }
 
     let $dom = document.querySelector('#card-newest-comments .aside-list')
-    $dom.innerHTML= result
+    $dom && ($dom.innerHTML= result)
     window.lazyLoadInstance && window.lazyLoadInstance.update()
     window.pjax && window.pjax.refresh($dom)
   }
 
-  const getComment = () => {
-    const loadWaline = () => {
-      Waline.RecentComments({
-        serverURL: 'https://lean-v.imbhj.com',
-        count: 6
-      }).then(({comments}) => {
-        const walineArray = comments.map(e => {
-          return {
-            'content': changeContent(e.comment),
-            'avatar': e.avatar,
-            'nick': e.nick,
-            'url': e.url + '#' + e.objectId,
-            'date': e.insertedAt,
-          }
-        })
-        saveToLocal.set('waline-newest-comments', JSON.stringify(walineArray), 20/(60*24))
-        generateHtml(walineArray)
-      }).catch(e => {
-        const $dom = document.querySelector('#card-newest-comments .aside-list')
-        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
-      }) 
+  const getComment = async () => {
+    try {
+      const res = await fetch('https://lean-v.imbhj.com/api/comment?type=recent&count=6', { method: 'GET' })
+      const result = await res.json()
+      const walineArray = result.data.map(e => {
+        return {
+          'content': changeContent(e.comment),
+          'avatar': e.avatar,
+          'nick': e.nick,
+          'url': e.url + '#' + e.objectId,
+          'date': e.time || e.insertedAt
+        }
+      })
+      saveToLocal.set('waline-newest-comments', JSON.stringify(walineArray), 20/(60*24))
+      generateHtml(walineArray)
+    } catch (err) {
+      console.error(err)
+      const $dom = document.querySelector('#card-newest-comments .aside-list')
+      $dom.textContent= "无法获取评论，请确认相关配置是否正确"
     }
-
-    if (typeof Waline === 'object') loadWaline()
-    else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(loadWaline)
   }
 
   const newestCommentInit = () => {
@@ -263,4 +256,4 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/j
 
   newestCommentInit()
   document.addEventListener('pjax:complete', newestCommentInit)
-})</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+})</script><link rel="stylesheet" href="/pluginsSrc/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/aplayer/dist/APlayer.min.js"></script><script src="/pluginsSrc/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
