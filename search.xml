@@ -13,7 +13,7 @@
       
       <categories>
           
-          <category> 编成语言 </category>
+          <category> 编程语言 </category>
           
       </categories>
       
@@ -2814,9 +2814,9 @@
       
         <tags>
             
-            <tag> npm </tag>
-            
             <tag> nrm </tag>
+            
+            <tag> npm </tag>
             
             <tag> cnpm </tag>
             
@@ -3572,9 +3572,9 @@
             
             <tag> CSS </tag>
             
-            <tag> Web </tag>
-            
             <tag> HTML </tag>
+            
+            <tag> Web </tag>
             
         </tags>
       
