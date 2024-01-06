@@ -4,11 +4,38 @@
   
     
     <entry>
+      <title>Aspen导出物性数据至HRTI</title>
+      <link href="/posts/d4320c07/"/>
+      <url>/posts/d4320c07/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061741849.png"></p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><blockquote><p>Aspen版本：V11.0</p><p>HTRI版本：7.0</p><p>系统版本：Windows 11</p></blockquote><p>前情提要，在Aspen中，Heater模块和HeatX模块都可以模拟换热器，且这两种模块模拟的换热器都支持导出物性数据至HTRI中，但本人比较推荐使用HeatX模块</p><p>本文中不使用第三方工具，用的是Aspen官方自带的插件Customize</p><p>同时需要提醒的是 <code>*.edr</code> 文件HTRI是直接可以打开的哦</p><h2 id="模拟文件建立"><a href="#模拟文件建立" class="headerlink" title="模拟文件建立"></a>模拟文件建立</h2><p>回到正题，首先创建一个模拟文件，新建一个换热器，本文为了演示，同时创建两种换热器模块。如图所示：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061751789.png"></p><p>案例中的两个换热器E101和E102都是将300 <code>kg/h</code> ，90 <code>℃</code> ，1.5 <code>bar</code> 的水进行冷却，降温到50摄氏度，压降为0.2 <code>bar</code> </p><blockquote><p>途中流股3的压力为笔误，实为1.5bar</p></blockquote><p>运行模拟，将案例文件保存为 <code>0106.bkp</code> ，保存位置为桌面上的一个<strong>英文路径</strong>文件夹中</p><h2 id="创建物性集"><a href="#创建物性集" class="headerlink" title="创建物性集"></a>创建物性集</h2><p>将需要导入到HTRI的物性种类创建为一个新的物性集，操作如下：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061758468.png"></p><p>点击确定</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061759880.png"></p><p>输入需要导出的物性以及单位，需要注意的是，在设置某些物性的时候需要输入限定符。比如第二行的热导率K，输入限定符：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061801092.png"></p><p>并不一定需要输入所有数据，Aspen需要什么输入什么，或者你想要什么就输入什么即可</p><blockquote><p>需要注意的是，创建物性集时请务必按照HTRI软件规定的需要的物性数据进行输入，否则后续导出时可能会报错找不到某物性</p><p>本案例为演示如何使用工具，故只输入该两个物性以作演示</p></blockquote><h2 id="创建冷热曲线"><a href="#创建冷热曲线" class="headerlink" title="创建冷热曲线"></a>创建冷热曲线</h2><p>创建冷热曲线是导出数据的必须选择，否则Customize插件会无法识别和导出该换热器</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061805097.png"></p><p>对于Heater模块，没有冷热曲线的选择，但是对于HeatX模块来说，是可以分开进行设定的</p><p><strong>对于Heater模块：</strong></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061808006.png"></p><p>点击确定：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061808458.png"></p><p>将我们新建的物性集选中，移动到所选物性组中</p><p>对于设置界面中的选项，按照所需求的进行设置即可，本案例默认设置</p><p>对于HeatX模块，我们是模拟冷凝器，故应该设定热流股曲线，设置步骤同上</p><p>设置完成后，重置，运行，得到模拟结果，保存，关闭模拟</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061812073.png"></p><h2 id="导出数据"><a href="#导出数据" class="headerlink" title="导出数据"></a>导出数据</h2><p>打开开始菜单 - Aspen Plus - Customize Aspen Plus V11</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061814407.png"></p><p>打开了一个命令行界面，命令行如何操作这里不进行赘述，请自行百度</p><p><code>cd</code> 到我们刚才保存 <code>0106.bkp</code> 的目录下：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061816632.png"></p><p>执行 <code>htxint [文件名]</code> 命令，在本案例中就是：<code>htxint 0106.bkp</code> ：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061818713.png"></p><p>再次输入文件名，但不需要带后缀扩展名</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061819474.png"></p><p>输入要导出的目标软件，这里选择输入 <code>HTRI</code> </p><p>输入允许的最大曲线点，按照你HTRI的版本进行选择，这里选择输入 <code>30</code> </p><p>输入使用的单位制，按照个人喜好即可，这里选择输入 <code>SI</code> </p><p>接下来是输入要导出的文件名，可以进行自己定义，格式为 <code>*.dat</code> 即可，当然也可以不进行输入，直接回车，会以bkp文件的文件名默认输出，这里选择默认输出</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061824477.png"></p><p>可以看到，插件已经成功识别到了我们bkp文件中的两个换热器，输入我们要选择导出的换热器模块名称，这里选择输入 <code>E101</code> </p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061826727.png"></p><p>现在显示了该E101换热器下所有的热曲线，我们选择进行输入需要的曲线序号，这里选择了输入 <code>1</code> </p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061828817.png"></p><p>接下来是让你选择是否对该曲线的数据进行预览，是输入 <code>Y</code> ，不进行预览输入 <code>N</code> 即可，这里是输入了 <code>Y</code> 对数据进行了预览</p><p>接下来是让你选择是否将该曲线输出到接口文件中，这里也输入 <code>Y</code> </p><p>选择了输出到接口文件中后，接下来是让你写一段70字符以内的对“问题”的描述，就是对该换热器的备注，这里本案例输入 <code>HeaterTest</code> </p><p>接下来是输入一行70字符以内的换热器的名称，这里本案例输入 <code>E101</code> </p><p>接下来是输入12个字符以内的热流股的名称，这里本案例输入 <code>WATER</code> </p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061839891.png"></p><blockquote><p>如果某个换热器中同时具有冷&#x2F;热曲线，这里输入完成后还会选择继续导出另一曲线，但本案例中只有一个热曲线，故到这里已经输入完毕了</p></blockquote><p>可以看到这个时候已经导出完毕了，下方的选项是提醒你是否继续其他换热器的输出，这里选择 <code>N</code> 之后程序就会结束了</p><p>同时需要注意的是，这里程序对你进行了提醒，你导出的数据中，缺少这么多相对应的物性数据，故在创建物性集的时候请务必完全包括HRTI软件所需要的物性数据</p><p>导出另一个HeatX模块E102的步骤一模一样，这里就不赘述了</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061851825.png"></p><p>这是对于HeatX模块同时拥有冷热曲线的导出过程，仅供参考</p><p>导出数据完成之后可以看到在当前目录下已经生成了dat文件，该文件就直接可以使用HTRI软件进行打开了</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061852430.png"></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061854506.png"></p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401061854011.png"></p><p>可以看到很多数据已经导出过来了，但很多关键数据都是缺失的，所以在创建物性集时是非常有必要导出完全的！这一点务必要注意！</p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><blockquote><p>注意，up主本人今天也是才学会这种导出数据的办法，所以可能说的不是很详尽，请读者谅解，如有问题可以联系QQ1395404299进行讨论和互相学习</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 化工 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Aspen </tag>
+            
+            <tag> HTRI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Clion输出中文乱码问题</title>
       <link href="/posts/2de750a5/"/>
       <url>/posts/2de750a5/</url>
       
-        <content type="html"><![CDATA[<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>请注意，这是在Windows平台遇到的问题，其他平台可能解决方法不一样</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202401032030394.png"></p><p>如图所示，Clion在输出中文字符时乱码，是因为文件编码的问题</p><p>打开设置-文件编码：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202401032031327.png"></p><p>更改为GBK之后点击应用</p><p>会提示进行编码转换，进行转换即可</p><p>回到主窗口，按下快捷键 <code>shift+ctrl+alt+/</code> ，选择第一个注册表：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202401032033665.png"></p><p>取消该值的勾选，重启IDE即可正常显示中文：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202401032024854.png"></p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN5/202401032043385.png"></p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>请注意，这是在Windows平台遇到的问题，其他平台可能解决方法不一样</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202401032030394.png"></p><p>如图所示，Clion在输出中文字符时乱码，是因为文件编码的问题</p><p>打开设置-文件编码：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202401032031327.png"></p><p>更改为GBK之后点击应用</p><p>会提示进行编码转换，进行转换即可</p><p>回到主窗口，按下快捷键 <code>shift+ctrl+alt+/</code> ，选择第一个注册表：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202401032033665.png"></p><p>取消该值的勾选，重启IDE即可正常显示中文：</p><p><img src="https://imbhj-cdn.oss-cn-hangzhou.aliyuncs.com/CDN4/202401032024854.png"></p>]]></content>
       
       
       <categories>
