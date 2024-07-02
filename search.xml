@@ -2532,9 +2532,9 @@
       
         <tags>
             
-            <tag> winget </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> winget </tag>
             
         </tags>
       
@@ -2559,9 +2559,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> Terminal </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
