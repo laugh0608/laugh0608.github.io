@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>新的开始，新的征程。</title>
+      <link href="/posts/e7436519/"/>
+      <url>/posts/e7436519/</url>
+      
+        <content type="html"><![CDATA[<h2 id="新的开始"><a href="#新的开始" class="headerlink" title="新的开始"></a>新的开始</h2><p>由于一些需要，以后博客大概率会迁移到以下域名：</p><p><a href="https://blog.frp.imbhj.com/">https://blog.frp.imbhj.com</a></p><p>虽然真的很喜欢很喜欢butterfly主题（当然以后我可能也会专门开个备用站用来纪念</p><p>顺便已经开放的还有我的CEPD社区：</p><p><a href="https://bbs.frp.imbhj.com/">https://bbs.frp.imbhj.com</a></p><p>还有正在施工中的文档集：</p><p><a href="https://docs.frp.imbhj.com/">https://docs.frp.imbhj.com</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Halo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Go+Vue3开发博客系统之一</title>
       <link href="/posts/28c8104d/"/>
       <url>/posts/28c8104d/</url>
@@ -2532,9 +2557,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> winget </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -2559,9 +2584,9 @@
       
         <tags>
             
-            <tag> Terminal </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> Terminal </tag>
             
         </tags>
       
@@ -3197,9 +3222,9 @@
       
         <tags>
             
-            <tag> npm </tag>
-            
             <tag> nrm </tag>
+            
+            <tag> npm </tag>
             
             <tag> cnpm </tag>
             
@@ -3955,9 +3980,9 @@
             
             <tag> CSS </tag>
             
-            <tag> HTML </tag>
-            
             <tag> Web </tag>
+            
+            <tag> HTML </tag>
             
         </tags>
       
