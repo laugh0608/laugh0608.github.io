@@ -1,0 +1,82 @@
+/**
+ * Ordis Personal Homepage - Project Card
+ */
+
+.ordis-project-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ordis-project {
+    margin: 7px;
+    display: flex;
+    background-color: var(--item-bg-color);
+    border-radius: 8px;
+    padding: 15px;
+    height: 100px;
+    width: calc(25% - 15px);
+    backdrop-filter: blur(var(--card-filter));
+    -webkit-backdrop-filter: blur(var(--card-filter));
+    transition: opacity 0.5s ease, background-color 0.2s ease, border 0.2s ease, transform 0.3s ease;
+}
+
+.ordis-project:hover {
+    box-shadow: 0 8px 16px -4px #2c2d300c;
+    transform: translateY(-2px);
+}
+
+.ordis-project.pressed {
+    transform: scale(0.9);
+    background-color: var(--item-hover-color);
+}
+
+.ordis-project:hover .projectItemLeft {
+    width: 100%;
+}
+
+.ordis-project:hover .projectItemRight {
+    width: 0%;
+}
+
+.ordis-project:hover .projectItemRight img {
+    transform: rotate(40deg);
+}
+
+.ordis-project:hover h1 {
+    font-size: 18px;
+}
+
+.projectItemLeft p {
+    font-size: 12px;
+    margin-top: 15px;
+    color: var(--item-left-text-color);
+}
+
+.projectItemLeft h1 {
+    font-weight: normal;
+    font-size: 16px;
+    margin: 0px;
+    transition: font-size 0.4s ease;
+    color: var(--item-left-title-color);
+}
+
+.projectItemLeft {
+    transition: width 0.4s ease;
+    height: 100%;
+    width: 80%;
+}
+
+.projectItemRight {
+    overflow: hidden;
+    transition: width 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+.projectItemRight img {
+    height: 39px;
+    width: 39px;
+}

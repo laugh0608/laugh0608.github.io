@@ -1,0 +1,29 @@
+/**
+ * Ordis Personal Homepage - Main CSS Entry Point
+ *
+ * This file imports all CSS modules in the correct order.
+ * Load this single file in your HTML instead of individual CSS files.
+ */
+
+/* Base Styles */
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+@import url('./base/fonts.css');
+
+/* Layout */
+@import url('./layout/grid.css');
+@import url('./layout/sidebar.css');
+@import url('./layout/main.css');
+@import url('./layout/footer.css');
+
+/* Components */
+@import url('./components/loading.css');
+@import url('./components/project-card.css');
+@import url('./components/social-icons.css');
+@import url('./components/section-title.css');
+@import url('./components/skills.css');
+@import url('./components/modal.css');
+@import url('./components/theme-toggle.css');
+
+/* Utilities */
+@import url('./utilities/responsive.css');

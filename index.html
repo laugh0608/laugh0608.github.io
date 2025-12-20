@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html class="zyyo.net" lang="">
-<head class="zyyo.net">
+<html lang="zh-CN">
+<head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <title>大白萝卜主页</title>
@@ -8,24 +8,23 @@
     <meta content="梦想做化工流程模拟开发的工艺工程师。" name="description">
     <meta content="imbhj,大白萝卜,大白萝卜主页,大白萝卜站点,Ordis," name="keywords">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-    <link href="./static/css/style.css" rel="stylesheet">
-    <link href="./static/css/root.css" rel="stylesheet">
+    <link href="./static/css/main.css" rel="stylesheet">
 </head>
 
 <body>
-<div id="zyyo-loading">
-    <div id="zyyo-loading-center"></div>
+<div id="ordis-loader">
+    <div id="ordis-loader-spinner"></div>
 </div>
 
-<div class="zyyo-filter"></div>
+<div class="ordis-backdrop"></div>
 
-<div class="zyyo-main">
-    <div class="zyyo-left">
+<div class="ordis-container">
+    <div class="ordis-sidebar">
         <div class="logo" style="background-image: url(./static/img/logo-bailuobo.jpg);">
             <img src="./static/img/logokuang.png"
                  style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;">
         </div>
-        <div class="left-div left-des">
+        <div class="ordis-sidebar-section ordis-profile-info">
             <div class="left-des-item">
                 <svg class="icon" p-id="1478" t="1705773709627" version="1.1" viewBox="0 0 1024 1024"
                      xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +44,7 @@
                 CEPD Community
             </div>
         </div>
-        <div class="left-div left-tag">
+        <div class="ordis-sidebar-section ordis-tags">
             <div class="left-tag-item">化工</div>
             <div class="left-tag-item">编程</div>
             <div class="left-tag-item">AI</div>
@@ -55,7 +54,7 @@
             <div class="left-tag-item">开发</div>
             <div class="left-tag-item">减肥</div>
         </div>
-        <div class="left-div left-time">
+        <div class="ordis-sidebar-section ordis-timeline">
             <ul id="line">
                 <li>
                     <div class="focus"></div>
@@ -150,7 +149,7 @@
             </ul>
         </div>
     </div>
-    <div class="zyyo-right">
+    <div class="ordis-main">
         <header>
             <div class="index-logo" style="background-image: url(./static/img/logo-bailuobo.jpg);">
                 <img src="./static/img/logokuang.png"
@@ -208,9 +207,9 @@
                 </a>
                 <a class="switch" href="javascript:void(0)">
                     <div class="onoffswitch">
-                        <input checked class="onoffswitch-checkbox" id="myonoffswitch" name="onoffswitch"
+                        <input checked class="onoffswitch-checkbox" id="ordis-theme-toggle" name="onoffswitch"
                                type="checkbox">
-                        <label class="onoffswitch-label" for="myonoffswitch">
+                        <label class="onoffswitch-label" for="ordis-theme-toggle">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
                         </label>
@@ -219,7 +218,7 @@
             </div>
 
             <div class="tanChiShe">
-                <img alt="" id="tanChiShe" src="./static/svg/snake-Light.svg">
+                <img alt="" id="ordis-snake" src="./static/svg/snake-Light.svg">
             </div>
         </header>
 
@@ -232,8 +231,8 @@
                 </svg>
                 主要的站点
             </div>
-            <div class="projectList">
-                <a class="projectItem a" href="https://bbs.imbhj.com" target="_blank">
+            <div class="ordis-project-list">
+                <a class="ordis-project a" href="https://bbs.imbhj.com" target="_blank">
                     <div class="projectItemLeft">
                         <h1>CEPD@BBS</h1>
                         <p>化工、编程、热心网友交流的小社区</p>
@@ -242,7 +241,7 @@
                         <img alt="" src="./static/img/i2.png">
                     </div>
                 </a>
-                <a class="projectItem a" href="https://blog.imbhj.com" target="_blank">
+                <a class="ordis-project a" href="https://blog.imbhj.com" target="_blank">
                     <div class="projectItemLeft">
                         <h1>OrdisBlog</h1>
                         <p>已暂停更新，全力维护论坛</p>
@@ -251,7 +250,7 @@
                         <img alt="" src="./static/img/i1.png">
                     </div>
                 </a>
-                <a class="projectItem a"
+                <a class="ordis-project a"
                    href="https://affine.imbhj.net/workspace/7109443e-20bd-4282-8113-77634711a6b6/8Qo4WjaT0V?mode=page"
                    target="_blank">
                     <div class="projectItemLeft">
@@ -262,7 +261,7 @@
                         <img alt="" src="./static/img/i3.png">
                     </div>
                 </a>
-                <a class="projectItem a" href="https://ai.imbhj.net" target="_blank">
+                <a class="ordis-project a" href="https://ai.imbhj.net" target="_blank">
                     <div class="projectItemLeft">
                         <h1>OrdisAI</h1>
                         <p>自托管OpenWebUI大模型对话客户端</p>
@@ -281,17 +280,17 @@
                 </svg>
                 自己的垃圾项目
             </div>
-            <div class="projectList">
-                <a class="projectItem b" href="https://github.com/laugh0608/laugh0608.github.io" target="_blank">
+            <div class="ordis-project-list">
+                <a class="ordis-project b" href="https://github.com/laugh0608/laugh0608.github.io" target="_blank">
                     <div class="projectItemLeft">
                         <h1>ThisHomePage</h1>
-                        <p>这个主页的源代码，参考自原作者zyyo</p>
+                        <p>基于开源模板定制的个人主页</p>
                     </div>
                     <div class="projectItemRight">
                         <img alt="" src="./static/img/i5.png">
                     </div>
                 </a>
-                <a class="projectItem b" href="https://github.com/laugh0608/CapeOpen-Cpp" target="_blank">
+                <a class="ordis-project b" href="https://github.com/laugh0608/CapeOpen-Cpp" target="_blank">
                     <div class="projectItemLeft">
                         <h1>CapeOpen-Cpp</h1>
                         <p>学习CAPE-OPEN开发的过程中使用C++语言写的练手项目</p>
@@ -300,7 +299,7 @@
                         <img alt="" src="./static/img/i6.png">
                     </div>
                 </a>
-                <a class="projectItem b" href="https://github.com/laugh0608/CapeOpen-CSharp" target="_blank">
+                <a class="ordis-project b" href="https://github.com/laugh0608/CapeOpen-CSharp" target="_blank">
                     <div class="projectItemLeft">
                         <h1>CapeOpen-CSharp</h1>
                         <p>学习CAPE-OPEN开发的过程中使用C#语言写的练手项目</p>
@@ -309,7 +308,7 @@
                         <img alt="" src="./static/img/i1.png">
                     </div>
                 </a>
-                <a class="projectItem b" href="https://github.com/laugh0608/BlazorAspenBkpChange" target="_blank">
+                <a class="ordis-project b" href="https://github.com/laugh0608/BlazorAspenBkpChange" target="_blank">
                     <div class="projectItemLeft">
                         <h1>BlazorAspenBkpChange</h1>
                         <p>.Net9和Blazor开发的一个Aspen版本转换器</p>
@@ -318,7 +317,7 @@
                         <img alt="" src="./static/img/i2.png">
                     </div>
                 </a>
-                <a class="projectItem b" href="https://github.com/laugh0608/PythonToAspen" target="_blank">
+                <a class="ordis-project b" href="https://github.com/laugh0608/PythonToAspen" target="_blank">
                     <div class="projectItemLeft">
                         <h1>PythonToAspen</h1>
                         <p>Python调用Aspen计算闪蒸灵敏度的一个小示例</p>
@@ -327,7 +326,7 @@
                         <img alt="" src="./static/img/i4.png">
                     </div>
                 </a>
-                <a class="projectItem b" href="https://github.com/laugh0608/CapeOpenCore" target="_blank">
+                <a class="ordis-project b" href="https://github.com/laugh0608/CapeOpenCore" target="_blank">
                     <div class="projectItemLeft">
                         <h1>CapeOpenCore</h1>
                         <p>CAPE-OPEN协议C#版与其开发工具，由大白萝卜重构</p>
@@ -336,7 +335,7 @@
                         <img alt="" src="./static/img/i3.png">
                     </div>
                 </a>
-                <a class="projectItem b" href="https://github.com/laugh0608/PdfAddBlankPage" target="_blank">
+                <a class="ordis-project b" href="https://github.com/laugh0608/PdfAddBlankPage" target="_blank">
                     <div class="projectItemLeft">
                         <h1>PdfAddBlankPage</h1>
                         <p>.NET8写的给PDF插入指定空白页的小程序</p>
@@ -381,6 +380,6 @@
 
 </body>
 
-<script src="./static/js/script.js"></script>
+<script src="./static/js/main.js" type="module"></script>
 
 </html>

@@ -1,0 +1,81 @@
+/**
+ * Ordis Personal Homepage - CSS Variables
+ */
+
+/*
+ * 性能说明：
+ * - blur 效果在移动端和低端设备上性能消耗大
+ * - 默认使用渐进增强策略，移动端不启用模糊
+ * - 桌面端根据设备性能自动调整模糊程度
+ */
+
+/* ========== 浅色主题（默认） ========== */
+:root {
+    /* 背景 */
+    --main-bg-color: url(../../img/background.jpg);
+
+    /* 文本颜色 */
+    --main-text-color: #eeeeee;
+    --item-left-title-color: #ffffff;
+    --item-left-text-color: #ffffff;
+    --footer-text-color: #ffffff;
+
+    /* 渐变和强调色 */
+    --gradient: linear-gradient(120deg, #bd34fe, #e0321b 30%, #41d1ff 60%);
+    --purple-text-color: #747bff;
+
+    /* 背景色 */
+    --text-bg-color: #00000040;
+    --item-bg-color: #00000038;
+    --item-hover-color: #33333338;
+    --left-tag-item: rgb(27 42 57 / 20%);
+
+    /* 模糊效果（性能优化） */
+    --card-filter: 0px;  /* 默认不模糊（移动端友好） */
+    --back-filter: 0px;
+    --back-filter-color: #00000030;
+
+    /* SVG 填充色 */
+    --fill: #ffffff;
+}
+
+/* 桌面端启用轻度模糊 */
+@media (min-width: 768px) {
+    :root {
+        --back-filter: 10px;
+    }
+}
+
+/* 高性能设备启用完整模糊 */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    :root {
+        --back-filter: 19px;
+    }
+}
+
+/* ========== 深色主题 ========== */
+[data-theme="dark"] {
+    /* 文本颜色 */
+    --main-text-color: #fff;
+    --item-left-title-color: rgb(255, 255, 255);
+    --item-left-text-color: rgb(142, 142, 142);
+    --footer-text-color: #646464;
+
+    /* 渐变 */
+    --gradient: linear-gradient(120deg, rgb(133, 62, 255), #f76cc6 30%, rgb(255, 255, 255) 60%);
+    --purple-text-color: #747bff;
+
+    /* 背景色 */
+    --text-bg-color: rgb(26, 4, 48);
+    --item-bg-color: rgb(19, 20, 24);
+    --item-hover-color: rgb(19, 23, 27);
+    --left-tag-item: linear-gradient(50deg, #1f2327, #000000);
+
+    /* 深色主题不使用模糊（性能优化） */
+    --card-filter: 0px;
+    --back-filter: 0px;
+    --back-filter-color: #000000;
+
+    /* SVG 填充色 */
+    --fill: #ffffff;
+}

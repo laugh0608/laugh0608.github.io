@@ -1,0 +1,77 @@
+/**
+ * Ordis Personal Homepage - Social Icons
+ */
+
+.iconContainer {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    margin-top: 20px;
+}
+
+.iconContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.iconItem {
+    width: 49px;
+    height: 43px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    display: flex;
+    margin-left: 10px;
+    backdrop-filter: blur(var(--card-filter));
+    -webkit-backdrop-filter: blur(var(--card-filter));
+    background: var(--item-bg-color);
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.iconItem i,
+.iconItem svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--fill);
+    font-size: 22px;
+    margin-right: 3px;
+}
+
+.switch {
+    width: 55px;
+    height: 43px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    display: flex;
+    margin-left: 10px;
+    backdrop-filter: blur(var(--card-filter));
+    -webkit-backdrop-filter: blur(var(--card-filter));
+    background: var(--item-bg-color);
+    align-items: center;
+    justify-content: center;
+    transition: width 1s ease, opacity 1s ease, transform 1s ease;
+    flex-shrink: 0;
+}
+
+.iconTip {
+    white-space: nowrap;
+    display: none;
+}
+
+.iconItem:hover {
+    width: 95px;
+    transform: translateY(-2px);
+    background: var(--item-hover-color);
+}
+
+.iconItem:hover .iconTip {
+    display: block;
+}
+
+.switch:hover {
+    width: 55px;
+    background: var(--item-hover-color);
+}

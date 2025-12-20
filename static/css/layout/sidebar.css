@@ -1,0 +1,123 @@
+/**
+ * Ordis Personal Homepage - Sidebar
+ */
+
+.ordis-sidebar {
+    overflow-y: scroll;
+    width: 230px;
+    height: 100vh;
+    display: flex;
+    padding: 0 15px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ordis-sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.logo {
+    flex-shrink: 0;
+    width: 90%;
+    position: relative;
+    aspect-ratio: 1/1;
+    margin-top: 50px;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.ordis-sidebar-section {
+    flex-shrink: 0;
+    width: 100%;
+    border-radius: 13px;
+    margin-top: 15px;
+    padding: 20px;
+    backdrop-filter: blur(var(--card-filter));
+    -webkit-backdrop-filter: blur(var(--card-filter));
+    background: var(--item-bg-color);
+}
+
+.ordis-profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-des-item {
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+    font-size: 15px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.left-des-item i,
+.left-des-item svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--fill);
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.ordis-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 14px;
+}
+
+.left-tag-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 28px;
+    margin: 0px 5px 5px 0;
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 10px;
+    background: var(--left-tag-item);
+}
+
+.ordis-timeline #line {
+    width: 100%;
+    height: 200px;
+    font-size: 13px;
+    padding-left: 8px;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+#line li {
+    list-style: none;
+    position: relative;
+    padding: 15px 0px 0px 15px;
+    border-left: 2px solid #d5d5d5;
+    border-radius: 0;
+    scroll-snap-align: end;
+    color: var(--main-text-color);
+}
+
+.focus {
+    width: 8px;
+    height: 8px;
+    border-radius: 22px;
+    background-color: rgb(255 255 255);
+    border: 2px solid #fff;
+    position: absolute;
+    left: -5px;
+    top: 50%;
+}
+
+#line li:first-child .focus:first-child {
+    background-color: #aaffcd;
+    animation: focus 1.8s ease infinite;
+}
+
+#line::-webkit-scrollbar {
+    display: none;
+}

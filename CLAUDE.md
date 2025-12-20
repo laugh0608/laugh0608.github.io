@@ -10,48 +10,78 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal homepage website (laugh0608.github.io) - a static single-page application showcasing personal information, projects, and skills. The site is based on the original work by zyyo (https://github.com/ZYYO666/homepage) and customized for the owner "Ordis" (大白萝卜).
+This is a personal homepage website (laugh0608.github.io) - a static single-page application showcasing personal information, projects, and skills.
 
 **Live Site**: https://www.imbhj.com
 
+**Attribution**: 设计风格和部分代码参考自 [zyyo 的开源主页模板](https://github.com/ZYYO666/homepage)，经过重构实现了品牌一致性（ordis/bailuobo 命名）、性能优化和模块化架构。
+
 ## Architecture
 
-### Static Site Structure
+### Static Site Structure (Refactored)
 
-This is a pure static website with no build process or package manager. Files are served directly:
+This is a modular static website with no build process required:
 
-- **index.html** - Single-page application entry point containing all HTML structure
-- **static/css/** - Styling with theme system
-  - `root.css` - CSS custom properties for theming (light/dark modes)
-  - `style.css` - Main styles and responsive layouts
-- **static/js/script.js** - Vanilla JavaScript for interactivity
-- **static/img/** - Images and icons
-- **static/svg/** - SVG graphics including theme-specific snake graphics
-- **static/fonts/** - Custom fonts (Pacifico, Ubuntu)
+- **index.html** - Main entry point (~385 lines, uses modular CSS/JS)
+- **static/css/** - Modular CSS architecture
+  - `main.css` - CSS entry point (imports all modules)
+  - `base/` - Reset, variables, fonts
+  - `layout/` - Grid, sidebar, main, footer
+  - `components/` - Loading, project cards, social icons, modal, theme toggle, etc.
+  - `utilities/` - Responsive styles
+- **static/js/** - Modular JavaScript (ES6 modules)
+  - `main.js` - JavaScript entry point
+  - `core/` - Utils, theme manager, loader
+  - `components/` - Project cards, modal, performance monitor
+- **static/img/** - Images
+- **static/svg/** - SVG graphics (including theme-specific snake graphics)
+- **static/fonts/** - Custom fonts (Ubuntu, Pacifico)
+
+### Naming Convention
+
+**CSS Classes**: BEM methodology with `ordis-` prefix
+- Block: `.ordis-container`, `.ordis-sidebar`, `.ordis-project`
+- Element: `.projectItemLeft`, `.projectItemRight` (legacy, to be refactored)
+- Modifier: `.ordis-project.pressed`
+
+**IDs**: `ordis-` prefix
+- `#ordis-loader`, `#ordis-loader-spinner`
+- `#ordis-snake`, `#ordis-theme-toggle`
+
+**Files**: kebab-case
+- CSS: `project-card.css`, `theme-toggle.css`
+- JS: `theme.js`, `modal.js`
 
 ### Key Features
 
 1. **Theme System**: Light/Dark mode toggle with cookie persistence
    - Theme state stored in cookies (365 days)
    - Theme-specific SVG graphics (snake-Light.svg, snake-Dark.svg)
-   - CSS custom properties in root.css define theme colors
-   - Toggle controlled via checkbox in index.html:212
+   - CSS custom properties in `base/variables.css` define theme colors
+   - Managed by `ThemeManager` class in `core/theme.js`
+   - Toggle controlled via checkbox `#ordis-theme-toggle`
 
 2. **Responsive Design**: Desktop and mobile layouts
-   - Two-column layout (`.zyyo-left` sidebar, `.zyyo-right` main content)
+   - Two-column layout (`.ordis-sidebar`, `.ordis-main`)
    - Separate skill icons for PC and mobile (skillPc/skillWap)
+   - Mobile-first performance optimizations
 
 3. **Interactive Elements**:
    - Project cards with press effects (mousedown/touchstart)
-   - Image popup modal (`.tc` class) for QR codes and images
-   - FPS counter (script.js:116-154)
-   - Loading screen animation
+   - Image popup modal (`.tc` class) for QR codes
+   - Performance-optimized blur effects (渐进增强)
 
 4. **Content Sections**:
-   - Personal info and timeline (left sidebar)
+   - Personal info and timeline (sidebar)
    - Main sites showcase (CEPD@BBS, OrdisBlog, OrdisAFFiNE, OrdisAI)
    - Personal projects (GitHub repositories)
    - Skills display (using skillicons.dev API)
+
+5. **Performance Optimizations**:
+   - Blur effects use progressive enhancement (mobile-friendly)
+   - Passive event listeners for touch events
+   - CSS `@media (prefers-reduced-motion)` support
+   - Modular loading with ES6 modules
 
 ## Development Workflow
 
@@ -87,42 +117,43 @@ git push origin master
 
 ### HTML Structure
 
-- Main container: `.zyyo-main` with `.zyyo-left` and `.zyyo-right` children
-- Project items use `.projectItem` with classes `a` (main sites) or `b` (personal projects)
+- Main container: `.ordis-container` with `.ordis-sidebar` and `.ordis-main` children
+- Project items use `.ordis-project` with classes `a` (main sites) or `b` (personal projects)
 - Icons use inline SVG with class `.icon`
 
 ### CSS Architecture
 
-- Theme variables defined in `root.css` using CSS custom properties
-- Multiple theme presets available (only the last one in root.css is active)
+- Theme variables defined in `base/variables.css` using CSS custom properties
+- Modular CSS files organized by function (base, layout, components, utilities)
 - Performance-sensitive properties:
-  - `--card_filter`: Blur for cards (expensive on low-end devices)
-  - `--back_filter`: Background blur (alternative to card blur)
-  - Recommendation: Use only one blur type at a time
+  - `--card-filter`: Blur for cards (uses progressive enhancement)
+  - `--back-filter`: Background blur (optimized for mobile)
+  - Recommendation: Blur effects automatically adjust based on device capabilities
 
 ### JavaScript Patterns
 
-- Vanilla JavaScript (no frameworks)
+- ES6 modules (no frameworks)
 - Event delegation for project items
 - Cookie-based state management for theme
-- FPS monitoring for performance debugging
+- Optional performance monitoring (FPS counter)
 
 ## Important Notes
 
-1. **Right-click disabled**: Context menu is prevented (script.js:11-13)
-2. **Original attribution**: Copyright notice in console and comments reference original author zyyo
-3. **Chinese content**: Site content is primarily in Chinese
-4. **No build tools**: Direct file editing, no transpilation or bundling
-5. **Git ignored**: IDE folders (.idea, .vs, .vscode) are excluded
+1. **Right-click disabled**: Context menu is prevented in `core/utils.js`
+2. **Chinese content**: Site content is primarily in Chinese
+3. **No build tools**: Direct file editing, no transpilation or bundling
+4. **Git ignored**: IDE folders (.idea, .vs, .vscode) are excluded
 
 ## Common Tasks
 
 ### Adding a New Project
 
-Edit `index.html` in the appropriate section (lines 235-274 for main sites, 284-348 for personal projects):
+Edit `index.html` in the appropriate section:
+- Main sites: lines ~234-273 (`.ordis-project-list` with class `a`)
+- Personal projects: lines ~283-347 (`.ordis-project-list` with class `b`)
 
 ```html
-<a class="projectItem b" href="GITHUB_URL" target="_blank">
+<a class="ordis-project b" href="GITHUB_URL" target="_blank">
     <div class="projectItemLeft">
         <h1>Project Name</h1>
         <p>Project description</p>
@@ -135,14 +166,35 @@ Edit `index.html` in the appropriate section (lines 235-274 for main sites, 284-
 
 ### Modifying Theme Colors
 
-Edit `static/css/root.css` and adjust CSS custom properties in the active theme block (the last `html {}` block in the file).
+Edit `static/css/base/variables.css`:
+- `:root` block for light theme
+- `[data-theme="dark"]` block for dark theme
 
 ### Updating Personal Information
 
-- Timeline: Edit `index.html` lines 59-150 (`.left-time` section)
-- Tags: Edit `index.html` lines 48-57 (`.left-tag` section)
-- Description: Edit `index.html` lines 159-171 (header section)
+- Timeline: Edit `index.html` lines ~58-149 (`.ordis-timeline` section)
+- Tags: Edit `index.html` lines ~47-56 (`.ordis-tags` section)
+- Description: Edit `index.html` lines ~158-170 (header section)
 
 ### Changing Background Image
 
-Replace `static/img/background.jpg` or update the `--main_bg_color` property in `root.css`.
+Replace `static/img/background.jpg` or update the `--main-bg-color` property in `base/variables.css`.
+
+### Adding New CSS Styles
+
+1. Create a new file in the appropriate directory (`base/`, `layout/`, `components/`, or `utilities/`)
+2. Add `@import url('./path/to/new-file.css');` to `static/css/main.css`
+
+### Adding New JavaScript Functionality
+
+1. Create a new module in `static/js/core/` or `static/js/components/`
+2. Export functions/classes from the new module
+3. Import and use in `static/js/main.js`
+
+## Important Notes
+
+1. **ES6 Modules**: The site uses `type="module"` for JavaScript, requiring modern browsers
+2. **No Build Process**: All files are served directly, no transpilation or bundling
+3. **CSS @import**: Uses CSS `@import` for modularity (acceptable for static sites)
+4. **Naming Convention**: All new classes should use `ordis-` prefix
+5. **Performance**: Blur effects are optimized for mobile devices using progressive enhancement

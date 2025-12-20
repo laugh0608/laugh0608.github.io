@@ -1,0 +1,16 @@
+/**
+ * Ordis Personal Homepage - Footer
+ */
+
+footer {
+    position: absolute;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    backdrop-filter: blur(var(--card-filter));
+    -webkit-backdrop-filter: blur(var(--card-filter));
+    background: var(--item-bg-color);
+    color: var(--footer-text-color);
+    font-size: 13px;
+    bottom: 0;
+}

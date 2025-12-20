@@ -1,0 +1,121 @@
+/**
+ * Ordis Personal Homepage - Responsive Styles
+ */
+
+@media (min-width: 800px) {
+    .index-logo {
+        display: none;
+    }
+}
+
+@media (max-width: 1150px) {
+    .a {
+        width: calc(50% - 20px);
+    }
+
+    .ordis-project {
+        margin: 10px;
+    }
+
+    .b {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 800px) {
+    .ordis-sidebar {
+        display: none;
+    }
+
+    .a .projectItemRight {
+        display: none;
+    }
+
+    .a .projectItemRight img {
+        display: none;
+    }
+
+    .a .projectItemLeft {
+        width: 100%;
+    }
+
+    .a {
+        width: calc(50% - 18px);
+        margin: 9px;
+    }
+
+    .b {
+        height: 110px;
+        margin: 8px 15px;
+        width: calc(100% - 30px);
+    }
+
+    .ordis-main {
+        width: 100%;
+    }
+
+    .tanChiShe {
+        width: 100%;
+    }
+
+    .description {
+        font-size: 4vw;
+    }
+
+    .welcome {
+        font-size: 10vw;
+        margin: 2vw 0;
+    }
+
+    .iconContainer {
+        margin-top: 4vw;
+    }
+
+    .ordis-project {
+        padding: 10px;
+    }
+
+    .projectItemLeft p {
+        font-size: 13px;
+    }
+
+    .projectItemLeft h1 {
+        font-size: 18px;
+    }
+
+    .ordis-project:hover h1 {
+        font-size: 20px;
+    }
+
+    .skill #skillWap {
+        display: block;
+    }
+
+    .skill #skillPc {
+        display: none;
+    }
+}
+
+/* 移动端触摸优化 */
+@media (hover: none) {
+    .ordis-project:hover {
+        transform: none;
+    }
+
+    .ordis-project:active {
+        transform: scale(0.98);
+    }
+
+    .iconItem:hover {
+        width: 49px;
+        transform: none;
+    }
+}
+
+/* 减少动画（用户偏好） */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

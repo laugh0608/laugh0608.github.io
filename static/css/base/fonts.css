@@ -1,0 +1,15 @@
+/**
+ * Ordis Personal Homepage - Fonts
+ */
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url(../../fonts/Ubuntu-Regular.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Pacifico";
+    src: url(../../fonts/Pacifico-Regular.ttf);
+    font-display: swap;
+}

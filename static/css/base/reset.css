@@ -1,0 +1,38 @@
+/**
+ * Ordis Personal Homepage - Reset Styles
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+a:hover,
+a:link,
+a:visited,
+a:active,
+a:focus {
+    text-decoration: none;
+    outline: none;
+    border: none;
+    color: inherit;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-text-color, #000000);
+    border-radius: 8px;
+    height: 20%;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--main-bg-color, linear-gradient(50deg, #a2d0ff, #ffffff));
+}
