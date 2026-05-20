@@ -188,13 +188,15 @@ Replace `static/img/background.jpg` or update the `--main-bg-color` property in 
 ### Adding New JavaScript Functionality
 
 1. Create a new module in `static/js/core/` or `static/js/components/`
-2. Export functions/classes from the new module
-3. Import and use in `static/js/main.js`
+2. Wrap the module in an IIFE and attach functions/classes to the `window.Ordis` namespace (see existing modules)
+3. Add a `<script src="...">` tag in `index.html` in dependency order (before files that use it, after files it depends on)
+4. Use the new function via `Ordis.xxx` in `static/js/main.js`
 
 ## Important Notes
 
-1. **ES6 Modules**: The site uses `type="module"` for JavaScript, requiring modern browsers
-2. **No Build Process**: All files are served directly, no transpilation or bundling
-3. **CSS @import**: Uses CSS `@import` for modularity (acceptable for static sites)
-4. **Naming Convention**: All new classes should use `ordis-` prefix
-5. **Performance**: Blur effects are optimized for mobile devices using progressive enhancement
+1. **No ES6 Modules**: JavaScript files use IIFE pattern with `window.Ordis` namespace instead of `import/export`. This allows direct `file://` protocol preview (double-click `index.html`) without needing a local HTTP server.
+2. **Script Load Order**: Scripts must be loaded in dependency order in `index.html` — utils first, then theme/loader/components, finally main.js
+3. **No Build Process**: All files are served directly, no transpilation or bundling
+4. **CSS @import**: Uses CSS `@import` for modularity (acceptable for static sites)
+5. **Naming Convention**: All new classes should use `ordis-` prefix
+6. **Performance**: Blur effects are optimized for mobile devices using progressive enhancement

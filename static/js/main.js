@@ -3,30 +3,27 @@
  * Customized by: Ordis (大白萝卜)
  */
 
-import { disableContextMenu } from './core/utils.js';
-import { ThemeManager } from './core/theme.js';
-import { initLoader } from './core/loader.js';
-import { initProjectCards } from './components/project-card.js';
-import { initModal } from './components/modal.js';
-// import { initPerformanceMonitor } from './components/performance.js';
+(function (global) {
+    const Ordis = global.Ordis = global.Ordis || {};
 
-// 初始化
-document.addEventListener('DOMContentLoaded', () => {
-    // 禁用右键（可选）
-    disableContextMenu();
+    // 初始化
+    document.addEventListener('DOMContentLoaded', () => {
+        // 禁用右键（可选）
+        Ordis.disableContextMenu();
 
-    // 初始化主题
-    const themeManager = new ThemeManager();
+        // 初始化主题
+        new Ordis.ThemeManager();
 
-    // 初始化组件
-    initProjectCards();
-    initModal();
+        // 初始化组件
+        Ordis.initProjectCards();
+        Ordis.initModal();
 
-    // 可选：启用性能监控
-    // initPerformanceMonitor();
-});
+        // 可选：启用性能监控
+        // Ordis.initPerformanceMonitor();
+    });
 
-// 页面加载完成
-window.addEventListener('load', () => {
-    initLoader();
-});
+    // 页面加载完成
+    window.addEventListener('load', () => {
+        Ordis.initLoader();
+    });
+})(window);
