@@ -12,7 +12,20 @@
 }
 
 .onoffswitch-checkbox {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.onoffswitch-checkbox:focus-visible + .onoffswitch-label {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 .onoffswitch-label {

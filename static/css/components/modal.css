@@ -45,3 +45,7 @@
 .tc-main.active {
     transform: translateY(0) scale(1);
 }
+
+body.modal-open {
+    overflow: hidden;
+}

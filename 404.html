@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta content="noindex" name="robots">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>页面走丢了 | 大白萝卜 / Ordis</title>
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #0b1020 url("/static/img/background.jpg") center / cover fixed no-repeat;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(4, 8, 18, 0.68);
+            backdrop-filter: blur(14px);
+            z-index: 0;
+        }
+
+        .card {
+            position: relative;
+            z-index: 1;
+            width: min(560px, 100%);
+            padding: 36px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 18px;
+            background: rgba(0, 0, 0, 0.45);
+            box-shadow: 0 24px 80px -40px #000;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: url("/static/img/logo-bailuobo.jpg") center / cover;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .eyebrow {
+            margin-top: 22px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 11px;
+            letter-spacing: 0.16em;
+        }
+
+        h1 {
+            margin: 10px 0 0;
+            font-size: clamp(30px, 7vw, 46px);
+            line-height: 1.15;
+        }
+
+        p {
+            margin: 14px 0 0;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 26px;
+        }
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 0 15px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        a.primary {
+            color: #101114;
+            background: #fff;
+            border-color: #fff;
+        }
+
+        a:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        a:focus-visible {
+            outline: 2px solid #9ec1ff;
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+<main class="card">
+    <div class="logo" aria-hidden="true"></div>
+    <div class="eyebrow">404 / NOT FOUND</div>
+    <h1>页面走丢了</h1>
+    <p>这个地址没有对应的页面。可能是链接过期，也可能是萝卜把文件藏起来了。</p>
+    <div class="links">
+        <a class="primary" href="/">回到首页</a>
+        <a href="/#work">看精选项目</a>
+        <a href="https://github.com/laugh0608" rel="noopener" target="_blank">GitHub</a>
+        <a href="https://bbs.imbhj.com" rel="noopener" target="_blank">CEPD@BBS</a>
+    </div>
+</main>
+</body>
+</html>

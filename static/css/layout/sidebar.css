@@ -5,7 +5,7 @@
 .ordis-sidebar {
     overflow-y: scroll;
     width: 230px;
-    height: 100vh;
+    height: calc(100vh - 96px);
     display: flex;
     padding: 0 15px;
     position: sticky;
@@ -13,6 +13,7 @@
     left: 0;
     align-items: center;
     flex-direction: column;
+    scrollbar-width: none;
 }
 
 .ordis-sidebar::-webkit-scrollbar {
@@ -20,6 +21,7 @@
 }
 
 .logo {
+    display: block;
     flex-shrink: 0;
     width: 90%;
     position: relative;
@@ -85,18 +87,29 @@
 
 .ordis-timeline #line {
     width: 100%;
-    height: 200px;
+    height: 250px;
     font-size: 13px;
     padding-left: 8px;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 88%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0, #000 88%, transparent 100%);
+}
+
+.sidebar-heading {
+    margin: 0 0 8px 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--muted-text-color);
 }
 
 #line li {
     list-style: none;
     position: relative;
     padding: 15px 0px 0px 15px;
-    border-left: 2px solid #d5d5d5;
+    border-left: 2px solid var(--subtle-border);
     border-radius: 0;
     scroll-snap-align: end;
     color: var(--main-text-color);

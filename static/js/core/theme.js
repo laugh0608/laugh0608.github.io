@@ -20,30 +20,31 @@
         loadTheme() {
             // 优先级：Cookie > 系统偏好 > 默认
             const stored = Ordis.Cookie.get(this.STORAGE_KEY);
-            if (stored) return stored;
+            if (stored === 'dark' || stored === 'light') return stored;
 
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             return prefersDark ? 'dark' : 'light';
         }
 
         applyTheme(theme) {
+            const nextTheme = theme === 'dark' ? 'dark' : 'light';
             const html = document.documentElement;
-            html.setAttribute('data-theme', theme);
+            html.setAttribute('data-theme', nextTheme);
+            html.style.colorScheme = nextTheme;
 
-            // 更新贪吃蛇图片
-            const snakeImg = document.getElementById('ordis-snake');
-            if (snakeImg) {
-                snakeImg.src = `./static/svg/snake-${theme === 'dark' ? 'Dark' : 'Light'}.svg`;
+            const themeColor = document.querySelector('meta[name="theme-color"]');
+            if (themeColor) {
+                themeColor.setAttribute('content', nextTheme === 'dark' ? '#08090c' : '#20354a');
             }
 
             // 更新切换器状态
             const checkbox = document.getElementById('ordis-theme-toggle');
             if (checkbox) {
-                checkbox.checked = theme === 'light';
+                checkbox.checked = nextTheme === 'light';
             }
 
-            Ordis.Cookie.set(this.STORAGE_KEY, theme, 365);
-            this.currentTheme = theme;
+            Ordis.Cookie.set(this.STORAGE_KEY, nextTheme, 365);
+            this.currentTheme = nextTheme;
         }
 
         toggle() {

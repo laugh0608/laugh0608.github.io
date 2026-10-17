@@ -14,7 +14,7 @@
                 date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
                 expires = "; expires=" + date.toUTCString();
             }
-            document.cookie = name + "=" + value + expires + "; path=/";
+            document.cookie = name + "=" + value + expires + "; path=/; SameSite=Lax";
         },
 
         get(name) {
@@ -28,13 +28,6 @@
             }
             return null;
         }
-    };
-
-    // 禁用右键（可选）
-    Ordis.disableContextMenu = function () {
-        document.addEventListener('contextmenu', (event) => {
-            event.preventDefault();
-        });
     };
 
     // 通用工具函数

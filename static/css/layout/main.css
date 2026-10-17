@@ -4,17 +4,12 @@
 
 .ordis-main {
     width: calc(100% - 230px);
+    min-width: 0;
     display: flex;
     padding: 20px;
     position: relative;
     padding-bottom: 50px;
     flex-direction: column;
-}
-
-.welcome {
-    font-size: 65px;
-    font-weight: 800;
-    margin: 20px 0;
 }
 
 .index-logo {

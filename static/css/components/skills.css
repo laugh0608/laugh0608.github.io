@@ -1,18 +1,43 @@
 /**
- * Ordis Personal Homepage - Skills Display
+ * Ordis Personal Homepage - Skill Groups
  */
 
-.skill {
-    padding: 25px;
-    width: 100%;
+.skill-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
 }
 
-.skill img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.skill-group {
+    padding: 16px 18px;
+    border-radius: 12px;
+    background: var(--item-bg-color);
+    border: 1px solid var(--subtle-border);
+    backdrop-filter: blur(var(--card-filter));
+    -webkit-backdrop-filter: blur(var(--card-filter));
 }
 
-.skill #skillWap {
-    display: none;
+.skill-group h3 {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--muted-text-color);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.skill-tags span {
+    padding: 4px 7px;
+    border: 1px solid var(--subtle-border);
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.3;
+    color: var(--main-text-color);
+    background: rgba(255, 255, 255, 0.04);
 }

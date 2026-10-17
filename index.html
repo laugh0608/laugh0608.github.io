@@ -3,63 +3,131 @@
 <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <title>大白萝卜主页</title>
-    <link href="./static/img/bailuobo.ico" rel="icon">
-    <meta content="梦想做化工流程模拟开发的工艺工程师。" name="description">
-    <meta content="imbhj,大白萝卜,大白萝卜主页,大白萝卜站点,Ordis," name="keywords">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>大白萝卜 / Ordis | 化工流程模拟与独立开发</title>
+    <link href="./static/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="./static/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <meta content="大白萝卜 / Ordis，化工工艺工程师、独立开发者。用 Rust、.NET、Go 做流程模拟、CAPE-OPEN 与工程工具，Radish 系列作者。"
+          name="description">
+    <meta content="大白萝卜,Ordis,Radish,化工,流程模拟,CAPE-OPEN,Aspen,Rust,.NET,独立开发" name="keywords">
+    <meta content="大白萝卜 / Ordis" name="author">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="#0b1020" name="theme-color">
+    <link href="https://imbhj.com/" rel="canonical">
+    <link href="https://blog.imbhj.com/rss.xml" rel="alternate" title="OrdisBlog（归档）" type="application/rss+xml">
+
+    <meta content="website" property="og:type">
+    <meta content="大白萝卜 / Ordis" property="og:site_name">
+    <meta content="大白萝卜 / Ordis | 化工流程模拟与独立开发" property="og:title">
+    <meta content="化工工艺工程师、独立开发者。用 Rust、.NET、Go 做流程模拟、CAPE-OPEN 与工程工具，Radish 系列作者。"
+          property="og:description">
+    <meta content="https://imbhj.com/" property="og:url">
+    <meta content="https://imbhj.com/static/img/og-cover.jpg" property="og:image">
+    <meta content="大白萝卜 / Ordis 个人主页" property="og:image:alt">
+    <meta content="1200" property="og:image:width">
+    <meta content="630" property="og:image:height">
+    <meta content="zh_CN" property="og:locale">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="大白萝卜 / Ordis | 化工流程模拟与独立开发" name="twitter:title">
+    <meta content="化工工艺工程师、独立开发者。用 Rust、.NET、Go 做流程模拟、CAPE-OPEN 与工程工具。"
+          name="twitter:description">
+    <meta content="https://imbhj.com/static/img/og-cover.jpg" name="twitter:image">
+    <meta content="大白萝卜 / Ordis 个人主页" name="twitter:image:alt">
+
+    <script>
+        // 在 CSS 之前确定主题，避免深色模式先闪一下浅色页面
+        (function () {
+            try {
+                var match = document.cookie.match(/(?:^|; )ordis-theme=(dark|light)/);
+                var theme = match
+                    ? match[1]
+                    : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+                document.documentElement.style.colorScheme = theme;
+            } catch (e) {
+                // 忽略隐私模式下的存储/匹配异常
+            }
+        })();
+    </script>
+
     <link href="./static/css/main.css" rel="stylesheet">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "大白萝卜",
+            "alternateName": "Ordis",
+            "url": "https://imbhj.com/",
+            "description": "化工工艺工程师、独立开发者，Radish 系列作者。",
+            "jobTitle": "化工工艺工程师 / 独立开发者",
+            "knowsAbout": ["化工流程模拟", "CAPE-OPEN", "Aspen", "Rust", ".NET", "Go"],
+            "sameAs": [
+                "https://github.com/laugh0608",
+                "https://radishx.com",
+                "https://blog.imbhj.com",
+                "https://bbs.imbhj.com"
+            ]
+        }
+    </script>
 </head>
 
 <body>
-<div id="ordis-loader">
-    <div id="ordis-loader-spinner"></div>
-</div>
-
 <div class="ordis-backdrop"></div>
 
 <div class="ordis-container">
-    <div class="ordis-sidebar">
-        <div class="logo" style="background-image: url(./static/img/logo-bailuobo.jpg);">
-            <img src="./static/img/logokuang.png"
+    <aside class="ordis-sidebar">
+        <a aria-label="回到顶部" class="logo" href="#top" style="background-image: url(./static/img/logo-bailuobo.jpg);">
+            <img alt="" aria-hidden="true" src="./static/img/logokuang.png"
                  style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;">
-        </div>
+        </a>
         <div class="ordis-sidebar-section ordis-profile-info">
             <div class="left-des-item">
-                <svg class="icon" p-id="1478" t="1705773709627" version="1.1" viewBox="0 0 1024 1024"
+                <svg aria-hidden="true" class="icon" focusable="false" viewBox="0 0 1024 1024"
                      xmlns="http://www.w3.org/2000/svg">
-                    <path d="M512 249.976471c-99.388235 0-180.705882 81.317647-180.705882 180.705882s81.317647 180.705882 180.705882 180.705882 180.705882-81.317647 180.705882-180.705882-81.317647-180.705882-180.705882-180.705882z m0 301.17647c-66.258824 0-120.470588-54.211765-120.470588-120.470588s54.211765-120.470588 120.470588-120.470588 120.470588 54.211765 120.470588 120.470588-54.211765 120.470588-120.470588 120.470588z"
-                          p-id="1479"></path>
-                    <path d="M512 39.152941c-216.847059 0-391.529412 174.682353-391.529412 391.529412 0 349.364706 391.529412 572.235294 391.529412 572.235294s391.529412-222.870588 391.529412-572.235294c0-216.847059-174.682353-391.529412-391.529412-391.529412z m0 891.482353C424.658824 873.411765 180.705882 686.682353 180.705882 430.682353c0-183.717647 147.576471-331.294118 331.294118-331.294118s331.294118 147.576471 331.294118 331.294118c0 256-243.952941 442.729412-331.294118 499.952941z"
-                          p-id="1480"></path>
+                    <path d="M512 249.976471c-99.388235 0-180.705882 81.317647-180.705882 180.705882s81.317647 180.705882 180.705882 180.705882 180.705882-81.317647 180.705882-180.705882-81.317647-180.705882-180.705882-180.705882z m0 301.17647c-66.258824 0-120.470588-54.211765-120.470588-120.470588s54.211765-120.470588 120.470588-120.470588 120.470588 54.211765 120.470588 120.470588-54.211765 120.470588-120.470588 120.470588z"></path>
+                    <path d="M512 39.152941c-216.847059 0-391.529412 174.682353-391.529412 391.529412 0 349.364706 391.529412 572.235294 391.529412 572.235294s391.529412-222.870588 391.529412-572.235294c0-216.847059-174.682353-391.529412-391.529412-391.529412z m0 891.482353C424.658824 873.411765 180.705882 686.682353 180.705882 430.682353c0-183.717647 147.576471-331.294118 331.294118-331.294118s331.294118 147.576471 331.294118 331.294118c0 256-243.952941 442.729412-331.294118 499.952941z"></path>
                 </svg>
-                China Shanghai
+                上海 · 中国
             </div>
             <div class="left-des-item">
-                <svg class="icon" p-id="2474" t="1705773906032" version="1.1" viewBox="0 0 1024 1024"
+                <svg aria-hidden="true" class="icon" focusable="false" viewBox="0 0 1024 1024"
                      xmlns="http://www.w3.org/2000/svg">
-                    <path d="M729.6 234.666667H294.4V157.866667a51.2 51.2 0 0 1 51.2-51.2h332.8a51.2 51.2 0 0 1 51.2 51.2v76.8z m179.2 51.2a51.2 51.2 0 0 1 51.2 51.2v512a51.2 51.2 0 0 1-51.2 51.2H115.2a51.2 51.2 0 0 1-51.2-51.2v-512a51.2 51.2 0 0 1 51.2-51.2h793.557333z m-768 172.032c0 16.384 13.312 29.696 29.696 29.696h683.008a29.696 29.696 0 1 0 0-59.392H170.410667a29.696 29.696 0 0 0-29.696 29.696z m252.416 118.784c0 16.384 13.312 29.696 29.696 29.696h178.176a29.696 29.696 0 1 0 0-59.392H422.912a29.738667 29.738667 0 0 0-29.696 29.696z"
-                          p-id="2475"></path>
+                    <path d="M729.6 234.666667H294.4V157.866667a51.2 51.2 0 0 1 51.2-51.2h332.8a51.2 51.2 0 0 1 51.2 51.2v76.8z m179.2 51.2a51.2 51.2 0 0 1 51.2 51.2v512a51.2 51.2 0 0 1-51.2 51.2H115.2a51.2 51.2 0 0 1-51.2-51.2v-512a51.2 51.2 0 0 1 51.2-51.2h793.557333z m-768 172.032c0 16.384 13.312 29.696 29.696 29.696h683.008a29.696 29.696 0 1 0 0-59.392H170.410667a29.696 29.696 0 0 0-29.696 29.696z m252.416 118.784c0 16.384 13.312 29.696 29.696 29.696h178.176a29.696 29.696 0 1 0 0-59.392H422.912a29.738667 29.738667 0 0 0-29.696 29.696z"></path>
                 </svg>
-                Radish Studio
+                Radish / 萝卜工作室
             </div>
         </div>
         <div class="ordis-sidebar-section ordis-tags">
             <div class="left-tag-item">化工</div>
-            <div class="left-tag-item">编程</div>
+            <div class="left-tag-item">流程模拟</div>
+            <div class="left-tag-item">Rust</div>
+            <div class="left-tag-item">.NET</div>
             <div class="left-tag-item">AI</div>
             <div class="left-tag-item">IDC</div>
             <div class="left-tag-item">Linux</div>
-            <div class="left-tag-item">捡垃圾</div>
-            <div class="left-tag-item">开发</div>
-            <div class="left-tag-item">减肥</div>
         </div>
         <div class="ordis-sidebar-section ordis-timeline">
+            <div class="sidebar-heading">最近</div>
             <ul id="line">
                 <li>
                     <div class="focus"></div>
-                    <div>敬请期待</div>
-                    <div>未来</div>
+                    <div>个人主页改版；Radish 家族 12 个产品</div>
+                    <div>2026.10</div>
+                </li>
+                <li>
+                    <div class="focus"></div>
+                    <div>RadishFlow 恢复迭代</div>
+                    <div>2026.09</div>
+                </li>
+                <li>
+                    <div class="focus"></div>
+                    <div>RadishFlow / RadishMind 启动</div>
+                    <div>2026.03</div>
+                </li>
+                <li>
+                    <div class="focus"></div>
+                    <div>Radish 社区项目启动</div>
+                    <div>2025.09</div>
                 </li>
                 <li>
                     <div class="focus"></div>
@@ -68,278 +136,423 @@
                 </li>
                 <li>
                     <div class="focus"></div>
-                    <div>正式发布CEPD社区</div>
-                    <div>2024.6</div>
+                    <div>正式发布 CEPD 社区</div>
+                    <div>2024.06</div>
                 </li>
                 <li>
                     <div class="focus"></div>
-                    <div>正式弃用Hexo转战Halo</div>
-                    <div>2024.3</div>
+                    <div>正式弃用 Hexo，转战 Halo</div>
+                    <div>2024.03</div>
                 </li>
                 <li>
                     <div class="focus"></div>
                     <div>部署了自己的第一个家庭集群</div>
-                    <div>2024.2</div>
+                    <div>2024.02</div>
                 </li>
                 <li>
                     <div class="focus"></div>
-                    <div>开始喜欢上了捡垃圾，命运从此改变</div>
-                    <div>2024.1</div>
-                </li>
-                <li>
-                    <div class="focus"></div>
-                    <div>在这期间一直都专注于博客</div>
-                    <div>......</div>
-                </li>
-                <li>
-                    <div class="focus"></div>
-                    <div>第五个域名imbhj.com</div>
-                    <div>2021.2</div>
-                </li>
-                <li>
-                    <div class="focus"></div>
-                    <div>第四个域名imbhj.cn</div>
-                    <div>2020.11</div>
-                </li>
-                <li>
-                    <div class="focus"></div>
-                    <div>部署了自己的文档</div>
-                    <div>2020.8</div>
-                </li>
-                <li>
-                    <div class="focus"></div>
-                    <div>第三个域名dabailuobo.com</div>
-                    <div>2020.3</div>
-                </li>
-                <li>
-                    <div class="focus"></div>
-                    <div>站点被D到欠费，关站</div>
-                    <div>2020.2</div>
-                </li>
-                <li>
-                    <div class="focus"></div>
-                    <div>第三个域名dabailuobo.com</div>
-                    <div>2020.2</div>
-                </li>
-                <li>
-                    <div class="focus"></div>
-                    <div>接触到Butterfly主题</div>
-                    <div>2020.1</div>
-                </li>
-                <li>
-                    <div class="focus"></div>
-                    <div>接触到Hexo</div>
-                    <div>2019.9</div>
-                </li>
-                <li>
-                    <div class="focus"></div>
-                    <div>第二个域名laugh0608.online</div>
-                    <div>2019.8</div>
-                </li>
-                <li>
-                    <div class="focus"></div>
-                    <div>第一个域名laugh0608.ltd</div>
-                    <div>2019.8</div>
+                    <div>第五个域名 imbhj.com</div>
+                    <div>2021.02</div>
                 </li>
                 <li>
                     <div class="focus"></div>
                     <div>手搓第一个网站</div>
-                    <div>2019.8</div>
+                    <div>2019.08</div>
                 </li>
             </ul>
         </div>
-    </div>
-    <div class="ordis-main">
-        <header>
-            <div class="index-logo" style="background-image: url(./static/img/logo-bailuobo.jpg);">
-                <img src="./static/img/logokuang.png"
+    </aside>
+
+    <main class="ordis-main" id="top">
+        <header class="ordis-hero">
+            <div aria-hidden="true" class="index-logo"
+                 style="background-image: url(./static/img/logo-bailuobo.jpg);">
+                <img alt="" src="./static/img/logokuang.png"
                      style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;">
             </div>
-            <div class="welcome">
-                Hello I' m <span class="gradientText"> Ordis </span>
+            <p class="heroEyebrow">化工工艺工程师 · 独立开发者</p>
+            <h1 class="welcome">大白萝卜 <span class="gradientText">Ordis</span></h1>
+            <p class="description heroLead">把流程模拟、CAPE-OPEN 和工程工具做成可用的软件。</p>
+            <p class="description heroSub">外操 → 工艺研发 → 软件开发；喜欢化工，也喜欢写代码。</p>
+            <div class="heroMeta">
+                <span>上海 · 中国</span>
+                <span>Radish / 萝卜工作室</span>
             </div>
-            <div class="description">
-                👦 <span class="purpleText">不会编程的化工工艺员</span> 不是一个好的工程师
+
+            <div class="ordis-cta">
+                <a class="ctaPrimary" href="#work">查看精选项目</a>
+                <a class="ctaSecondary" href="https://github.com/laugh0608" rel="noopener" target="_blank">GitHub</a>
+                <a class="ctaSecondary" href="mailto:email@imbhj.com">Email</a>
             </div>
-            <div class="description">
-                📝 错的不是
-                <span class="purpleText textBackground"> 我 </span>
-                ，而是
-                <span class="purpleText textBackground"> 这个世界 </span>
-                。
-            </div>
+
             <div class="iconContainer">
-                <a class="iconItem" href="https://github.com/laugh0608" onclick="">
-                    <svg class="icon" p-id="2487" t="1704870335945" version="1.1" viewBox="0 0 1024 1024"
+                <a aria-label="GitHub" class="iconItem" href="https://github.com/laugh0608" rel="noopener"
+                   target="_blank" title="GitHub">
+                    <svg aria-hidden="true" class="icon" focusable="false" viewBox="0 0 1024 1024"
                          xmlns="http://www.w3.org/2000/svg">
-                        <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9 23.5 23.2 38.1 55.4 38.1 91v112.5c0.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"
-                              p-id="2488"></path>
+                        <path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9 23.5 23.2 38.1 55.4 38.1 91v112.5c0.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path>
                     </svg>
-                    <div class="iconTip">Github</div>
+                    <div aria-hidden="true" class="iconTip">Github</div>
                 </a>
-                <a class="iconItem" href="mailto:email@imbhj.com" onclick="">
-                    <svg class="icon" p-id="3174" t="1704870588438" version="1.1" viewBox="0 0 1024 1024"
+                <a aria-label="发送邮件" class="iconItem" href="mailto:email@imbhj.com" title="Email">
+                    <svg aria-hidden="true" class="icon" focusable="false" viewBox="0 0 1024 1024"
                          xmlns="http://www.w3.org/2000/svg">
-                        <path d="M926.47619 355.644952V780.190476a73.142857 73.142857 0 0 1-73.142857 73.142857H170.666667a73.142857 73.142857 0 0 1-73.142857-73.142857V355.644952l304.103619 257.828572a170.666667 170.666667 0 0 0 220.745142 0L926.47619 355.644952zM853.333333 170.666667a74.044952 74.044952 0 0 1 26.087619 4.778666 72.704 72.704 0 0 1 30.622477 22.186667 73.508571 73.508571 0 0 1 10.678857 17.67619c3.169524 7.509333 5.12 15.652571 5.607619 24.210286L926.47619 243.809524v24.380952L559.469714 581.241905a73.142857 73.142857 0 0 1-91.306666 2.901333l-3.632762-2.925714L97.52381 268.190476v-24.380952a72.899048 72.899048 0 0 1 40.155428-65.292191A72.97219 72.97219 0 0 1 170.666667 170.666667h682.666666z"
-                              p-id="3175"></path>
+                        <path d="M926.47619 355.644952V780.190476a73.142857 73.142857 0 0 1-73.142857 73.142857H170.666667a73.142857 73.142857 0 0 1-73.142857-73.142857V355.644952l304.103619 257.828572a170.666667 170.666667 0 0 0 220.745142 0L926.47619 355.644952zM853.333333 170.666667a74.044952 74.044952 0 0 1 26.087619 4.778666 72.704 72.704 0 0 1 30.622477 22.186667 73.508571 73.508571 0 0 1 10.678857 17.67619c3.169524 7.509333 5.12 15.652571 5.607619 24.210286L926.47619 243.809524v24.380952L559.469714 581.241905a73.142857 73.142857 0 0 1-91.306666 2.901333l-3.632762-2.925714L97.52381 268.190476v-24.380952a72.899048 72.899048 0 0 1 40.155428-65.292191A72.97219 72.97219 0 0 1 170.666667 170.666667h682.666666z"></path>
                     </svg>
-                    <div class="iconTip">Mail</div>
+                    <div aria-hidden="true" class="iconTip">Mail</div>
                 </a>
-                <a class="iconItem" href="javascript:void(0)" onclick="pop('./static/img/zanshangma.jpg')">
-                    <svg class="icon" p-id="4987" t="1705247464964" version="1.1" viewBox="0 0 1024 1024"
+                <a aria-label="查看赞赏码" class="iconItem" href="javascript:void(0)" onclick="pop('./static/img/zanshangma.jpg')"
+                   role="button" title="赞助">
+                    <svg aria-hidden="true" class="icon" focusable="false" viewBox="0 0 1024 1024"
                          xmlns="http://www.w3.org/2000/svg">
-                        <path d="M995.575172 725.451034c-12.358621-26.835862-38.488276-64.794483-92.689655-94.27862-62.146207-33.721379-136.297931-40.96-208.860689-20.303448l-99.928276 28.424827-279.304828-126.057931H22.775172v489.401379h509.704828l432.375172-195.266207c15.006897-6.708966 26.835862-19.42069 32.662069-34.957241 5.649655-15.36 4.943448-31.955862-1.942069-46.962759z m-482.162758 188.910345H111.051034V601.688276h184.673104l166.664828 75.387586-3.354483 0.882759h-170.372414v88.275862H471.393103l246.819311-70.267586c49.434483-14.124138 101.517241-9.357241 142.653793 12.888275 18.184828 9.886897 30.72 20.833103 39.371034 30.896552l-386.824827 174.609655z"
-                              p-id="4988"></path>
-                        <path d="M695.437241 163.486897l58.615173-142.30069h-397.24138l66.736552 143.36c-121.82069 53.142069-207.095172 174.433103-207.095172 315.674483 0 28.601379 3.531034 57.202759 10.593103 84.744827l85.627586-21.715862c-5.12-20.48-7.768276-41.666207-7.768275-63.028965 0-141.241379 114.758621-256 256-256s256 114.758621 256 256c0 51.023448-14.830345 100.104828-43.078621 142.300689l73.268965 49.08138c37.958621-56.673103 58.085517-122.88 58.085518-191.382069-0.176552-141.947586-86.686897-264.121379-209.743449-316.733793zM467.508966 91.983448h180.965517l-21.009655 50.846897a348.16 348.16 0 0 0-66.913104-6.708966c-23.834483 0-46.962759 2.471724-69.384827 7.062069l-23.657931-51.2z"
-                              p-id="4989"></path>
-                        <path d="M683.431724 427.431724v-70.62069h-38.311724l30.190345-30.190344-49.964138-49.964138-62.49931 62.49931h-6.002759L494.344828 276.656552l-49.787587 49.964138 30.013793 30.190344h-38.311724v70.62069h88.275862v35.310345h-88.275862v70.62069h88.275862v52.965517h70.62069v-52.965517h88.275862v-70.62069h-88.275862v-35.310345z"
-                              p-id="4990"></path>
+                        <path d="M995.575172 725.451034c-12.358621-26.835862-38.488276-64.794483-92.689655-94.27862-62.146207-33.721379-136.297931-40.96-208.860689-20.303448l-99.928276 28.424827-279.304828-126.057931H22.775172v489.401379h509.704828l432.375172-195.266207c15.006897-6.708966 26.835862-19.42069 32.662069-34.957241 5.649655-15.36 4.943448-31.955862-1.942069-46.962759z m-482.162758 188.910345H111.051034V601.688276h184.673104l166.664828 75.387586-3.354483 0.882759h-170.372414v88.275862H471.393103l246.819311-70.267586c49.434483-14.124138 101.517241-9.357241 142.653793 12.888275 18.184828 9.886897 30.72 20.833103 39.371034 30.896552l-386.824827 174.609655z"></path>
+                        <path d="M695.437241 163.486897l58.615173-142.30069h-397.24138l66.736552 143.36c-121.82069 53.142069-207.095172 174.433103-207.095172 315.674483 0 28.601379 3.531034 57.202759 10.593103 84.744827l85.627586-21.715862c-5.12-20.48-7.768276-41.666207-7.768275-63.028965 0-141.241379 114.758621-256 256-256s256 114.758621 256 256c0 51.023448-14.830345 100.104828-43.078621 142.300689l73.268965 49.08138c37.958621-56.673103 58.085517-122.88 58.085518-191.382069-0.176552-141.947586-86.686897-264.121379-209.743449-316.733793zM467.508966 91.983448h180.965517l-21.009655 50.846897a348.16 348.16 0 0 0-66.913104-6.708966c-23.834483 0-46.962759 2.471724-69.384827 7.062069l-23.657931-51.2z"></path>
+                        <path d="M683.431724 427.431724v-70.62069h-38.311724l30.190345-30.190344-49.964138-49.964138-62.49931 62.49931h-6.002759L494.344828 276.656552l-49.787587 49.964138 30.013793 30.190344h-38.311724v70.62069h88.275862v35.310345h-88.275862v70.62069h88.275862v52.965517h70.62069v-52.965517h88.275862v-70.62069h-88.275862v-35.310345z"></path>
                     </svg>
-                    <div class="iconTip">赞助</div>
+                    <div aria-hidden="true" class="iconTip">赞助</div>
                 </a>
-                <a class="iconItem" href="javascript:void(0)" onclick="pop('./static/img/hongluoboqq.jpg')">
-                    <svg class="icon" p-id="1861" t="1712319361023" version="1.1" viewBox="0 0 1024 1024"
+                <a aria-label="查看 QQ 群二维码" class="iconItem" href="javascript:void(0)"
+                   onclick="pop('./static/img/hongluoboqq.jpg')" role="button" title="QQ">
+                    <svg aria-hidden="true" class="icon" focusable="false" viewBox="0 0 1024 1024"
                          xmlns="http://www.w3.org/2000/svg">
-                        <path d="M824.8 613.2c-16-51.4-34.4-94.6-62.7-165.3C766.5 262.2 689.3 112 511.5 112 331.7 112 256.2 265.2 261 447.9c-28.4 70.8-46.7 113.7-62.7 165.3-34 109.5-23 154.8-14.6 155.8 18 2.2 70.1-82.4 70.1-82.4 0 49 25.2 112.9 79.8 159-26.4 8.1-85.7 29.9-71.6 53.8 11.4 19.3 196.2 12.3 249.5 6.3 53.3 6 238.1 13 249.5-6.3 14.1-23.8-45.3-45.7-71.6-53.8 54.6-46.2 79.8-110.1 79.8-159 0 0 52.1 84.6 70.1 82.4 8.5-1.1 19.5-46.4-14.5-155.8z"
-                              p-id="1862"></path>
+                        <path d="M824.8 613.2c-16-51.4-34.4-94.6-62.7-165.3C766.5 262.2 689.3 112 511.5 112 331.7 112 256.2 265.2 261 447.9c-28.4 70.8-46.7 113.7-62.7 165.3-34 109.5-23 154.8-14.6 155.8 18 2.2 70.1-82.4 70.1-82.4 0 49 25.2 112.9 79.8 159-26.4 8.1-85.7 29.9-71.6 53.8 11.4 19.3 196.2 12.3 249.5 6.3 53.3 6 238.1 13 249.5-6.3 14.1-23.8-45.3-45.7-71.6-53.8 54.6-46.2 79.8-110.1 79.8-159 0 0 52.1 84.6 70.1 82.4 8.5-1.1 19.5-46.4-14.5-155.8z"></path>
                     </svg>
-                    <div class="iconTip">QQ</div>
+                    <div aria-hidden="true" class="iconTip">QQ</div>
                 </a>
-                <a class="switch" href="javascript:void(0)">
+                <div class="switch">
                     <div class="onoffswitch">
-                        <input checked class="onoffswitch-checkbox" id="ordis-theme-toggle" name="onoffswitch"
-                               type="checkbox">
+                        <input aria-label="切换深浅色主题" class="onoffswitch-checkbox" id="ordis-theme-toggle"
+                               name="onoffswitch" type="checkbox">
                         <label class="onoffswitch-label" for="ordis-theme-toggle">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>
                         </label>
                     </div>
-                </a>
-            </div>
-
-            <div class="tanChiShe">
-                <img alt="" id="ordis-snake" src="./static/svg/snake-Light.svg">
+                </div>
             </div>
         </header>
 
-        <content>
-            <div class="title">
-                <svg class="icon" p-id="1891" t="1705257422086" version="1.1" viewBox="0 0 1024 1024"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path d="M629.333333 202.666667v213.333333h277.333334v448h-512v-213.333333h-277.333334v-448h512z m213.333334 277.333333h-213.333334v170.666667h-170.666666v149.333333h384v-320z m-277.333334-213.333333h-384v320h213.333334v-170.666667h170.666666v-149.333333z m0 213.333333h-106.666666v106.666667h106.666666v-106.666667z"
-                          p-id="1892"></path>
-                </svg>
-                主要的站点
+        <section aria-labelledby="now-title" class="ordis-section" id="now">
+            <div class="section-head">
+                <h2 class="title" id="now-title"><span class="sectionIndex">01</span>现在<span
+                        class="titleNote">2026.10</span></h2>
+            </div>
+            <div class="now-grid">
+                <a class="now-item" href="https://github.com/laugh0608/RadishFlow" rel="noopener" target="_blank">
+                    <span class="nowLabel">正在做</span>
+                    <strong>RadishFlow</strong>
+                    <p>Rust + .NET 10 的流程模拟平台，2026-09 恢复迭代。</p>
+                </a>
+                <a class="now-item" href="https://radishx.com/radish" rel="noopener" target="_blank">
+                    <span class="nowLabel">已发布</span>
+                    <strong>Radish 社区</strong>
+                    <p>面向兴趣与创作者群体的社区，Web 已发布，Flutter 客户端推进中。</p>
+                </a>
+                <a class="now-item" href="https://github.com/laugh0608/RadishAxiom" rel="noopener" target="_blank">
+                    <span class="nowLabel">探索中</span>
+                    <strong>RadishAxiom</strong>
+                    <p>面向 AI Agent 的验证优先语言与可信语义层。</p>
+                </a>
+            </div>
+        </section>
+
+        <section aria-labelledby="sites-title" class="ordis-section" id="sites">
+            <div class="section-head">
+                <h2 class="title" id="sites-title"><span class="sectionIndex">02</span>入口</h2>
+            </div>
+            <div class="ordis-link-grid">
+                <a class="ordis-link-card" href="https://radishx.com" rel="noopener" target="_blank">
+                    <span class="linkEyebrow">产品家族</span>
+                    <strong>RadishX 官网</strong>
+                    <p>12 个 Radish 产品的统一入口与开发状态。</p>
+                    <span aria-hidden="true" class="linkArrow">↗</span>
+                </a>
+                <a class="ordis-link-card" href="https://radishx.com/radish" rel="noopener" target="_blank">
+                    <span class="linkEyebrow">社区</span>
+                    <strong>Radish 社区</strong>
+                    <p>面向兴趣与创作者群体的社区，Web 已发布。</p>
+                    <span aria-hidden="true" class="linkArrow">↗</span>
+                </a>
+                <a class="ordis-link-card" href="https://bbs.imbhj.com" rel="noopener" target="_blank">
+                    <span class="linkEyebrow">论坛</span>
+                    <strong>CEPD@BBS</strong>
+                    <p>化工、编程与热心网友的交流社区。</p>
+                    <span aria-hidden="true" class="linkArrow">↗</span>
+                </a>
+                <a class="ordis-link-card" href="https://blog.imbhj.com" rel="noopener" target="_blank">
+                    <span class="linkEyebrow">归档</span>
+                    <strong>OrdisBlog</strong>
+                    <p>技术笔记与折腾记录，已暂停更新，保留归档。</p>
+                    <span aria-hidden="true" class="linkArrow">↗</span>
+                </a>
+            </div>
+        </section>
+
+        <section aria-labelledby="work-title" class="ordis-section" id="work">
+            <div class="section-head">
+                <h2 class="title" id="work-title"><span class="sectionIndex">03</span>精选项目</h2>
+                <a class="titleLink" href="https://github.com/laugh0608?tab=repositories" rel="noopener"
+                   target="_blank">GitHub 全部 ↗</a>
             </div>
             <div class="ordis-project-list">
-                <a class="ordis-project a" href="https://radishx.com" target="_blank">
-                    <div class="projectItemLeft">
-                        <h1>Radish</h1>
-                        <p>萝卜自研社区！欢迎来玩~（内测中）</p>
+                <a class="ordis-project b project-featured" href="https://github.com/laugh0608/RadishFlow" rel="noopener"
+                   target="_blank">
+                    <div class="projectTop">
+                        <span class="projectIndex">01</span>
+                        <span class="projectStatus is-active">活跃</span>
+                        <span aria-hidden="true" class="projectArrow">↗</span>
                     </div>
-                    <div class="projectItemRight">
-                        <img alt="" src="./static/img/i1.png">
+                    <div class="projectItemLeft">
+                        <h3>RadishFlow</h3>
+                        <p>可扩展的流程模拟平台：Rust 核心与 UI，.NET 10 负责 CAPE-OPEN / COM 适配。</p>
+                    </div>
+                    <div aria-label="技术栈" class="projectStack">
+                        <span>Rust</span><span>.NET 10</span><span>CAPE-OPEN</span>
                     </div>
                 </a>
-                <a class="ordis-project a" href="https://bbs.imbhj.com" target="_blank">
-                    <div class="projectItemLeft">
-                        <h1>CEPD@BBS</h1>
-                        <p>化工、编程、热心网友交流的小社区</p>
+                <a class="ordis-project b project-featured" href="https://radishx.com/radish" rel="noopener"
+                   target="_blank">
+                    <div class="projectTop">
+                        <span class="projectIndex">02</span>
+                        <span class="projectStatus is-released">已发布</span>
+                        <span aria-hidden="true" class="projectArrow">↗</span>
                     </div>
-                    <div class="projectItemRight">
-                        <img alt="" src="./static/img/i2.png">
+                    <div class="projectItemLeft">
+                        <h3>Radish</h3>
+                        <p>面向兴趣与创作者群体的社区，Web 已发布，Flutter 客户端推进中。</p>
+                    </div>
+                    <div aria-label="技术栈" class="projectStack">
+                        <span>ASP.NET Core 10</span><span>React 19</span><span>PostgreSQL</span><span>Flutter</span>
+                    </div>
+                </a>
+                <a class="ordis-project b project-featured" href="https://github.com/laugh0608/RadishCatalyst"
+                   rel="noopener" target="_blank">
+                    <div class="projectTop">
+                        <span class="projectIndex">03</span>
+                        <span class="projectStatus is-dev">开发中</span>
+                        <span aria-hidden="true" class="projectArrow">↗</span>
+                    </div>
+                    <div class="projectItemLeft">
+                        <h3>RadishCatalyst</h3>
+                        <p>以异星化工生产经营为核心的工业科幻生存建造游戏。</p>
+                    </div>
+                    <div aria-label="技术栈" class="projectStack">
+                        <span>Godot</span><span>.NET</span><span>Game</span>
+                    </div>
+                </a>
+                <a class="ordis-project b project-featured" href="https://github.com/laugh0608/RadishAxiom" rel="noopener"
+                   target="_blank">
+                    <div class="projectTop">
+                        <span class="projectIndex">04</span>
+                        <span class="projectStatus is-dev">开发中</span>
+                        <span aria-hidden="true" class="projectArrow">↗</span>
+                    </div>
+                    <div class="projectItemLeft">
+                        <h3>RadishAxiom</h3>
+                        <p>面向 AI Agent 的验证优先语言与可信语义层，编译器输出可复核证据。</p>
+                    </div>
+                    <div aria-label="技术栈" class="projectStack">
+                        <span>Rust</span><span>Python</span><span>Compiler</span>
+                    </div>
+                </a>
+                <a class="ordis-project b project-featured" href="https://github.com/laugh0608/CapeOpenCore" rel="noopener"
+                   target="_blank">
+                    <div class="projectTop">
+                        <span class="projectIndex">05</span>
+                        <span class="projectStatus is-archived">已归档</span>
+                        <span aria-hidden="true" class="projectArrow">↗</span>
+                    </div>
+                    <div class="projectItemLeft">
+                        <h3>CapeOpenCore</h3>
+                        <p>C# CAPE-OPEN 组件、注册器与混合器示例；已封存，主开发迁移至 RadishFlow。</p>
+                    </div>
+                    <div aria-label="技术栈" class="projectStack">
+                        <span>C#</span><span>CAPE-OPEN</span><span>COM</span>
+                    </div>
+                </a>
+                <a class="ordis-project b project-featured" href="https://github.com/laugh0608/PythonToAspen" rel="noopener"
+                   target="_blank">
+                    <div class="projectTop">
+                        <span class="projectIndex">06</span>
+                        <span class="projectStatus is-tool">示例</span>
+                        <span aria-hidden="true" class="projectArrow">↗</span>
+                    </div>
+                    <div class="projectItemLeft">
+                        <h3>PythonToAspen</h3>
+                        <p>Python 调用 Aspen 传参、计算与灵敏度绘图的最小示例。</p>
+                    </div>
+                    <div aria-label="技术栈" class="projectStack">
+                        <span>Python</span><span>Aspen</span><span>Automation</span>
                     </div>
                 </a>
             </div>
+        </section>
 
-            <div class="title">
-                <svg class="icon" p-id="1891" t="1705257422086" version="1.1" viewBox="0 0 1024 1024"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path d="M629.333333 202.666667v213.333333h277.333334v448h-512v-213.333333h-277.333334v-448h512z m213.333334 277.333333h-213.333334v170.666667h-170.666666v149.333333h384v-320z m-277.333334-213.333333h-384v320h213.333334v-170.666667h170.666666v-149.333333z m0 213.333333h-106.666666v106.666667h106.666666v-106.666667z"
-                          p-id="1892"></path>
-                </svg>
-                自己的垃圾项目
+        <section aria-labelledby="toolbox-title" class="ordis-section" id="toolbox">
+            <div class="section-head">
+                <h2 class="title" id="toolbox-title"><span class="sectionIndex">04</span>化工 × 软件工具箱</h2>
+                <span class="titleNote">工程小工具</span>
             </div>
-            <div class="ordis-project-list">
-                <a class="ordis-project b" href="https://github.com/laugh0608/Radish" target="_blank">
-                    <div class="projectItemLeft">
-                        <h1>Radish</h1>
-                        <p>基于 .NET/React/Flutter 的互联网小社区</p>
+            <div class="toolbox-grid">
+                <a class="toolbox-item" href="https://github.com/laugh0608/CapeOpen-CSharp" rel="noopener" target="_blank">
+                    <div class="toolboxTop">
+                        <strong>CapeOpen-CSharp</strong>
+                        <span class="projectStatus is-tool">C#</span>
                     </div>
-                    <div class="projectItemRight">
-                        <img alt="" src="./static/img/i3.png">
-                    </div>
+                    <p>CAPE-OPEN 的 C# 类库与单元模块源码，不依赖官方 CAPE-OPEN.dll。</p>
+                    <span class="toolboxLink">GitHub ↗</span>
                 </a>
-                <a class="ordis-project b" href="https://github.com/laugh0608/RadishFlow" target="_blank">
-                    <div class="projectItemLeft">
-                        <h1>RadishFlow</h1>
-                        <p>基于 Rust/.NET 开发的流程模拟软件</p>
+                <a class="toolbox-item" href="https://github.com/laugh0608/CapeOpen-Cpp" rel="noopener" target="_blank">
+                    <div class="toolboxTop">
+                        <strong>CapeOpen-Cpp</strong>
+                        <span class="projectStatus is-tool">C++</span>
                     </div>
-                    <div class="projectItemRight">
-                        <img alt="" src="./static/img/i4.png">
-                    </div>
+                    <p>CAPE-OPEN 的 C++ 单元与物性包示例：混合器、换热器等。</p>
+                    <span class="toolboxLink">GitHub ↗</span>
                 </a>
-                <a class="ordis-project b" href="https://github.com/laugh0608/RadishCatalyst" target="_blank">
-                    <div class="projectItemLeft">
-                        <h1>RadishCatalyst</h1>
-                        <p>基于 Godot/.NET 开发的一个化工生存建造探险基建游戏</p>
+                <a class="toolbox-item" href="https://github.com/laugh0608/BlazorAspenBkpChange" rel="noopener"
+                   target="_blank">
+                    <div class="toolboxTop">
+                        <strong>BlazorAspenBkpChange</strong>
+                        <span class="projectStatus is-tool">.NET</span>
                     </div>
-                    <div class="projectItemRight">
-                        <img alt="" src="./static/img/i5.png">
-                    </div>
+                    <p>Aspen bkp 文件 V9–14 向下兼容转换器，Blazor WebAssembly 实现。</p>
+                    <span class="toolboxLink">GitHub ↗</span>
                 </a>
-                <a class="ordis-project b" href="https://github.com/laugh0608/RadishMind" target="_blank">
-                    <div class="projectItemLeft">
-                        <h1>RadishMind</h1>
-                        <p>基于 Go/Python 开发的大模型工具链与 Agent</p>
+                <a class="toolbox-item" href="https://github.com/laugh0608/PdfAddBlankPage" rel="noopener" target="_blank">
+                    <div class="toolboxTop">
+                        <strong>PdfAddBlankPage</strong>
+                        <span class="projectStatus is-tool">.NET</span>
                     </div>
-                    <div class="projectItemRight">
-                        <img alt="" src="./static/img/i6.png">
-                    </div>
+                    <p>在 PDF 指定位置插入指定尺寸空白页的小工具。</p>
+                    <span class="toolboxLink">GitHub ↗</span>
                 </a>
             </div>
+        </section>
 
-            <div class="title">
-                <svg class="icon" p-id="7833" t="1705257823317" version="1.1" viewBox="0 0 1024 1024"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path d="M395.765333 586.570667h-171.733333c-22.421333 0-37.888-22.442667-29.909333-43.381334L364.768 95.274667A32 32 0 0 1 394.666667 74.666667h287.957333c22.72 0 38.208 23.018667 29.632 44.064l-99.36 243.882666h187.050667c27.509333 0 42.186667 32.426667 24.042666 53.098667l-458.602666 522.56c-22.293333 25.408-63.626667 3.392-54.976-29.28l85.354666-322.421333zM416.714667 138.666667L270.453333 522.581333h166.869334a32 32 0 0 1 30.933333 40.181334l-61.130667 230.954666 322.176-367.114666H565.312c-22.72 0-38.208-23.018667-29.632-44.064l99.36-243.882667H416.714667z"
-                          p-id="7834"></path>
-                </svg>
-                掌握的技能
+        <section aria-labelledby="family-title" class="ordis-section" id="family">
+            <div class="section-head">
+                <h2 class="title" id="family-title"><span class="sectionIndex">05</span>Radish 家族</h2>
+                <a class="titleLink" href="https://radishx.com" rel="noopener" target="_blank">全部 12 个 ↗</a>
             </div>
-            <div class="skill">
-                <!--<img alt="" id="skillPc" src="./static/svg/skillPc.svg" srcset="">-->
-                <!--<img alt="" id="skillWap" src="./static/svg/skillWap.svg" srcset="">-->
-                <img alt="" id="skillPc" src="https://skillicons.dev/icons?i=ae,atom,autocad,bash,cs,cpp,cloudflare,css,debian,bots,
-					docker,dotnet,electron,fortran,git,github,githubactions,go,html,idea,js,kubernetes,latex,linux,md,mastodon,matlab,
-					nginx,nodejs,ps,postgres,pr,py,redis,rider,ruby,sqlite,sketchup,ubuntu,vercel,visualstudio,vscode,vue"/>
-                <img alt="" id="skillWap" src="https://skillicons.dev/icons?i=ae,atom,autocad,bash,cs,cpp,cloudflare,css,debian,bots,
-					docker,dotnet,electron,fortran,git,github,githubactions,go,html,idea,js,kubernetes,latex,linux,md,mastodon,matlab,
-					nginx,nodejs,ps,postgres,pr,py,redis,rider,ruby,sqlite,sketchup,ubuntu,vercel,visualstudio,vscode,vue&perline=10"/>
+            <div class="family-grid">
+                <a class="family-item" href="https://radishx.com/lex" rel="noopener" target="_blank">
+                    <strong>RadishLex</strong>
+                    <span>本地优先中文输入</span>
+                    <em class="is-dev">开发中</em>
+                </a>
+                <a class="family-item" href="https://radishx.com/memory" rel="noopener" target="_blank">
+                    <strong>RadishMemory</strong>
+                    <span>个人长期记忆与上下文</span>
+                    <em class="is-preview">原型</em>
+                </a>
+                <a class="family-item" href="https://radishx.com/nexus" rel="noopener" target="_blank">
+                    <strong>RadishNexus</strong>
+                    <span>团队协作与交付</span>
+                    <em class="is-preview">原型</em>
+                </a>
+                <a class="family-item" href="https://radishx.com/ledger" rel="noopener" target="_blank">
+                    <strong>RadishLedger</strong>
+                    <span>本地优先加密账簿</span>
+                    <em class="is-dev">开发中</em>
+                </a>
+                <a class="family-item" href="https://radishx.com/link" rel="noopener" target="_blank">
+                    <strong>RadishLink</strong>
+                    <span>离线自组网通信</span>
+                    <em class="is-research">研究</em>
+                </a>
+                <a class="family-item" href="https://radishx.com/root" rel="noopener" target="_blank">
+                    <strong>RadishRoot</strong>
+                    <span>可解释操作实验 OS</span>
+                    <em class="is-research">研究</em>
+                </a>
+                <a class="family-item" href="https://radishx.com/ink" rel="noopener" target="_blank">
+                    <strong>RadishInk</strong>
+                    <span>Markdown 公众号排版</span>
+                    <em class="is-live">Web 可用</em>
+                </a>
+                <a class="family-item" href="https://radishx.com/mind" rel="noopener" target="_blank">
+                    <strong>RadishMind</strong>
+                    <span>大模型工具链与 Agent</span>
+                    <em class="is-preview">开发者预览</em>
+                </a>
             </div>
-        </content>
-    </div>
+        </section>
+
+        <section aria-labelledby="skills-title" class="ordis-section" id="skills">
+            <div class="section-head">
+                <h2 class="title" id="skills-title"><span class="sectionIndex">06</span>技术栈</h2>
+                <span class="titleNote">只列正在用的</span>
+            </div>
+            <div class="skill-groups">
+                <div class="skill-group">
+                    <h3>语言</h3>
+                    <div class="skill-tags">
+                        <span>Rust</span><span>C#</span><span>Go</span><span>Python</span><span>TypeScript</span><span>SQL</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>后端与 AI</h3>
+                    <div class="skill-tags">
+                        <span>ASP.NET Core</span><span>.NET</span><span>PostgreSQL</span><span>Redis</span><span>Docker</span><span>Linux</span><span>LLM 应用</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>前端与客户端</h3>
+                    <div class="skill-tags">
+                        <span>React</span><span>Vite</span><span>Flutter</span><span>Godot</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>化工与工程</h3>
+                    <div class="skill-tags">
+                        <span>CAPE-OPEN</span><span>Aspen</span><span>MATLAB</span><span>AutoCAD</span><span>Fortran</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <details class="ordis-mobile-about">
+            <summary>
+                <span>关于我</span>
+                <small>上海 · Radish / 萝卜工作室</small>
+            </summary>
+            <p>化工工艺工程师、独立开发者。外操 → 工艺研发 → 软件开发；喜欢化工，也喜欢写代码。</p>
+            <div class="mobile-tags">
+                <span>化工</span><span>流程模拟</span><span>Rust</span><span>.NET</span><span>AI</span><span>IDC</span><span>Linux</span>
+            </div>
+            <ul class="mobile-timeline">
+                <li><time>2026.10</time><span>个人主页改版；Radish 家族 12 个产品</span></li>
+                <li><time>2026.09</time><span>RadishFlow 恢复迭代</span></li>
+                <li><time>2026.03</time><span>RadishFlow / RadishMind 启动</span></li>
+                <li><time>2025.09</time><span>Radish 社区项目启动</span></li>
+                <li><time>2024.12</time><span>正式发布个人主页</span></li>
+            </ul>
+            <a class="mobile-about-link" href="https://github.com/laugh0608" rel="noopener" target="_blank">更多在 GitHub ↗</a>
+        </details>
+    </main>
 </div>
 
 <footer>
-    Ordis © 2025 |<a href="https://beian.miit.gov.cn/"> 萌ICP备20241222号-1</a>
+    <span>大白萝卜 / Ordis © 2019–2026</span>
+    <span aria-hidden="true">·</span>
+    <span>最近更新 2026.10</span>
+    <span aria-hidden="true">·</span>
+    <a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">萌ICP备20241222号-1</a>
 </footer>
 
-<div class="tc">
-    <div class="tc-main" onclick="">
-        <img alt="" class="tc-img" src="" srcset="">
+<div aria-hidden="true" aria-label="图片预览" aria-modal="true" class="tc" role="dialog">
+    <div class="tc-main">
+        <img alt="二维码" class="tc-img">
     </div>
 </div>
-
-</body>
 
 <!-- 按依赖顺序加载（已去除 ES6 模块，支持 file:// 协议本地预览） -->
 <script src="./static/js/core/utils.js"></script>
 <script src="./static/js/core/theme.js"></script>
-<script src="./static/js/core/loader.js"></script>
 <script src="./static/js/components/project-card.js"></script>
 <script src="./static/js/components/modal.js"></script>
-<script src="./static/js/components/performance.js"></script>
 <script src="./static/js/main.js"></script>
 
+</body>
 </html>

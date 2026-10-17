@@ -33,10 +33,29 @@
     /* 模糊效果（性能优化） */
     --card-filter: 0px;  /* 默认不模糊（移动端友好） */
     --back-filter: 0px;
-    --back-filter-color: #00000030;
+    --back-filter-color: #00000055;
 
     /* SVG 填充色 */
     --fill: #ffffff;
+
+    /* 辅助色 */
+    --page-bg: #0b1020;
+    --muted-text-color: rgba(255, 255, 255, 0.78);
+    --subtle-border: rgba(255, 255, 255, 0.18);
+    --accent-color: #d7e6ff;
+    --accent-border: rgba(215, 230, 255, 0.45);
+
+    /* 项目状态 */
+    --status-active-bg: rgba(74, 222, 128, 0.16);
+    --status-active-text: #a7f3c3;
+    --status-released-bg: rgba(96, 165, 250, 0.18);
+    --status-released-text: #bad4ff;
+    --status-dev-bg: rgba(251, 191, 36, 0.16);
+    --status-dev-text: #f8d98b;
+    --status-archived-bg: rgba(148, 163, 184, 0.16);
+    --status-archived-text: #cbd5e1;
+    --status-tool-bg: rgba(196, 181, 253, 0.16);
+    --status-tool-text: #ddd0ff;
 }
 
 /* 桌面端启用轻度模糊 */
@@ -59,7 +78,7 @@
     --main-text-color: #fff;
     --item-left-title-color: rgb(255, 255, 255);
     --item-left-text-color: rgb(142, 142, 142);
-    --footer-text-color: #646464;
+    --footer-text-color: #8b93a1;
 
     /* 渐变 */
     --gradient: linear-gradient(120deg, rgb(133, 62, 255), #f76cc6 30%, rgb(255, 255, 255) 60%);
@@ -78,4 +97,18 @@
 
     /* SVG 填充色 */
     --fill: #ffffff;
+
+    /* 辅助色 */
+    --page-bg: #08090c;
+    --muted-text-color: #a8b1bd;
+    --subtle-border: rgba(255, 255, 255, 0.09);
+    --accent-color: #9ec1ff;
+    --accent-border: rgba(158, 193, 255, 0.4);
+
+    /* 项目状态（深色主题沿用同一组色，背景更克制） */
+    --status-active-bg: rgba(74, 222, 128, 0.12);
+    --status-released-bg: rgba(96, 165, 250, 0.14);
+    --status-dev-bg: rgba(251, 191, 36, 0.12);
+    --status-archived-bg: rgba(148, 163, 184, 0.12);
+    --status-tool-bg: rgba(196, 181, 253, 0.12);
 }

@@ -80,3 +80,122 @@
     height: 39px;
     width: 39px;
 }
+
+/* ========== 精选项目卡片 ========== */
+.project-featured {
+    position: relative;
+    flex-direction: column;
+    width: calc(33.333% - 14px);
+    height: auto;
+    min-height: 205px;
+    padding: 18px;
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-featured:hover {
+    border-color: var(--accent-border);
+    box-shadow: 0 14px 30px -22px rgba(0, 0, 0, 0.8);
+}
+
+.project-featured.pressed {
+    transform: scale(0.98);
+}
+
+.projectTop {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.projectIndex {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted-text-color);
+}
+
+.projectStatus {
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    padding: 0 7px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.projectStatus.is-active {
+    background: var(--status-active-bg);
+    color: var(--status-active-text);
+}
+
+.projectStatus.is-released {
+    background: var(--status-released-bg);
+    color: var(--status-released-text);
+}
+
+.projectStatus.is-dev {
+    background: var(--status-dev-bg);
+    color: var(--status-dev-text);
+}
+
+.projectStatus.is-archived {
+    background: var(--status-archived-bg);
+    color: var(--status-archived-text);
+}
+
+.projectStatus.is-tool {
+    background: var(--status-tool-bg);
+    color: var(--status-tool-text);
+}
+
+.projectArrow {
+    margin-left: auto;
+    font-size: 15px;
+    color: var(--muted-text-color);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.project-featured:hover .projectArrow {
+    color: var(--main-text-color);
+    transform: translate(2px, -2px);
+}
+
+.project-featured .projectItemLeft {
+    width: 100%;
+    height: auto;
+}
+
+.project-featured h3 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--item-left-title-color);
+}
+
+.project-featured .projectItemLeft p {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--muted-text-color);
+}
+
+.projectStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.projectStack span {
+    padding: 3px 6px;
+    border: 1px solid var(--subtle-border);
+    border-radius: 4px;
+    font-size: 11px;
+    color: var(--muted-text-color);
+    white-space: nowrap;
+}

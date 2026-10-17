@@ -1,0 +1,183 @@
+/**
+ * Ordis Personal Homepage - Hero & Section Head
+ */
+
+.ordis-hero {
+    padding-top: 30px;
+}
+
+.heroEyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--muted-text-color);
+    margin-bottom: 10px;
+}
+
+.welcome {
+    font-size: clamp(38px, 5.6vw, 64px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+}
+
+.welcome .gradientText {
+    font-size: 0.92em;
+}
+
+.heroLead {
+    max-width: 760px;
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--main-text-color);
+}
+
+.heroSub {
+    max-width: 760px;
+    margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted-text-color);
+}
+
+.heroMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted-text-color);
+}
+
+.heroMeta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.heroMeta span::before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    opacity: 0.7;
+}
+
+.ordis-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.ctaPrimary {
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    color: #101114;
+}
+
+.ordis-cta .ctaPrimary,
+.ordis-cta .ctaPrimary:hover {
+    color: #101114;
+}
+
+.ctaPrimary:hover {
+    background: #eaf0ff;
+    border-color: #eaf0ff;
+    transform: translateY(-1px);
+}
+
+.ctaSecondary {
+    background: var(--item-bg-color);
+    border: 1px solid var(--subtle-border);
+    color: var(--main-text-color);
+    backdrop-filter: blur(var(--card-filter));
+    -webkit-backdrop-filter: blur(var(--card-filter));
+}
+
+.ctaSecondary:hover {
+    background: var(--item-hover-color);
+    border-color: var(--accent-border);
+    transform: translateY(-1px);
+}
+
+.section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin: 36px 0 14px;
+}
+
+.section-head .title {
+    margin: 0;
+    font-size: clamp(22px, 3vw, 26px);
+}
+
+.sectionIndex {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--muted-text-color);
+    margin-right: 10px;
+    transform: translateY(-2px);
+}
+
+.titleNote {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--muted-text-color);
+    margin-left: 10px;
+}
+
+.titleLink {
+    font-size: 12px;
+    color: var(--muted-text-color);
+    white-space: nowrap;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+}
+
+.titleLink:hover {
+    color: var(--main-text-color);
+    border-color: var(--accent-border);
+}
+
+.ordis-section {
+    scroll-margin-top: 20px;
+}
+
+.ordis-mobile-about {
+    display: none;
+}
+
+/* 浅色主题的文字压在照片上，加一点阴影保证可读性 */
+[data-theme="light"] .welcome,
+[data-theme="light"] .heroLead,
+[data-theme="light"] .heroSub,
+[data-theme="light"] .heroEyebrow,
+[data-theme="light"] .heroMeta,
+[data-theme="light"] .title,
+[data-theme="light"] .titleNote,
+[data-theme="light"] .sectionIndex,
+[data-theme="light"] .titleLink {
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.35);
+}

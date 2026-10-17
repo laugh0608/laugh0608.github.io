@@ -4,31 +4,64 @@
 
 (function (global) {
     const Ordis = global.Ordis = global.Ordis || {};
+    let lastFocusedElement = null;
+
+    function setOpen(open) {
+        const tc = document.querySelector('.tc');
+        const tcMain = document.querySelector('.tc-main');
+        if (!tc) return;
+
+        tc.classList.toggle('active', open);
+        if (tcMain) {
+            tcMain.classList.toggle('active', open);
+        }
+        tc.setAttribute('aria-hidden', String(!open));
+        document.body.classList.toggle('modal-open', open);
+
+        if (open) {
+            lastFocusedElement = document.activeElement;
+            if (tcMain) {
+                tcMain.setAttribute('tabindex', '-1');
+                tcMain.focus();
+            }
+        } else if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+            lastFocusedElement = null;
+        }
+    }
 
     function pop(imageURL) {
-        const tcMainElement = document.querySelector(".tc-img");
-        if (imageURL) {
-            tcMainElement.src = imageURL;
+        const tc = document.querySelector('.tc');
+        const tcImg = document.querySelector('.tc-img');
+        if (!tc) return;
+
+        if (imageURL && tcImg) {
+            tcImg.src = imageURL;
         }
-        Ordis.toggleClass(".tc-main", "active");
-        Ordis.toggleClass(".tc", "active");
+        setOpen(!tc.classList.contains('active'));
     }
 
     Ordis.initModal = function () {
-        const tc = document.getElementsByClassName('tc');
-        const tc_main = document.getElementsByClassName('tc-main');
+        const tc = document.querySelector('.tc');
+        const tcMain = document.querySelector('.tc-main');
 
-        if (tc[0]) {
-            tc[0].addEventListener('click', () => {
+        if (tc) {
+            tc.addEventListener('click', () => {
                 pop();
             });
         }
 
-        if (tc_main[0]) {
-            tc_main[0].addEventListener('click', (event) => {
+        if (tcMain) {
+            tcMain.addEventListener('click', (event) => {
                 event.stopPropagation();
             });
         }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && tc && tc.classList.contains('active')) {
+                pop();
+            }
+        });
 
         // 将 pop 函数暴露到全局，以便 HTML 中的 onclick 可以调用
         global.pop = pop;

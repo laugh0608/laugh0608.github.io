@@ -2,17 +2,13 @@
  * Ordis Personal Homepage - Responsive Styles
  */
 
-@media (min-width: 800px) {
+@media (min-width: 801px) {
     .index-logo {
         display: none;
     }
 }
 
 @media (max-width: 1150px) {
-    .a {
-        width: calc(50% - 20px);
-    }
-
     .ordis-project {
         margin: 10px;
     }
@@ -20,79 +16,110 @@
     .b {
         width: calc(50% - 20px);
     }
+
+    .project-featured {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 900px) {
+    .family-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 800px) {
+    body {
+        background-attachment: scroll;
+    }
+
     .ordis-sidebar {
         display: none;
     }
 
-    .a .projectItemRight {
-        display: none;
-    }
-
-    .a .projectItemRight img {
-        display: none;
-    }
-
-    .a .projectItemLeft {
-        width: 100%;
-    }
-
-    .a {
-        width: calc(50% - 18px);
-        margin: 9px;
-    }
-
-    .b {
-        height: 110px;
-        margin: 8px 15px;
-        width: calc(100% - 30px);
-    }
-
     .ordis-main {
         width: 100%;
+        padding: 16px;
     }
 
-    .tanChiShe {
-        width: 100%;
+    .ordis-hero {
+        padding-top: 12px;
+    }
+
+    .index-logo {
+        margin-top: 0;
+        width: 34%;
     }
 
     .description {
-        font-size: 4vw;
+        font-size: 16px;
     }
 
     .welcome {
-        font-size: 10vw;
-        margin: 2vw 0;
+        font-size: clamp(34px, 10vw, 48px);
+        margin: 0 0 12px;
     }
 
-    .iconContainer {
-        margin-top: 4vw;
+    .heroLead {
+        font-size: 16px;
     }
 
-    .ordis-project {
-        padding: 10px;
-    }
-
-    .projectItemLeft p {
+    .heroSub {
         font-size: 13px;
     }
 
-    .projectItemLeft h1 {
-        font-size: 18px;
+    .heroMeta {
+        gap: 6px 14px;
     }
 
-    .ordis-project:hover h1 {
-        font-size: 20px;
+    .ordis-cta {
+        margin-top: 18px;
     }
 
-    .skill #skillWap {
+    .ctaPrimary,
+    .ctaSecondary {
+        flex: 1 1 140px;
+    }
+
+    .iconContainer {
+        margin-top: 18px;
+    }
+
+    .section-head {
+        margin-top: 30px;
+    }
+
+    .ordis-link-grid,
+    .now-grid,
+    .toolbox-grid,
+    .skill-groups {
+        grid-template-columns: 1fr;
+    }
+
+    .family-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .now-item,
+    .ordis-link-card,
+    .toolbox-item {
+        min-height: 0;
+    }
+
+    .project-featured {
+        width: calc(100% - 16px);
+        height: auto;
+        min-height: 0;
+        margin: 8px;
+        padding: 16px;
+    }
+
+    .project-featured:hover {
+        transform: none;
+    }
+
+    .ordis-mobile-about {
         display: block;
-    }
-
-    .skill #skillPc {
-        display: none;
     }
 }
 
@@ -114,6 +141,10 @@
 
 /* 减少动画（用户偏好） */
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     * {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;

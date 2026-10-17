@@ -3,14 +3,29 @@
  */
 
 footer {
-    position: absolute;
-    padding: 10px;
-    text-align: center;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px 10px;
     width: 100%;
+    margin-top: 36px;
+    padding: 14px 10px;
     backdrop-filter: blur(var(--card-filter));
     -webkit-backdrop-filter: blur(var(--card-filter));
     background: var(--item-bg-color);
     color: var(--footer-text-color);
-    font-size: 13px;
-    bottom: 0;
+    font-size: 12px;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--subtle-border);
+}
+
+footer a:hover {
+    color: var(--main-text-color);
 }

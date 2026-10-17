@@ -5,10 +5,10 @@
 .title {
     display: flex;
     align-items: center;
+    margin: 0;
     font-size: 26px;
     font-weight: 800;
-    margin: 20px 0;
-    transition: transform 0.4s ease;
+    letter-spacing: -0.01em;
 }
 
 .title i,
@@ -17,8 +17,4 @@
     height: 26px;
     width: 26px;
     fill: var(--fill);
-}
-
-.title:hover {
-    transform: translateY(-5px);
 }

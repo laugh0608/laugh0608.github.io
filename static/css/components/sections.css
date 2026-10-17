@@ -1,0 +1,326 @@
+/**
+ * Ordis Personal Homepage - Content Sections
+ * Now / Entrances / Toolbox / Radish family / Mobile about
+ */
+
+/* ========== 现在 ========== */
+.now-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.now-item {
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    padding: 18px;
+    border-radius: 12px;
+    background: var(--item-bg-color);
+    border: 1px solid var(--subtle-border);
+    backdrop-filter: blur(var(--card-filter));
+    -webkit-backdrop-filter: blur(var(--card-filter));
+    transition: transform 0.25s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.now-item:hover {
+    background: var(--item-hover-color);
+    border-color: var(--accent-border);
+    transform: translateY(-2px);
+}
+
+.nowLabel {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent-color);
+}
+
+.now-item strong {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.now-item p {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--muted-text-color);
+}
+
+/* ========== 入口 ========== */
+.ordis-link-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.ordis-link-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: var(--item-bg-color);
+    border: 1px solid var(--subtle-border);
+    backdrop-filter: blur(var(--card-filter));
+    -webkit-backdrop-filter: blur(var(--card-filter));
+    transition: transform 0.25s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.ordis-link-card:hover {
+    background: var(--item-hover-color);
+    border-color: var(--accent-border);
+    transform: translateY(-2px);
+}
+
+.linkEyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent-color);
+}
+
+.ordis-link-card strong {
+    margin-top: 7px;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.ordis-link-card p {
+    margin-top: 8px;
+    padding-right: 22px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--muted-text-color);
+}
+
+.linkArrow {
+    position: absolute;
+    right: 18px;
+    bottom: 16px;
+    font-size: 15px;
+    color: var(--muted-text-color);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.ordis-link-card:hover .linkArrow {
+    color: var(--main-text-color);
+    transform: translate(2px, -2px);
+}
+
+/* ========== 化工 × 软件工具箱 ========== */
+.toolbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.toolbox-item {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 18px;
+    border-radius: 12px;
+    background: var(--item-bg-color);
+    border: 1px solid var(--subtle-border);
+    backdrop-filter: blur(var(--card-filter));
+    -webkit-backdrop-filter: blur(var(--card-filter));
+    transition: transform 0.25s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.toolbox-item:hover {
+    background: var(--item-hover-color);
+    border-color: var(--accent-border);
+    transform: translateY(-2px);
+}
+
+.toolboxTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.toolboxTop strong {
+    font-size: 16px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.toolbox-item p {
+    margin-top: 8px;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--muted-text-color);
+}
+
+.toolboxLink {
+    margin-top: 12px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted-text-color);
+}
+
+/* ========== Radish 家族 ========== */
+.family-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.family-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-height: 94px;
+    padding: 13px 14px;
+    border-radius: 10px;
+    background: var(--item-bg-color);
+    border: 1px solid var(--subtle-border);
+    backdrop-filter: blur(var(--card-filter));
+    -webkit-backdrop-filter: blur(var(--card-filter));
+    transition: transform 0.25s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.family-item:hover {
+    background: var(--item-hover-color);
+    border-color: var(--accent-border);
+    transform: translateY(-2px);
+}
+
+.family-item strong {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.family-item span {
+    font-size: 11px;
+    line-height: 1.45;
+    color: var(--muted-text-color);
+}
+
+.family-item em {
+    margin-top: auto;
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: var(--muted-text-color);
+}
+
+.family-item em.is-dev {
+    color: var(--status-dev-text);
+}
+
+.family-item em.is-preview {
+    color: var(--status-tool-text);
+}
+
+.family-item em.is-research {
+    color: var(--status-archived-text);
+}
+
+.family-item em.is-live {
+    color: var(--status-released-text);
+}
+
+/* ========== 移动端「关于我」 ========== */
+.ordis-mobile-about {
+    margin-top: 36px;
+    padding: 0 18px 18px;
+    border-radius: 12px;
+    background: var(--item-bg-color);
+    border: 1px solid var(--subtle-border);
+}
+
+.ordis-mobile-about summary {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 0;
+    cursor: pointer;
+    list-style: none;
+}
+
+.ordis-mobile-about summary::-webkit-details-marker {
+    display: none;
+}
+
+.ordis-mobile-about summary span {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.ordis-mobile-about summary::before {
+    content: "▸";
+    flex: 0 0 auto;
+    color: var(--muted-text-color);
+    font-size: 11px;
+    transition: transform 0.2s ease;
+}
+
+.ordis-mobile-about[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.ordis-mobile-about summary small {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--muted-text-color);
+}
+
+.ordis-mobile-about[open] summary {
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--subtle-border);
+}
+
+.ordis-mobile-about p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--muted-text-color);
+}
+
+.mobile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.mobile-tags span {
+    padding: 3px 7px;
+    border: 1px solid var(--subtle-border);
+    border-radius: 4px;
+    font-size: 11px;
+    color: var(--muted-text-color);
+}
+
+.mobile-timeline {
+    display: grid;
+    gap: 8px;
+    margin-top: 14px;
+    list-style: none;
+}
+
+.mobile-timeline li {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--muted-text-color);
+}
+
+.mobile-timeline time {
+    flex: 0 0 52px;
+    color: var(--accent-color);
+    font-variant-numeric: tabular-nums;
+}
+
+.mobile-about-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--accent-color);
+}
