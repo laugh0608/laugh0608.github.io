@@ -12,7 +12,7 @@
 /* ========== 浅色主题（默认） ========== */
 :root {
     /* 背景 */
-    --main-bg-color: url(../../img/background.jpg);
+    --main-bg-color: url(../../img/background.webp);
 
     /* 文本颜色 */
     --main-text-color: #eeeeee;
