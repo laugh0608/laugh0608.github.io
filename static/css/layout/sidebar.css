@@ -27,8 +27,12 @@
     position: relative;
     aspect-ratio: 1/1;
     margin-top: 50px;
+    background-color: #12243a;
     background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(255, 255, 255, 0.24);
     border-radius: 50%;
+    box-shadow: 0 20px 50px -30px rgba(0, 0, 0, 0.9);
 }
 
 .ordis-sidebar-section {
@@ -98,11 +102,22 @@
 }
 
 .sidebar-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
     margin: 0 0 8px 8px;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.12em;
     color: var(--muted-text-color);
+}
+
+.timeline-hint {
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0;
+    opacity: 0.65;
 }
 
 #line li {

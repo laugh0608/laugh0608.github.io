@@ -3,7 +3,75 @@
  */
 
 .ordis-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 40px;
+    align-items: start;
     padding-top: 30px;
+}
+
+.heroMain {
+    min-width: 0;
+}
+
+.heroSide {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid var(--subtle-border);
+    background: var(--item-bg-color);
+    box-shadow: 0 20px 50px -36px rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(var(--card-filter));
+    -webkit-backdrop-filter: blur(var(--card-filter));
+}
+
+.heroSideLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent-color);
+    text-transform: uppercase;
+}
+
+.heroSideLabel::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #8ee6a8;
+    box-shadow: 0 0 0 3px rgba(142, 230, 168, 0.13);
+}
+
+.heroSide strong {
+    margin-top: 4px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.heroSide p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted-text-color);
+}
+
+.heroSide a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--main-text-color);
+    transition: color 0.2s ease;
+}
+
+.heroSide a:hover {
+    color: var(--accent-color);
 }
 
 .heroEyebrow {

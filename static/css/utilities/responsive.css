@@ -9,6 +9,15 @@
 }
 
 @media (max-width: 1150px) {
+    .ordis-hero {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .heroSide {
+        display: none;
+    }
+
     .ordis-project {
         margin: 10px;
     }
