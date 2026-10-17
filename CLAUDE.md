@@ -65,16 +65,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
    - 移动端（≤800px）：隐藏侧栏，显示 `.index-logo` 和 `.ordis-mobile-about`
    - 项目卡：桌面 3 列 → ≤1150px 2 列 → ≤800px 1 列
    - Radish 家族：桌面 4 列 → ≤900px 2 列
+   - Hero 右侧 Now building 卡：≥1151px 显示，≤1150px 隐藏
    - 注意 `800px` 边界：侧栏在 `≤800px` 隐藏，`.index-logo` 在 `≥801px` 隐藏，避免两边同时消失
 
 3. **Interactions**
    - 项目卡按压反馈（`project-card.js`）
-   - 二维码弹窗（`.tc` / `.tc-main`），支持点击背景关闭、Esc 关闭、焦点返回
+   - 二维码弹窗（`.tc` / `.tc-main`），支持点击背景关闭、Esc 关闭、焦点返回；赞赏 / QQ 入口在页脚
    - 主题开关使用视觉隐藏的 checkbox + label，保留键盘可聚焦
 
 4. **Content Sections**
    - 侧栏：头像、地点、Radish / 萝卜工作室、标签、最近时间线
-   - Hero：大白萝卜 / Ordis、身份、定位、CTA、社交图标
+   - Hero：大白萝卜 / Ordis、身份、定位、CTA、右侧 Now building 卡、社交图标（GitHub / Email / Blog / BBS / 主题）
    - 现在：RadishFlow、Radish 社区、RadishAxiom
    - 入口：RadishX、Radish 社区、CEPD@BBS、OrdisBlog（归档）
    - 精选项目：RadishFlow、Radish、RadishCatalyst、RadishAxiom、CapeOpenCore、PythonToAspen
@@ -84,7 +85,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 5. **Performance & SEO**
    - 页面图片优先使用 WebP；不加载第三方图标 CDN、snake SVG、loader
-   - 首屏同源资源约 139KB（本地未压缩）
+   - 首屏同源资源约 152KB（本地未压缩）
    - `canonical` 指向 `https://imbhj.com/`，同时提供 OG / Twitter / JSON-LD / sitemap / robots / 404
    - 使用 `prefers-reduced-motion` 降级动画
 
@@ -193,8 +194,8 @@ git push origin master
 
 ### Changing Background / Avatar
 
-- 背景：替换 `static/img/background.webp`，保持 `--main-bg-color` 路径一致；当前源尺寸为 800×480，若要更清晰需要换更高分辨率原图
-- 头像叠层：替换 `static/img/logokuang.webp`，保持透明背景和 1:1 比例
+- 背景：替换 `static/img/background.webp`，保持 `--main-bg-color` 路径一致；当前文件为 1920×1152（由 800×480 源图放大并调色），若要真正更清晰需要更高分辨率原图
+- 头像：替换 `static/img/avatar.webp`（角色 + 白萝卜徽标，1:1）；`logokuang.webp` / `logo-bailuobo.jpg` 为源素材
 - favicon：`static/img/favicon-32.png` / `apple-touch-icon.png`；`bailuobo.ico` 为兼容保留的小尺寸 ico
 
 ### Adding New CSS / JS

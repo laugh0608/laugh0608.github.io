@@ -18,7 +18,7 @@ GitHub Pages 镜像：https://laugh0608.github.io
 
 ### 页面结构
 
-1. Hero：大白萝卜 / Ordis、身份、定位、CTA
+1. Hero：大白萝卜 / Ordis、身份、定位、CTA、右侧 Now building 卡
 2. 现在：RadishFlow、Radish 社区、RadishAxiom
 3. 入口：RadishX、Radish 社区、CEPD@BBS、OrdisBlog（归档）
 4. 精选项目：6 个项目，带状态和技术栈
@@ -70,15 +70,15 @@ python3 -m http.server 8000
 
 - Hero、时间线、项目卡：`index.html` 对应 `#top`、`.ordis-timeline`、`#work` 等区块
 - 主题色、状态色：`static/css/base/variables.css`
-- 背景图：`static/img/background.webp`，替换后在 `variables.css` 中确认 `--main-bg-color`
-- 头像叠层：`static/img/logokuang.webp`
+- 背景图：`static/img/background.webp`（1920×1152），替换后在 `variables.css` 中确认 `--main-bg-color`
+- 头像：`static/img/avatar.webp`（角色 + 白萝卜徽标；源图 `logokuang.webp` / `logo-bailuobo.jpg` 保留）
 - 新增 CSS：放到对应目录，并在 `static/css/main.css` 增加 `@import`
 - 新增 JS：IIFE + `window.Ordis`，在 `index.html` 底部按依赖顺序加载
 
 ### 性能
 
 - 页面图片优先使用 WebP，字体只保留 Pacifico，Latin 使用系统字体
-- 首屏同源资源约 139KB（本地未压缩）；不再加载 skillicons、snake SVG 和 loader
+- 首屏同源资源约 152KB（本地未压缩）；不再加载 skillicons、snake SVG 和 loader
 - 修改图片时保持 WebP 和合适尺寸，避免重新引入大体积 TTF 或第三方图标服务
 
 ### 致谢
