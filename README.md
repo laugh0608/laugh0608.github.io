@@ -21,11 +21,10 @@ GitHub Pages 镜像：https://laugh0608.github.io
 1. Hero：大白萝卜 / Ordis、身份、定位、CTA、右侧 Now building 卡
 2. 现在：RadishFlow、Radish 社区、RadishAxiom
 3. 入口：RadishX、Radish 社区、CEPD@BBS、OrdisBlog（归档）
-4. 精选项目：6 个项目，带状态和技术栈
-5. 化工 × 软件工具箱：CAPE-OPEN、Aspen bkp、PDF 工具
-6. Radish 家族：8 个产品入口 + 全部 12 个
-7. 技术栈：语言 / 后端与 AI / 前端与客户端 / 化工与工程
-8. 移动端“关于我” + 页脚
+4. 精选项目：RadishFlow、Radish、RadishAxiom 三项代表作品，带状态和技术栈
+5. 萝卜智能 · Radish Intelligence：官网与 GitHub 组织两个入口，完整目录由组织页面维护
+6. 技术栈：语言 / 后端与 AI / 前端与客户端 / 化工与工程
+7. 移动端“关于我” + 页脚
 
 ### 本地开发
 
